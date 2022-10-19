@@ -16,3 +16,7 @@ elif num3 < num4:
     print('Наименьшее число N3: ', num3)
 else:
     print('Наименьшее число N4: ', num4)
+
+# Второй вариант
+
+print('Наименьшее число: ', min(num1, num2, num3, num4))
