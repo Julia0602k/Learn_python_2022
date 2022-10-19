@@ -10,13 +10,17 @@
 # 4.9 Вывести на экран кол-во сколько раз символ "р" встречается в этой строке.
 
 str = "Я крутой программист"
-print('4.1:', str[-1:])
+print('4.1:', str[-1])
 print('4.2:', str[:8])
 print('4.3:', str[::2])
 print('4.4:', str[::-3])
 print('4.5:', len(str))
-list = str.split()
-print('4.6:', list)
-print('4.7:', len(list))
-print('4.8:',', '.join(list))
+# list = str.split()
+# print('4.6:', list)
+# print('4.7:', len(list))
+# print('4.8:',', '.join(list))
 print('4.9:', str.count('р'))
+
+print('4.6:', str.split())
+print('4.7:', len(str.split()))
+print('4.8:',', '.join(str.split()))
