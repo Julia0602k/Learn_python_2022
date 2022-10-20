@@ -12,7 +12,12 @@ num2 = int(input('Введите номер строки (первоначаль
 num1_new = int(input('Введите номер столбца (позиция после хода): '))
 num2_new = int(input('Введите номер строки (позиция после хода): '))
 
-if 1 <= num1 <= 8 or 1 <= num2 <= 8 or 1 <= num1_new <= 8 or 1 <= num2_new <= 8:
-
+if 1 <= num1 <= 8 and 1 <= num2 <= 8 and 1 <= num1_new <= 8 and 1 <= num2_new <= 8:
+    if num1 == num1_new and (num2_new < num2 or num2_new > num2):
+        print('YES')
+    elif num2 == num2_new and (num1_new < num1 or num1_new > num1):
+        print('YES')
+    else:
+        print('NO')
 else:
     print('Введите корректное значение номеров строк и столбцов(от 1 до 8)!')
