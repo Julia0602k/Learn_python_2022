@@ -6,13 +6,26 @@
 # Программа должна вывести «ДА», если соотношение
 # выполняется, и «НЕТ» — если не выполняется.
 
+#Variant 1
+# num4 = int(input('Введите четырехзначное число: '))
+# # if len(num4) == 4:
+# if num4 >= 1000 and num4 < 10000:
+#     num4 = str(num4)
+#     if (int(num4[0]) + int(num4[3])) == (int(num4[1]) - int(num4[2])):
+#         print('ДА')
+#     else:
+#         print('НЕТ')
+# else:
+#     print('Ошибка! Введите четырехзначное число!')
+
+#Variant 2
 num4 = int(input('Введите четырехзначное число: '))
 # if len(num4) == 4:
-if num4 >= 1000 and num4 < 10000:
-    num4 = str(num4)
-    if (int(num4[0]) + int(num4[3])) == (int(num4[1]) - int(num4[2])):
-        print('ДА')
-    else:
-        print('НЕТ')
+if num4 >= 1000 and num4 < 10000 and (int(str(num4[0])) + int(str(num4[3]))) == (int(str(num4[1])) - int(str(num4[2]))):
+    print('ДА')
+elif num4 >= 1000 and num4 < 10000 and (int(str(num4[0])) + int(str(num4[3]))) != (int(str(num4[1])) - int(str(num4[2]))):
+    print('НЕТ')
 else:
     print('Ошибка! Введите четырехзначное число!')
+
+
