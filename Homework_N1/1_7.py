@@ -8,7 +8,7 @@
 
 #Variant 4
 num4 = input('Введите четырехзначное число: ')
-if int(num4) <= 1000 or int(num4) > 10000:
+if int(num4) < 1000 or int(num4) >= 10000:
     print('Ошибка! Введите четырехзначное число!')
 elif (int(num4[0]) + int(num4[3])) != (int(num4[1]) - int(num4[2])):
     print('НЕТ')
