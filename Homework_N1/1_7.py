@@ -42,10 +42,9 @@
 
 #Variant 4
 num4 = input('Введите четырехзначное число: ')
-if (int(num4[0]) + int(num4[3])) == (int(num4[1]) - int(num4[2])) and int(num4) >= 1000 and int(num4) < 10000:
-    print('ДА')
+if int(num4) <= 1000 and int(num4) > 10000:
+    print('Ошибка! Введите четырехзначное число!')
 elif (int(num4[0]) + int(num4[3])) != (int(num4[1]) - int(num4[2])) and int(num4) >= 1000 and int(num4) < 10000:
     print('НЕТ')
 else:
-    print('Ошибка! Введите четырехзначное число!')
-
+    print('ДА')
