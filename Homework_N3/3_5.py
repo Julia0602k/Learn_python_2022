@@ -19,4 +19,9 @@ if color1 and color2 not in ['красный', 'желтый', 'синий']:
 elif color1 == color2:
     print('Ошибка! Введите 2 разных основных цвета!')
 else:
-    print()
+    if (color1 or color2 == 'красный') and (color1 or color2 == 'желтый'):
+        print('оранжевый')
+    elif (color1 or color2 == 'красный') and (color1 or color2 == 'синий'):
+        print('фиолетовый')
+    else:
+        print('зеленый')
