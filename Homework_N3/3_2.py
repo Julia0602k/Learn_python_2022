@@ -10,7 +10,12 @@ a = int(input('Введите длину стороны a: '))
 b = int(input('Введите длину стороны b: '))
 c = int(input('Введите длину стороны c: '))
 
-if a1 < 0 or a2 < 0 or a3 < 0:
+if a < 0 or b < 0 or c < 0:
     print('Введите положительные числа!')
 else:
-    if
+    if a == b == c:
+        print('Равносторонний')
+    elif a == b or b == c or a == c:
+        print('Равнобедренный')
+    else:
+        print('Разносторонний')
