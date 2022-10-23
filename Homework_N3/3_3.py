@@ -8,11 +8,13 @@ num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
 num3 = int(input('Введите третье число: '))
 
-if num2 < num1 < num3 or num3 < num1 < num2:
-    print('Среднее число:', num1)
-elif num1 < num2 < num3 or num3 < num2 < num1:
-    print('Среднее число:', num2)
+if num1 == num2 == num3:
+    print('Числа равны между собой, ответ: ', num1)
+elif num2 <= num1 <= num3 or num3 <= num1 <= num2:
+    print('Среднее число', num1)
+elif num1 <= num2 <= num3 or num3 <= num2 <= num1:
+    print('Среднее число', num2)
 else:
-    print('Среднее число:', num3)
+    print('Среднее число', num3)
 
 
