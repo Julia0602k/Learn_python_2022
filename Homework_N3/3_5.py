@@ -19,9 +19,11 @@ if color1 and color2 not in ['красный', 'желтый', 'синий']:
 elif color1 == color2:
     print('Ошибка! Введите 2 разных основных цвета!')
 else:
-    if (color1 or color2 == 'красный') and (color1 or color2 == 'желтый'):
+    if color1 in ['красный', 'желтый'] and color2 in ['красный', 'желтый']:
+# (color1 and color2) in ['красный', 'желтый']:
+# (color1 or color2 == 'красный') and (color1 or color2 == 'желтый'):
         print('оранжевый')
-    elif (color1 or color2 == 'красный') and (color1 or color2 == 'синий'):
+    elif color1 in ['красный', 'синий'] and color2 in ['красный', 'синий']:
         print('фиолетовый')
     else:
         print('зеленый')
