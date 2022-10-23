@@ -7,3 +7,4 @@ while num1 <= num2:
     print(num1 ** 2, ', ', sep='', end='')
     num1 += 1
 
+
