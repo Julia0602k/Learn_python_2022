@@ -12,3 +12,4 @@ if num.isdigit() and len(num) == 3:
     print(sum)
 else:
     print('Ошибка! Введите трехзначное число!')
+
