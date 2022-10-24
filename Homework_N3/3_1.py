@@ -12,12 +12,12 @@
 # если Флэш быстрее Зума нужно вывести «YES»,
 # если их скорости равны нужно вывести "Don't know".
 
-speed_z = int(input('введите скорость Зума: '))
-speed_f = int(input('введите скорость Флэша: '))
+n = int(input('введите скорость Зума: '))
+k = int(input('введите скорость Флэша: '))
 
-if speed_z > speed_f:
+if n > k:
     print('NO')
-elif speed_z < speed_f:
+elif n < k:
     print('YES')
 else:
     print("Don't know")
