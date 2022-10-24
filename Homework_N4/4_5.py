@@ -6,13 +6,17 @@
 #
 num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
-if num1 >= num2:
-    print('Ошибка! Первое число должно быть меньше!')
+if 0 <= num1 <= num2 or 0 <= num2 <= num1:
+    print('Отрицательных чисел нет')
+elif num1 == num2 or abs(num1 - num2) == 1:
+    print('Чисел в заданном промежутке нет')
+elif num2 < num1:
+    num2 += 1
+    while num2 < num1 and num2 < 0:
+        print(num2, ', ', sep='', end='')
+        num2 += 1
 else:
-    if num1 >= 0:
-        print('Отрицательных чисел нет')
-    else:
+    num1 += 1
+    while num1 < num2 and num1 < 0:
+        print(num1, ', ', sep='', end='')
         num1 += 1
-        while num1 < num2 and num1 < 0:
-            print(num1, ', ', sep='', end='')
-            num1 += 1
