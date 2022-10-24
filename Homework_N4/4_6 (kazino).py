@@ -8,6 +8,26 @@
 # В случае неудачи вывести на экран
 # правильную комбинацию
 #
-
+import random
+num = random.randint(1, 10)
+color = random.randint(1, 2)  #1-красный,2-черный
+if color == 1:
+    color = 'красный'
+else:
+    color = 'черный'
+for i in range(5):
+    num1 = int(input('Введите число от 1 до 10: '))
+    if num1 < 1 or num1 > 10:
+        print('Введите число от 1 до 10!')
+        continue
+    color1 = input('Введите цвет (красный или черный): ')
+    if color1 == 'красный' or color1 == 'черный':
+        if num == num1 and color == color1:
+            print('Вы угадали!')
+        else:
+            print('Попробуйте еще!')
+    else:
+        print('Введите цвет: черный или красный!')
+print('Вы не угадали! Правильная комбинация: ', num, color)
 
 
