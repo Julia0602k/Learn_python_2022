@@ -8,7 +8,7 @@ num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
 if 0 <= num1 <= num2 or 0 <= num2 <= num1:
     print('Отрицательных чисел нет')
-elif num1 == num2 or abs(num1 - num2) == 1:
+elif abs(num1 - num2) <= 1:
     print('Чисел в заданном промежутке нет')
 elif num2 < num1:
     num2 += 1
