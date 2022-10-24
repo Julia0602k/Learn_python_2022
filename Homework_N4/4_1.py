@@ -9,7 +9,8 @@ if num.isdigit() and len(num) == 3:
     sum = 0
     for i in num:
         sum += int(i)
-    print(sum)
+    else:
+        print(sum)
 else:
     print('Ошибка! Введите трехзначное число!')
 
