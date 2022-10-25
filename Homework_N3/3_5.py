@@ -19,10 +19,17 @@ if color1 not in list1 or color2 not in list1:
     print('Ошибка! Введите основные цвета!')
 elif color1 == color2:
     print(color1)
-elif color1 in ['красный', 'желтый'] and color2 in ['красный', 'желтый']:
+# Вариант1
+# elif color1 in ['красный', 'желтый'] and color2 in ['красный', 'желтый']:
+#     print('оранжевый')
+# elif color1 in ['красный', 'синий'] and color2 in ['красный', 'синий']:
+#     print('фиолетовый')
+# else:
+#     print('зеленый')
+# Вариант2
+elif color1 != 'синий' and color2 != 'синий':
     print('оранжевый')
-elif color1 in ['красный', 'синий'] and color2 in ['красный', 'синий']:
+elif color1 != 'желтый' and color2 != 'желтый':
     print('фиолетовый')
 else:
     print('зеленый')
-
