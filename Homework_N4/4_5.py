@@ -15,7 +15,7 @@ elif num2 < num1:
     while num2 < num1 and num2 < 0:
         print(num2, ', ', sep='', end='')
         num2 += 1
-else:
+elif num1 < num2:
     num1 += 1
     while num1 < num2 and num1 < 0:
         print(num1, ', ', sep='', end='')
