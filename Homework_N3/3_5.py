@@ -14,17 +14,15 @@
 #
 color1 = input('Введите основной цвет N1 (красный, желтый или синий): ')
 color2 = input('Введите основной цвет N2 (красный, желтый или синий): ')
-if color1 and color2 not in ['красный', 'желтый', 'синий']:
+list1 =['красный', 'желтый', 'синий']
+if color1 not in list1 or color2 not in list1:
     print('Ошибка! Введите основные цвета!')
+elif color1 == color2:
+    print(color1)
+elif color1 in ['красный', 'желтый'] and color2 in ['красный', 'желтый']:
+    print('оранжевый')
+elif color1 in ['красный', 'синий'] and color2 in ['красный', 'синий']:
+    print('фиолетовый')
 else:
-    if color1 == color2:
-        print(color1)
-    elif color1 in ['красный', 'желтый'] and color2 in ['красный', 'желтый']:
-# (color1 and color2) in ['красный', 'желтый']:
-# (color1 or color2 == 'красный') and (color1 or color2 == 'желтый'):
-        print('оранжевый')
-    elif color1 in ['красный', 'синий'] and color2 in ['красный', 'синий']:
-        print('фиолетовый')
-    else:
-        print('зеленый')
+    print('зеленый')
 
