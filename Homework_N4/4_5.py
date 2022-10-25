@@ -11,12 +11,12 @@ if -1 <= num1 <= num2 or -1 <= num2 <= num1 or abs(num1 - num2) <= 1:
     print('Чисел в заданном промежутке нет')
 elif num2 < num1 and num1 - num2 > 1:
     num2 += 1
-    while num2 < num1 and num2 < 0:
+    while num2 < 0:
         print(num2, ', ', sep='', end='')
         num2 += 1
 elif num1 < num2 and num2 - num1 > 1:
     num1 += 1
-    while num1 < num2 and num1 < 0:
+    while num1 < 0:
         print(num1, ', ', sep='', end='')
         num1 += 1
 
