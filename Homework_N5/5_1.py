@@ -36,6 +36,19 @@ print('Ответ 5: 1ый элемент вложенного списка: ', 
 
 # Задание 6. (Посчитать сколько раз в общем всречается 1(единица) в новом списке
 
-list6 = [[1,5.1], 1,'hello1world',51,'exept',['orange1',1.7,1],3,6]
+list6 = [[1, 5.1], 1, 'hello1world', 51, 'exept', ['orange1', 1.7, 1], 3, 6]
+# print(', '.join(list6[0]))
+count = 0
+for row in list6:
+    for elem in row:
+        elem = str(elem)
+        c = elem.find('1')
+        if c >= 0:
+            count += c
+    row = str(row)
+    d = row.find('1')
+    count += d
+print(count)
+
 
 
