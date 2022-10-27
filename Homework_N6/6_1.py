@@ -52,14 +52,24 @@ long_word = ('т', 'т', 'а', 'и', 'и', 'а', 'и', 'и', 'и', 'т', 'т', '
 print("\nЗадача 4 \nКортеж N4 (1 способ): \nбуква 'т':", long_word.count('т'))
 print("буква 'а':", long_word.count('а'))
 print("буква 'и':", long_word.count('и'))
-t = 0
-a = 0
-u = 0
-for i in long_word:
-    if i == 'т':
-        t += 1
-    elif i == 'а':
-        a += 1
-    elif i == 'и':
-        u += 1
-print("Кортеж N4 (2 способ): \nбуква 'т':", t, "\nбуква 'а':", a, "\nбуква 'и':", u)
+
+print("\nЗадача 4 \nКортеж N4 (2 способ):")
+for i in set(long_word):
+    print(i, ' - ', long_word.count(i))
+
+#for i in list(long_word)       - это решение не работает, не понимаю почему
+#   a = my_list.count(i)
+#   my_list.remove('i')    - здесь пробовала i и 'i'
+#   print('Количество', i, '=', a)
+
+
+# t = 0
+# a = 0
+# u = 0
+#     if i == 'т':
+#         t += 1
+#     elif i == 'а':
+#         a += 1
+#     elif i == 'и':
+#         u += 1
+# print("Кортеж N4 (2 способ): \nбуква 'т':", t, "\nбуква 'а':", a, "\nбуква 'и':", u)
