@@ -8,18 +8,33 @@ print(type(tuple1))
 # Решить 3-мя способами.
 #Способ 1
 import random
-list2_1 = []
+list2 = []
 for i in range(10):
-    list2_1.append(random.randint(-100, 100))
-tuple2_1 = tuple(list2_1)
-print(tuple2_1)
-print(tuple2_1.index(max(tuple2_1)))
-print(tuple2_1.index(min(tuple2_1)))
+    list2.append(random.randint(-100, 100))
+tuple2 = tuple(list2)
+print(tuple2)
+print('Индекс максимального элемента кортежа N1: ', tuple2.index(max(tuple2)))
+print('Индекс минимального элемента кортежа N1: ', tuple2.index(min(tuple2)))
 
 #Способ 2
+# tuple2_2 = ()
+# a = ()
+# for i in range(10):
+#     a = tuple(random.randint(-100, 100),)
+#     tuple2_2 += a
+# print(tuple2_2)
+
+# ???????????
+# for i in tuple2:
+#     if i > i + 1:
+#
+
 
 
 #Способ 3
+# a = random.randint(-100, 100)
+# tuple2_3 = (random.randint(-100, 100),) * 10
+
 
 
 
@@ -27,6 +42,11 @@ print(tuple2_1.index(min(tuple2_1)))
 
 # 3. Создайте кортеж с цифрами от 0 до 9 и посчитайте сумму.
 # Решить 2-мя способами(через цикл и через встроенную функцию сложения)
+tuple3 = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+sum1 = 0
+for i in tuple3:
+    sum1 += i
+print('Сумма элементов кортежа N3: ', sum1, ',', sum(tuple3))
 
 
 
