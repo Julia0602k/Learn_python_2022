@@ -57,10 +57,14 @@ print("\nЗадача 4 \nКортеж N4 (2 способ):")
 for i in set(long_word):
     print(i, ' - ', long_word.count(i))
 
-#for i in list(long_word)       - это решение не работает, не понимаю почему
+# my_list = list(long_word)
+# for i in my_list:
 #   a = my_list.count(i)
-#   my_list.remove('i')    - здесь пробовала i и 'i'
 #   print('Количество', i, '=', a)
+#   my_list.remove(i)
+#   continue
+
+
 
 
 # t = 0
