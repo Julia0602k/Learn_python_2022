@@ -38,13 +38,17 @@ print('Ответ 4: количество элементов сложенног�
 print('Ответ 5: 1ый элемент вложенного списка: ', a[9][1])
 
 # Задание 6. (Посчитать сколько раз в общем всречается 1(единица) в новом списке
-# list6 = [[1, 5.1], 1, 'hello1world', 51, 'exept', ['orange1', 1.7, 1], 3, 6]
+list6 = [[1, 5.1], 1, 'hello1world', 51, 'exept', ['orange1', 1.7, 1], 3, 6]
+count1 = 0
+for row in list6:
+    for elem in row:
+        if str(elem).count('1') > 0:
+            count1 += str(elem).count('1')
+print(count1)
+
+
 
 # # print(', '.join(list6[0]))
-# count = 0
-# for row in list6:
-#     for elem in row:
-#         elem = str(elem)
 #         c = elem.find('1')
 #         if c >= 0:
 #             count += c
