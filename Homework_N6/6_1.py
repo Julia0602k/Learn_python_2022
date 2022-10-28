@@ -12,12 +12,16 @@ list2 = []
 for i in range(10):
     list2.append(random.randint(-100, 100))
 tuple2 = tuple(list2)
+print('111', tuple2)
 print('\n Задача 2 \n', tuple2)
 print('Индекс максимального элемента кортежа: ', tuple2.index(max(tuple2)))
 print('Индекс минимального элемента кортежа: ', tuple2.index(min(tuple2)))
+print(list2)
 
 #Способ 2
-print(list2.sort())
+list22 = list2.copy()
+list22 = list22.sort()
+print(list22)
 print('Индекс максимального элемента: ', )
 print('Индекс минимального элемента: ', )
 
@@ -39,14 +43,14 @@ print('Индекс минимального элемента: ', )
 #  'и', 'и', 'и', 'т', 'и')
 # Например: 'Буква "и" встречается 11 раз' (и так с каждой)
 # Решить 2-мя способами через цикл и через метод.
-long_word = ('т', 'т', 'а', 'и', 'и', 'а', 'и', 'и', 'и', 'т', 'т', 'а', 'и', 'и', 'и', 'и', 'и', 'т', 'и')
-print("\nЗадача 4 \nКортеж N4 (1 способ): \nбуква 'т':", long_word.count('т'))
-print("буква 'а':", long_word.count('а'))
-print("буква 'и':", long_word.count('и'))
-
-print("\nЗадача 4 \nКортеж N4 (2 способ):")
-for i in set(long_word):
-    print(i, ' - ', long_word.count(i))
+# long_word = ('т', 'т', 'а', 'и', 'и', 'а', 'и', 'и', 'и', 'т', 'т', 'а', 'и', 'и', 'и', 'и', 'и', 'т', 'и')
+# print("\nЗадача 4 \nКортеж N4 (1 способ): \nбуква 'т':", long_word.count('т'))
+# print("буква 'а':", long_word.count('а'))
+# print("буква 'и':", long_word.count('и'))
+#
+# print("\nЗадача 4 \nКортеж N4 (2 способ):")
+# for i in set(long_word):
+#     print(i, ' - ', long_word.count(i))
 
 # my_list = list(long_word)
 # for i in my_list:
