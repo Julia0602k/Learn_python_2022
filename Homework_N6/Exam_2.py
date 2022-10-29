@@ -14,7 +14,13 @@ import random
 num2 = random.randint(-1000000000, +1000000000)
 print(num2)
 
+#Вариант1 (не работает)
+for i in range(0, 10):
+    str(i)
+    print('''Цифра "''', i, '''" встречается ''', str(num2).count('i'), ' раз(-а)', sep='')
+print('\n')
+
+#Вариант 2
 list2 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-# for i in range(0, 9):
 for i in list2:
     print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
