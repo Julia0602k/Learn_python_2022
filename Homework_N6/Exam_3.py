@@ -5,11 +5,16 @@
 # с клавиатуры. Числа для списка выбираются рандомно.
 
 num1 = int(input('Введите количество чисел списка: '))
-num2 = input('Введите искомую цифру (от 0 до 9): ')
-if (num2 >= 0 or num2 <= 9) and num2.isdigit():
+num2 = int(input('Введите искомую цифру (от 0 до 9): '))
+if num2 >= 0 and num2 <= 9:
     import random
     list1 = []
     for i in range(num1):
-        a = random.randint()
+        a = random.randint(1, 10000000000)
+        list1.append(a)
+    count1 = 0
+    for i in list1:
+        count1 += str(i).count('num2')
+    print(count1)
 else:
     print('Ошибка! Введите искомую цифру правильно (от 0 до 9)!')
