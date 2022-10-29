@@ -5,14 +5,13 @@
 # будет больше кол-во раз, когда сгенированные числа оказались больше введеных, нужно вывести случайные числа, полученные в 4 итерации,
 # если же наоброт, то вывести общую сумму всех сгенированных за 7 итераций.
 
-# Вариант 1 (если сравнивать сумму пар чисел введенных и сгенерированных)
 import random
-num1 = int(input('Введите первое число: '))
-num2 = int(input('Введите второе число: '))
 count1 = 0
 list3 = []
 list4 = []
 for i in range(7):
+    num1 = int(input('Введите первое число: '))
+    num2 = int(input('Введите второе число: '))
     num3 = random.randint(1, 20)
     num4 = random.randint(1, 20)
     list3.append(num3)
@@ -26,23 +25,23 @@ else:
     print('Общая сумма всех сгенированных чисел: ', sum(list3)+sum(list4))
 
 
-# Вариант 2 (если сравнивать числа отдельно)
-print('Второй вариант:')
-import random
-num1 = int(input('Введите первое число: '))
-num2 = int(input('Введите второе число: '))
-count1 = 0
-list3 = []
-list4 = []
-for i in range(7):
-    num3 = random.randint(1, 20)
-    num4 = random.randint(1, 20)
-    list3.append(num3)
-    list4.append(num4)
-    if num1 > num3 and num1 > num4 and num2 > num4 and num2 > num3:
-        count1 += 1
-print(list3, list4)
-if count1 >= 4:
-    print('Вариант 2: 4 пара сгенерированных чисел: ', list3[3], ',', list4[3])
-else:
-    print('Вариант 2: Общая сумма всех сгенированных чисел: ', sum(list3)+sum(list4))
+# # Вариант 2 (если сравнивать числа отдельно)
+# print('Второй вариант:')
+# import random
+# num1 = int(input('Введите первое число: '))
+# num2 = int(input('Введите второе число: '))
+# count1 = 0
+# list3 = []
+# list4 = []
+# for i in range(7):
+#     num3 = random.randint(1, 20)
+#     num4 = random.randint(1, 20)
+#     list3.append(num3)
+#     list4.append(num4)
+#     if num1 > num3 and num1 > num4 and num2 > num4 and num2 > num3:
+#         count1 += 1
+# print(list3, list4)
+# if count1 >= 4:
+#     print('Вариант 2: 4 пара сгенерированных чисел: ', list3[3], ',', list4[3])
+# else:
+#     print('Вариант 2: Общая сумма всех сгенированных чисел: ', sum(list3)+sum(list4))
