@@ -14,9 +14,7 @@ import random
 num2 = random.randint(-1000000000, +1000000000)
 print(num2)
 
-list2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+list2 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 # for i in range(0, 9):
 for i in list2:
-    b = str(num2)
-    a = b.count('i')
-    print('''Цифра "''', i, '''" встречается ''', a, ' раз(-а)', sep='')
+    print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
