@@ -14,17 +14,25 @@ import random
 num2 = str(random.randint(-1000000000, +1000000000))
 print(num2)
 
-#Вариант1
-print('''Число "''', num2, '''" состоит из следущих цифр: ''', end='')
+#Вариант 1a
+print('''Число "''', num2, '''" состоит из следущих цифр: ''', sep='', end='')
 for i in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
     if i in num2:
         print(i, ', ', sep='', end='')
-count = 0
-print('\n')
 for i in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
     if i in num2:
-        print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
-print('\n')
+        print('''\nЦифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='', end='')
+
+# #Вариант 1b
+# a = '''Число "''', num2, '''" состоит из следущих цифр: '''
+# for i in range(0, 10):
+#     if str(i) in num2:
+#         a = a + str(i)
+# print(a)
+# for i in range(0, 10):
+#     if str(i) in num2:
+#         print('''Цифра "''', i, '''" встречается ''', str(num2).count(str(i)), ' раз(-а)', sep='')
+# print('\n')
 
 
 # #Вариант1
