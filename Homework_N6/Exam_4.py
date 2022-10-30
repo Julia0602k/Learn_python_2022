@@ -9,8 +9,10 @@ word4 = input('Введите слово: ')
 if word4.isalpha():
     count = 0
     for i in word4:
+        if i.islower():
+            print(i)
 
-        if i.islower and
+        # if i.islower
 
 else:
     print('Ошибка! Введите слово, состоящее из букв!')
