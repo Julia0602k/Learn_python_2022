@@ -18,7 +18,7 @@ list3 = []
 for i in list2:
     if i in num2:
         list3.append(i)
-print('''Число "''', num2, '''" состоит из следущих цифр: ''', list3[:])
+print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list3))
 count = 0
 for i in list2:
     if i in num2:
