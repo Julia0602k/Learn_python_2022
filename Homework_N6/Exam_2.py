@@ -13,22 +13,31 @@
 import random
 num2 = str(random.randint(-1000000000, +1000000000))
 print(num2)
+
 list2 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 list3 = []
 for i in list2:
     if i in num2:
         list3.append(i)
-print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list3))
+print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list3), sep='')
 count = 0
 for i in list2:
     if i in num2:
         print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
+print('\n')
 
 
-#Вариант2 (не работает)
-# for i in range(0, 10):
-#     str(i)
-#     print('''Цифра "''', i, '''" встречается ''', num2.count('i'), ' раз(-а)', sep='')
-# print('\n')
+#Вариант2
+list4 = []
+for i in range(0, 10):
+    if str(i) in num2:
+        list4.append(str(i))
+print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list4), sep='')
+count = 0
+for i in range(0, 10):
+    if str(i) in num2:
+        print('''Цифра "''', i, '''" встречается ''', str(num2).count(str(i)), ' раз(-а)', sep='')
+
+
 
 
