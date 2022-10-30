@@ -6,15 +6,15 @@
 
 num1 = int(input('Введите количество чисел списка (положительное число): '))
 num2 = int(input('Введите искомую цифру (от 0 до 9): '))
+import random
 if num2 >= 0 and num2 <= 9 and num1 > 0:
-    import random
     list1 = []
     for i in range(num1):
-        a = random.randint()
-        list1.append(a)
+        list1.append(random.randint(1, 1000000))
+    print(list1)
     count1 = 0
     for i in list1:
-        count1 += str(i).count('num2')
-    print(count1)
+        count1 += str(i).count(str(num2))
+    print('Цифра ', num2, 'в списке чисел встречается', count1, 'раз(a)')
 else:
     print('Ошибка! Введите данные правильно!')
