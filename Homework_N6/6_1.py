@@ -16,16 +16,18 @@ print('111', tuple2)
 print('\n Задача 2 \n', tuple2)
 print('Индекс максимального элемента кортежа: ', tuple2.index(max(tuple2)))
 print('Индекс минимального элемента кортежа: ', tuple2.index(min(tuple2)))
-print(list2)
 
 #Способ 2
-list22 = list2.copy()
-list22 = list22.sort()
-print(list22)
-print('Индекс максимального элемента: ', )
-print('Индекс минимального элемента: ', )
+list22 = list.copy(list2)
+list.sort(list22)
+print('Вариант 2:', list22)
+print('Индекс максимального элемента: ', list2.index(list22[-1]))
+print('Индекс минимального элемента: ', list2.index(list22[0]))
 
 #Способ 3
+for i in list2:
+    if i < list2[list2.index(i) + 1]:
+
 
 
 
