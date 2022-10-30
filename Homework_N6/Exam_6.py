@@ -62,27 +62,19 @@ print('Индекс минимального элемента кортежа tup
 # Cреднее из чисел каждого кортежа, а также его индекс
 # Среднее число для кортежа tuple1:
 list1 = list(tuple1)
-print(list1)
-# list11 = list1.copy()
-# list11 = list1
-# print(list11)
 while len(list1) > 1:
     list1.remove(max(list1))
     list1.remove(min(list1))
-print('Среднее число кортежа tuple1: ', list1[0])
-print('Индекс числа: ', tuple1.index(list1[0]))
+print('Среднее число кортежа tuple1:', list1[0], '  Индекс числа:', tuple1.index(list1[0]))
 
-# # Среднее число для кортежа tuple2:
-# list2 = list(tuple2)
-# print(list2)
-# list22 = list2.copy()
-# # list11 = list1
-# print(list11)
-# while len(list11) > 1:
-#     list11.remove(max(list11))
-#     list11.remove(min(list11))
-# print('Среднее число кортежа tuple1: ', str(list11))
-# print('Индекс числа: ', list1.index(list11[0]))
+# Среднее число для кортежа tuple2:
+list2 = list(tuple2)
+while len(list2) > 1:
+    list2.remove(max(list2))
+    list2.remove(min(list2))
+print('Среднее число кортежа tuple2:', list2[0], '  Индекс числа:', tuple2.index(list2[0]))
+
+
 
 
 
