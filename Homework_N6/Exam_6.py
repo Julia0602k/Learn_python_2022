@@ -25,6 +25,7 @@ for i in range(num2):
     tuple2 += (random.randint(0, 1000),)
 print(tuple2)
 print(' Количество элементов кортежа tuple1: ', num1, '\n', 'Количество элементов кортежа tuple2: ', num2)
+
 #Сравнение сумм элементов кортежей
 print('Сумма элементов tuple1: ', sum(tuple1), '\nСумма элементов tuple1: ', sum(tuple2))
 if sum(tuple1) > sum(tuple2):
@@ -33,12 +34,20 @@ elif sum(tuple1) < sum(tuple2):
     print('Сумма элементов кортежа tuple2 больше суммы элементов кортежа tuple1')
 else:
     print('Суммы элементов кортежей tuple1 и tuple2 равны')
-# Индексы минимальных и максимальных элементов кортежей
 
+# Индексы минимальных и максимальных элементов кортежей
 print('Индекс максимального элемента кортежа tuple1: ', tuple1.index(max(tuple1)))
 print('Индекс минимального элемента кортежа tuple1: ', tuple1.index(min(tuple1)))
 print('Индекс максимального элемента кортежа tuple2: ', tuple2.index(max(tuple2)))
 print('Индекс минимального элемента кортежа tuple2: ', tuple2.index(min(tuple2)))
 
+# Cреднее из чисел кождого кортежа, а также его индекс
+print('Среднее число кортежа tuple1: ', end='')
+print(tuple1[num1 // 2 + 1]) if num1 % 2 else print(tuple1[num1 // 2])
+print('Индекс числа: ', end='')
+print(tuple1.index(tuple1[num1 // 2 + 1])) if num1 % 2 else print(tuple1.index(tuple1[num1 // 2]))
 
-
+print('Среднее число кортежа tuple2: ', end='')
+print(tuple2[num2 // 2 + 1]) if num1 % 2 else print(tuple2[num2 // 2])
+print('Индекс числа: ', end='')
+print(tuple2.index(tuple2[num2 // 2 + 1])) if num1 % 2 else print(tuple2.index(tuple2[num2 // 2]))
