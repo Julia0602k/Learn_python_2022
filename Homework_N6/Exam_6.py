@@ -42,8 +42,8 @@ print('Индекс максимального элемента кортежа t
 print('Индекс минимального элемента кортежа tuple2: ', tuple2.index(min(tuple2)))
 
 # Cреднее из чисел каждого кортежа, а также его индекс
-print('Среднее число кортежа tuple1: ', tuple1[num1 // 2 + 1], 'Индекс числа: ', tuple1.index(tuple1[num1 // 2 + 1]))
-print('Среднее число кортежа tuple2: ', tuple2[num2 // 2 + 1], 'Индекс числа: ', tuple2.index(tuple2[num2 // 2 + 1]))
+print('Среднее число кортежа tuple1: ', tuple1[num1 // 2], 'Индекс числа: ', tuple1.index(tuple1[num1 // 2]))
+print('Среднее число кортежа tuple2: ', tuple2[num2 // 2], 'Индекс числа: ', tuple2.index(tuple2[num2 // 2]))
 
 
 # print('Среднее число кортежа tuple1: ', end='')
