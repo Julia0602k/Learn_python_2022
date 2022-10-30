@@ -14,6 +14,19 @@ import random
 num2 = str(random.randint(-1000000000, +1000000000))
 print(num2)
 
+#Вариант1
+print('''Число "''', num2, '''" состоит из следущих цифр: ''', end='')
+for i in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
+    if i in num2:
+        print(i, ', ', sep='', end='')
+count = 0
+print('\n')
+for i in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
+    if i in num2:
+        print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
+print('\n')
+
+
 # #Вариант1
 # list3 = []
 # for i in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
@@ -25,30 +38,30 @@ print(num2)
 #     if i in num2:
 #         print('''Цифра "''', i, '''" встречается ''', str(num2).count(i), ' раз(-а)', sep='')
 # print('\n')
-#
+# #
 #
 # #Вариант2
-# list4 = []
+# a = '''Число "''', num2, '''" состоит из следущих цифр: '''
 # for i in range(0, 10):
 #     if str(i) in num2:
-#         list4.append(str(i))
-# print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list4), sep='')
+#         a = a + str(i)
+# print(a)
 # count = 0
 # for i in range(0, 10):
 #     if str(i) in num2:
 #         print('''Цифра "''', i, '''" встречается ''', str(num2).count(str(i)), ' раз(-а)', sep='')
 # print('\n')
 
-#Вариант3
-list5 = []
-for i in range(0, 10):
-    if str(i) in num2:
-        list5.append(str(i))
-        list5.append(str(num2).count(str(i)))
-print(list5)
-print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list5[::2]), sep='')
-for i in list5[::2]:
-    print('''Цифра "''', i, '''" встречается ''', list5[list5.index(i) + 1], ' раз(-а)', sep='')
+# #Вариант3
+# list5 = []
+# for i in range(0, 10):
+#     if str(i) in num2:
+#         list5.append(str(i))
+#         list5.append(str(num2).count(str(i)))
+# print(list5)
+# print('''Число "''', num2, '''" состоит из следущих цифр: ''', ', '.join(list5[::2]), sep='')
+# for i in list5[::2]:
+#     print('''Цифра "''', i, '''" встречается ''', list5[list5.index(i) + 1], ' раз(-а)', sep='')
 
 
 
