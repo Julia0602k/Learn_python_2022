@@ -17,35 +17,43 @@ import random
 tuple1 = ()
 tuple2 = ()
 num1 = random.randint(3, 99) #рандомное количество элементов для tuple1
-# print(num1)
 while num1 % 2 == 0:
-    num1 = random.randint(3,99) #рандомное количество элементов для tuple1
+    num1 = random.randint(3, 99) #рандомное количество элементов для tuple1
     # print(num1)
+print('Количество элементов кортежа tuple1: ', num1)
 num2 = random.randint(3, 99) #рандомное количество элементов для tuple2
-# print(num2)
+print(num2)
 while num2 % 2 == 0:
-    num2 = random.randint(3,99) #рандомное количество элементов для tuple1
+    num2 = random.randint(3, 99) #рандомное количество элементов для tuple1
     # print(num2)
+print('Количество элементов кортежа tuple2: ', num2)
+# Генерация 1 кортежа
 for i in range(num1):
-    if i not in tuple1:
-        tuple1 += (random.randint(0, 1000),)
+    a = random.randint(0, 1000)
+    if a not in tuple1:
+        tuple1 += (a,)
     else:
         num1 += 1
 print(tuple1)
-# for i in range(num2):
-#     tuple2 += (random.randint(0, 1000),)
-# print(tuple2)
-# print(' Количество элементов кортежа tuple1: ', num1, '\n', 'Количество элементов кортежа tuple2: ', num2)
-#
-# #Сравнение сумм элементов кортежей
-# print('Сумма элементов tuple1: ', sum(tuple1), '\nСумма элементов tuple1: ', sum(tuple2))
-# if sum(tuple1) > sum(tuple2):
-#     print('Сумма элементов кортежа tuple1 больше суммы элементов кортежа tuple2')
-# elif sum(tuple1) < sum(tuple2):
-#     print('Сумма элементов кортежа tuple2 больше суммы элементов кортежа tuple1')
-# else:
-#     print('Суммы элементов кортежей tuple1 и tuple2 равны')
-#
+# Генерация 2 кортежа
+for i in range(num2):
+    a = random.randint(0, 1000)
+    if a not in tuple2:
+        tuple2 += (a,)
+    else:
+        num2 += 1
+print(tuple2)
+print(' Количество элементов кортежа tuple1: ', num1, '\n', 'Количество элементов кортежа tuple2: ', num2)
+
+#Сравнение сумм элементов кортежей
+print('Сумма элементов tuple1: ', sum(tuple1), '\nСумма элементов tuple2: ', sum(tuple2))
+if sum(tuple1) > sum(tuple2):
+    print('Сумма элементов кортежа tuple1 больше суммы элементов кортежа tuple2')
+elif sum(tuple1) < sum(tuple2):
+    print('Сумма элементов кортежа tuple2 больше суммы элементов кортежа tuple1')
+else:
+    print('Суммы элементов кортежей tuple1 и tuple2 равны')
+
 # # Индексы минимальных и максимальных элементов кортежей
 # print('Индекс максимального элемента кортежа tuple1: ', tuple1.index(max(tuple1)))
 # print('Индекс минимального элемента кортежа tuple1: ', tuple1.index(min(tuple1)))
