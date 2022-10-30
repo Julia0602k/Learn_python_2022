@@ -41,13 +41,20 @@ print('Индекс минимального элемента кортежа tup
 print('Индекс максимального элемента кортежа tuple2: ', tuple2.index(max(tuple2)))
 print('Индекс минимального элемента кортежа tuple2: ', tuple2.index(min(tuple2)))
 
-# Cреднее из чисел кождого кортежа, а также его индекс
-print('Среднее число кортежа tuple1: ', end='')
-print(tuple1[num1 // 2 + 1]) if num1 % 2 else print(tuple1[num1 // 2])
-print('Индекс числа: ', end='')
-print(tuple1.index(tuple1[num1 // 2 + 1])) if num1 % 2 else print(tuple1.index(tuple1[num1 // 2]))
+# Cреднее из чисел каждого кортежа, а также его индекс
+# print('Среднее число кортежа tuple1: ', end='')
+# print(tuple1[num1 // 2 + 1]) if num1 % 2 else print(tuple1[num1 // 2])
+# print('Индекс числа: ', end='')
+# print(tuple1.index(tuple1[num1 // 2 + 1])) if num1 % 2 else print(tuple1.index(tuple1[num1 // 2]))
 
-print('Среднее число кортежа tuple2: ', end='')
-print(tuple2[num2 // 2 + 1]) if num1 % 2 else print(tuple2[num2 // 2])
-print('Индекс числа: ', end='')
-print(tuple2.index(tuple2[num2 // 2 + 1])) if num1 % 2 else print(tuple2.index(tuple2[num2 // 2]))
+
+
+# print('Среднее число кортежа tuple1: ', end='')
+# print(tuple1[num1 // 2 + 1]) if num1 % 2 else print(tuple1[num1 // 2])
+# print('Индекс числа: ', end='')
+# print(tuple1.index(tuple1[num1 // 2 + 1])) if num1 % 2 else print(tuple1.index(tuple1[num1 // 2]))
+#
+# print('Среднее число кортежа tuple2: ', end='')
+# print(tuple2[num2 // 2 + 1]) if num1 % 2 else print(tuple2[num2 // 2])
+# print('Индекс числа: ', end='')
+# print(tuple2.index(tuple2[num2 // 2 + 1])) if num1 % 2 else print(tuple2.index(tuple2[num2 // 2]))
