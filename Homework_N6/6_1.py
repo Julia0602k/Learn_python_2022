@@ -19,14 +19,38 @@ print('Индекс минимального элемента кортежа: ',
 
 #Способ 2
 list22 = list.copy(list2)
+list222 = list.copy(list2)
 list.sort(list22)
-print('Вариант 2:', list22)
 print('Индекс максимального элемента: ', list2.index(list22[-1]))
 print('Индекс минимального элемента: ', list2.index(list22[0]))
 
 #Способ 3
-# for i in list2:
-#     if i < list2[list2.index(i) + 1]:
+max1 = list222[0]
+for i in list222:
+    if max1 < i:
+        max1 = i
+print('Индекс максимального элемента: ', list222.index(max1))
+min1 = list222[0]
+for i in list222:
+    if min1 > i:
+        min1 = i
+print('Индекс минимального элемента: ', list222.index(min1))
+
+
+#     if list2.index(i) == 9 and i > a:
+#         a = i
+#     elif i < list2[list2.index(i) + 1]:
+#         a = list2[list2.index(i) + 1]
+#     else:
+#         a = i
+# # for i in list2:
+#     if i > list2[list2.index(i) + 1]:
+# #         b = list2[list2.index(i) + 1]
+# #     else:
+# #         b = i
+
+# print('Индекс минимального элемента: ', b)
+
 #
 #
 
@@ -45,6 +69,7 @@ print('Индекс минимального элемента: ', list2.index(li
 #  'и', 'и', 'и', 'т', 'и')
 # Например: 'Буква "и" встречается 11 раз' (и так с каждой)
 # Решить 2-мя способами через цикл и через метод.
+
 print('\nЗадача N4')
 long_word = ('т', 'т', 'а', 'и', 'и', 'а', 'и', 'и', 'и', 'т', 'т', 'а', 'и', 'и', 'и', 'и', 'и', 'т', 'и')
 
@@ -55,6 +80,7 @@ for i in my_list:
     if i not in list4:
         print('Количество', i, '=', my_list.count(i))
         list4.append(i)
+
         # my_list.remove(str(i))
         # print(my_list)
 
