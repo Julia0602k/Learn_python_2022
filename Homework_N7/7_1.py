@@ -6,9 +6,9 @@
 
 list1 = list(input('Введите список: '))
 print(list1)
-dict1 = {i: i for i in list1}
+dict1 = {a: a for a in list1}
 print(dict1)
 
 list2 = [1, 2.0, 'abc']
-dict2 = {i: i for i in list2}
+dict2 = {a: a for a in list2}
 print(dict2)
