@@ -17,6 +17,12 @@ songsdict = {
 'Clean': 5.68,
 }
 print('Общее время звучания песен: ', sum(dict.values(songsdict)))
-dict5 = {}
-for i in dict.values(songsdict):
-    if i > 5.0:
+dict5 = dict.copy(songsdict)
+# print(dict5)
+for value in dict.values(dict5):
+    if value <= 5.0:
+        b = dict5.popitem()
+        print(b)
+print(dict5)
+
+
