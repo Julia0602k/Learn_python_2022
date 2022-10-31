@@ -18,8 +18,16 @@ if word4.isalpha():
     print('В слове', word4, 'содержится', count_up, 'пар (-а) верхнего регистра')
     print('В слове', len(word4), 'букв')
     #Подсчет гласных и согласных
-
-
+    count_gl = 0
+    count_sogl = 0
+    word44 = word4.lower()
+    for i in word44:
+        if i in ['a', 'e', 'i', 'o', 'u', 'y']:
+            count_gl += 1
+        else:
+            count_sogl += 1
+    print('В слове', word4, 'содержится', count_gl, 'гласных букв')
+    print('В слове', word4, 'содержится', count_sogl, 'согласных букв')
 else:
     print('Ошибка! Введите слово, состоящее из букв!')
 
