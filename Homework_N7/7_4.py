@@ -23,11 +23,3 @@ print(list4)
 list.sort(list4)
 for i in range(len(list4)):
     print(list4[i])
-
-
-
-# list4 = []
-# for k, v in dict5.items():
-#     a = str(v) + str(k)
-#     list4.append(a)
-# print(list4)
