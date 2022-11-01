@@ -17,12 +17,12 @@ dict1 = {a: a for a in list1}
 print(dict1)
 
 #Еще вариант
-# list1 = input('Введите список (например [a, b, c]): ')
-# print(list1)
-# for i in list1:
-#     if i == '[' or i == ',' or i == ' ':
-#         list1.remove('i')
-# dict1 = {a: a for a in list1}
+# list111 = list(input("Введите список, например ['a', 'b', 1]: "))
+# print(list111)
+# for i in list111:
+#     if i in [' ', '[', ']', ',', ', ', "'", '''"''']:
+#         list111.remove(str(i))
+# dict1 = {a: a for a in list111}
 # print(dict1)
 
 # #Превращает строку в словарь (строка преобразуется в список, а потом в словарь)
