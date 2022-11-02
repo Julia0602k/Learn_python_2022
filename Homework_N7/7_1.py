@@ -16,6 +16,7 @@ for i in list1:
 dict1 = {a: a for a in list1}
 print(dict1)
 
+
 #Еще вариант
 # list111 = list(input("Введите список, например ['a', 'b', 1]: "))
 # print(list111)
