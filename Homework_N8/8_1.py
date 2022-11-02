@@ -4,16 +4,16 @@
 set1 = set(input('Введите первую строку: '))
 set2 = set(input('Введите вторую строку: '))
 print('Общие буквы строк: ', end='')
-for i in set1 & set2:
-    if i.isalpha():
-        print(i, ', ', sep='', end='')
 
 #Проверка на то, что общих букв нет:
 list1 = []
 for i in set1 & set2:
-    if len(set1 & set2) == 0:
-        print('Общих букв нет')
-    elif len(set1 & set2) > 0
+    if i.isalpha():
+        list1.append(i)
+if len(list1) == 0:
+    print('Общих букв нет')
+else:
+    print(list1)
 
 # Вариант без проверки, на то что общих букв нет
 # set1 = set(input('Введите первую строку: '))
@@ -23,8 +23,6 @@ for i in set1 & set2:
 #     if i.isalpha():
 #         print(i, ', ', sep='', end='')
 #
-
-
 # #Вариант без проверки на количество букв и на то, что это буквы
 # set1 = set(input('Введите первую строку: '))
 # set2 = set(input('Введите вторую строку: '))
