@@ -16,15 +16,34 @@
 
 start = True
 while start:
-    set_flower = {'розы', 'тюльпаны', 'ромашки', 'нарциссы', 'васильки', 'хлопок', 'амариллис'}
+    # set_flower = {'розы', 'тюльпаны', 'ромашки', 'нарциссы', 'васильки', 'хлопок', 'амариллис'}
+    set_flower = {'розы', 'тюльпаны'}
     set_flower_used = set()
-    set_day = {'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'}
+    # set_day = {'пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'}
+    set_day = {'пн', 'вт'}
     set_day_used = set()
     dict1 = dict.fromkeys(set_day)
     # print(len(set_day_used), len(set_day))
     while len(set_day_used) != len(set_day):
         day = input('Введите день недели %s: '%str(set_day - set_day_used)[1:-1])
-        flower = input(f'Введите название цветка {str(set_flower - set_flower_used)[1:-1]}: ')
+        if set_flower - set_flower_used == set():
+            set_flower.add(input('Введите название нового цветка: '))
+        flower = input(f'Введите название цветка {str(set_flower - set_flower_used)[1:-1]} или напишите цифру 0 для внесения изменений в список: ')
+        if flower == str(0):
+            num1 = 1
+            while num1:
+                num1 = int(input('''Если вы:
+    хотите добавить цветок, которого нет в списке - введите цифру 1;
+    хотите удалить цветок - введите цифру 2;
+    хотите завершить изменения - введите цифру 0;
+    введите цифру: '''))
+                if num1 == 1:
+                    set_flower.add(input('Введите название нового цветка: '))
+                elif num1 == 2:
+                    set_flower.discard(input(f'Введите название цветка, который нужно удалить {str(set_flower)[1:-1]}: '))
+                    while (set_flower - set_flower_used) == set():
+                        set_flower.add(input('Введите название нового цветка: '))
+            flower = input(f'Введите название цветка {str(set_flower - set_flower_used)[1:-1]}')
         if day in (set_day - set_day_used) and flower in (set_flower - set_flower_used):
             set_day_used.add(day)
             set_flower_used.add(flower)
@@ -37,6 +56,9 @@ while start:
                     print(f'Эти цветы ({v}) вы дарили в(-о) {k}')
         else:
             print('Ошибка! Введите правильно день недели и цветок!')
+
+    else:
+        print('Началась новая неделя')
 
 
 
