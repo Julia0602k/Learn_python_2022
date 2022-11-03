@@ -17,6 +17,7 @@
 # print(dict1)
 set_flower = {'розы', 'тюльпаны', 'ромашки', 'нарциссы', 'васильки', 'хлопок', 'амариллис'}
 set_flower_given = set()
+set2 = set_flower - set_flower_given
 while True:
     set_day = set()
     dict1 = dict.fromkeys(['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'])
@@ -32,56 +33,80 @@ while True:
             continue
         elif day not in set_day:
             set_day.add(day)
-        print('На этой неделе можно подарить: ', set_flower - set_flower_given)
+        print('На этой неделе можно подарить: ', set2)
         flower = input('Введите название цветка: ')
         while flower not in set_flower:
-            print('Ошибка! Введите правильно название цветка!')
-            flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
+            print('Ошибка! Введите правильно название цветка!', set2)
+            flower = input('Введите название цветка: ')
             continue
         while flower in set_flower_given:
             for k, v in dict1.items():
                 if v == flower:
-                    print('Ошибка! Такой цветок уже был на этой неделе (в ', k,')! Введите правильно название цветка!', sep='')
-                    flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
+                    print('Ошибка! Такой цветок уже был на этой неделе (в ', k,')! Выберите из: ', set2, sep='')
+                    flower = input('Введите название цветка: ')
                     continue
         dict1[day] = flower
         set_flower_given.add(flower)
         print(dict1)
-        print(set_flower_given)
+        # print(set_flower_given)
         #  Возможность измениния названия цветка
         num1 = input('''Если вы:
-        хотите изменить название цветка - введите цифру 1;
-        хотите удалить название цветка введите цифру 2;
+        хотите изменить название цветка для только что введенного дня недели - введите цифру 1;
+        хотите удалить название цветка и ввести новое из предыдущих дней введите цифру 2;
         не хотите ничего изменять - нажмите Enter
         ''')
         if num1 == '1':
             set_flower_given.discard(flower)
-            flower = input('Введите название цветка: ')
-            while flower not in set_flower:
-                print('Ошибка! Введите правильно название цветка!')
-                flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
+            print('Введите новое название цветка из', set2, 'для только что введенного дня недели')
+            flower = input('Новое название цветка: ')
+            while flower in set2:
+                print('Ошибка! Введите правильно название цветка! ', set2)
+                flower = input('Введите название цветка: ', )
                 continue
             dict1[day] = flower
             set_flower_given.add(flower)
-            print(dict1)
-            print(set_flower_given)
         elif num1 == '2':
-            flower_del = input('Введите название цветка для удаления: ')
+            print('Введите название цветка из списка ', set_flower_given, 'для удаления')
+            flower_del = input('название цветка:')
             set_flower_given.discard(flower_del)
-            for v in dict1:
+            for k, v in dict1.items():
                 if v == flower_del:
-                    del v
-            print(dict1)
-            print(set_flower_given)
+                    dict1[k] = None
+                    print(dict1)
+                    print('Для дня недели', k)
+                    flower_new = input('введите новое название цветка: ')
+                    while flower_new not in set_flower:
+                        print('Ошибка! Введите правильно название цветка из ', set2)
+                        flower_new = input('Введите название цветка: ')
+                        continue
+                    while flower_new in set_flower_given:
+                        for k, v in dict1.items():
+                            if v == flower_new:
+                                print('Ошибка! Такой цветок уже был на этой неделе (в', k, ')! Выберите из:', set2, sep='')
+                                flower_new = input('Введите название цветка: ')
+                                dict1[k] = flower_new
+                                continue
+                    set_flower_given.add(flower_new)
+        print(dict1)
+        print(set_flower_given)
         count += 1
+    print('Цветы по дням недели:', dict1)
+    print('Список подаренных цветов:', set_flower_given)
+    print('Началась новая неделя!')
     set_flower_given.clear()
     set_day.clear()
     print(set_flower_given, set_day)
+
+
+
+
 
     # if len(set_flower_given) == 0:
     #     print('На это неделе муж еще ничего не дарил. Можно подарить: ', set_flower)
     # elif len(set_flower_given) > 0:
     #     print('На этой неделе еще можно подарить: ', set_flower - set_flower_given)
+
+
 
     # num1 = int(input('''Если вы:
     #         изменить название цветка - введите цифру 1;
