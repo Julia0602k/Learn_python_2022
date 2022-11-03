@@ -61,14 +61,6 @@ while True:
                 print('Ошибка! Введите правильно название цветка!')
                 flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
                 continue
-            while flower in set_flower_given:
-                for k, v in dict1.items():
-                    if v == flower:
-                        print('Ошибка! Такой цветок уже был на этой неделе (в ', k,
-                              ')! Введите правильно название цветка!', sep='')
-                        flower = input(
-                            'Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
-                        continue
             dict1[day] = flower
             set_flower_given.add(flower)
             print(dict1)
