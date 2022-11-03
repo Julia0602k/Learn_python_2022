@@ -34,25 +34,6 @@ while True:
             set_day.add(day)
         print('На этой неделе можно подарить: ', set_flower - set_flower_given)
         flower = input('Введите название цветка: ')
-        num1 = int(input('''Если вы:
-        изменить название цветка - введите цифру 1;
-        удалить название цветка введите цифру 2;
-        не хотите ничего изменять - нажмите ЛЮБУЮ ЦИФРУ
-        '''))
-        if num1 == 1:
-            day = input('День, для которого вы хотите изменить название цветка: ')
-            if day not in dict1.keys():
-                print('Ошибка! Введите правильно день недели!')
-                continue
-            flower = input('Введите название цветка: ')
-        elif num1 == 2:
-            # day = input('День, для которого вы хотите удалить название цветка: ')
-            # while day in set_day:
-                # if day not in dict1.keys():
-                #     print('Ошибка! Введите правильно день недели!')
-                #     continue
-            flower_del = input('Введите название цветка для удаления: ')
-            set_flower_given.discard(flower_del)
         while flower not in set_flower:
             print('Ошибка! Введите правильно название цветка!')
             flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
@@ -63,10 +44,43 @@ while True:
                     print('Ошибка! Такой цветок уже был на этой неделе (в ', k,')! Введите правильно название цветка!', sep='')
                     flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
                     continue
-
-        set_flower_given.add(flower)
         dict1[day] = flower
+        set_flower_given.add(flower)
         print(dict1)
+        print(set_flower_given)
+        #  Возможность измениния названия цветка
+        num1 = input('''Если вы:
+        хотите изменить название цветка - введите цифру 1;
+        хотите удалить название цветка введите цифру 2;
+        не хотите ничего изменять - нажмите Enter
+        ''')
+        if num1 == '1':
+            set_flower_given.discard(flower)
+            flower = input('Введите название цветка: ')
+            while flower not in set_flower:
+                print('Ошибка! Введите правильно название цветка!')
+                flower = input('Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
+                continue
+            while flower in set_flower_given:
+                for k, v in dict1.items():
+                    if v == flower:
+                        print('Ошибка! Такой цветок уже был на этой неделе (в ', k,
+                              ')! Введите правильно название цветка!', sep='')
+                        flower = input(
+                            'Введите название цветка (розы,тюльпаны,ромашки,нарциссы,васильки,хлопок,амариллис): ')
+                        continue
+            dict1[day] = flower
+            set_flower_given.add(flower)
+            print(dict1)
+            print(set_flower_given)
+        elif num1 == '2':
+            flower_del = input('Введите название цветка для удаления: ')
+            set_flower_given.discard(flower_del)
+            for v in dict1:
+                if v == flower_del:
+                    del v
+            print(dict1)
+            print(set_flower_given)
         count += 1
     set_flower_given.clear()
     set_day.clear()
@@ -76,3 +90,23 @@ while True:
     #     print('На это неделе муж еще ничего не дарил. Можно подарить: ', set_flower)
     # elif len(set_flower_given) > 0:
     #     print('На этой неделе еще можно подарить: ', set_flower - set_flower_given)
+
+    # num1 = int(input('''Если вы:
+    #         изменить название цветка - введите цифру 1;
+    #         удалить название цветка введите цифру 2;
+    #         не хотите ничего изменять - нажмите ЛЮБУЮ ЦИФРУ
+    #         '''))
+    # if num1 == 1:
+    #     day = input('День, для которого вы хотите изменить название цветка: ')
+    #     if day not in dict1.keys():
+    #         print('Ошибка! Введите правильно день недели!')
+    #         continue
+    #     flower = input('Введите название цветка: ')
+    # elif num1 == 2:
+    #     # day = input('День, для которого вы хотите удалить название цветка: ')
+    #     # while day in set_day:
+    #     # if day not in dict1.keys():
+    #     #     print('Ошибка! Введите правильно день недели!')
+    #     #     continue
+    #     flower_del = input('Введите название цветка для удаления: ')
+    #     set_flower_given.discard(flower_del)
