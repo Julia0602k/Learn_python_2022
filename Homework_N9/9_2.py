@@ -3,4 +3,9 @@
 # Затем переименуйте файлы на: rename_1.txt, rename_2.txt, rename_3.txt
 # После этого удалите созданную папку.
 # Все операции выполнять с помощью встроенных функций библиотеки os.
-import 
+import os
+os.chdir('..')
+os.chdir('..')
+os.chdir('..')
+os.chdir('..')
+print(os.getcwd())
