@@ -7,7 +7,6 @@ import os
 os.chdir('..')
 os.chdir('..')
 os.chdir('..')
-# os.chdir('..')
 if not os.path.isdir('new'):
     os.mkdir('new')
 os.chdir('new')
@@ -21,4 +20,7 @@ test_3.close()
 os.rename('test_1.txt', 'rename_1.txt')
 os.rename('test_2.txt', 'rename_2.txt')
 os.rename('test_3.txt', 'rename_3.txt')
+os.chdir('..')
+print(os.getcwd())
+# os.rmdir('new')
 
