@@ -7,6 +7,7 @@ import os
 os.chdir('..')
 os.chdir('..')
 os.chdir('..')
+os.chdir('Рабочий стол')
 if not os.path.isdir('new'):
     os.mkdir('new')
 os.chdir('new')
@@ -22,5 +23,7 @@ os.rename('test_2.txt', 'rename_2.txt')
 os.rename('test_3.txt', 'rename_3.txt')
 os.chdir('..')
 print(os.getcwd())
-# os.rmdir('new')
+# Не помню, как удалить папку с файлами через os, поэтому нашла такой способ
+import shutil
+shutil.rmtree('new')
 
