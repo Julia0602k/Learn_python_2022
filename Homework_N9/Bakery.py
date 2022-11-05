@@ -45,22 +45,25 @@ while num1 != 'n':
                     print(f'В состав товара "{k}" входит: {v[0]}', end='.\n')
                     print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
                     print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
-                elif num1 == '5':
-                    choise = 1
-                    sum_total = 0
-                    while choise == 1:
-                        kol = int(input('Введите количество товара в граммах:'))
-                        sum1 = int(v[1]) * kol / 100
+        if num1 == '5':
+            choise = 1
+            sum_total = 0
+            while choise == 1:
+                kol = int(input('Введите количество товара в граммах:'))
+                for key, value in dict1.items():
+                    if key == product:
+                        sum1 = int(value[1]) * kol / 100
                         sum_total += sum1
-                        print(f'В корзине товар "{k}", масса: {kol}, сумма за данное количество товара: {sum1}')
-                        choise = int('''Если вы
+                        print(f'В корзине товар "{key}", масса: {kol}, сумма за данное количество товара: {sum1}')
+                        print(f'В наличии товара "{key}", осталось: {int(value[2]) - kol}')
+                choise = int('''Если вы
 хотите продолжить покупки введите цифру 1,
 хотите вернуться в главное меню введите цифру 0.
 Сделайте свой выбор: ''')
-                        if choise == 1:
-                            product = input(f'Введите новое название товара для покупки из списка {dict1.keys()}: ')
-                    else:
-                        print(f'Сумма покупок составляет {sum_total}')
+                if choise == 1:
+                    product = input(f'Введите новое название товара для покупки из списка {dict1.keys()}: ')
+            else:
+                print(f'Сумма покупок составляет {sum_total}')
     else:
         print('Ошибка! Сделайте свой выбор еще раз!')
 
