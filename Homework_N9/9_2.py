@@ -26,4 +26,3 @@ print(os.getcwd())
 # Не помню, как удалить папку с файлами через os, поэтому нашла такой способ
 import shutil
 shutil.rmtree('new')
-
