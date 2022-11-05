@@ -5,10 +5,9 @@ list1 = []
 with open('text3.txt', 'w') as f:
     f.write('Декабрь\nЯнварь\nФевраль\nМарт\nАпрель\nМай')
 with open('text3.txt', 'r') as f:
-    # count = 0
     for i in f.readlines():
         list1.append(i.rstrip('\n'))
-print(list1)
+# print(list1)
 print('Количество строк в файле:', len(list1), '\nКоличество символов строк: ', end='')
 for i in list1:
     print(i, ' - ', len(list1[list1.index(i)]), ', ', sep='',end='')
