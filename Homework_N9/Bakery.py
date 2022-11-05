@@ -17,6 +17,7 @@ dict1 = {'торт': ['сахар, мука, молоко', 3.5, 2000],
 list1 = str(dict1.keys()).lstrip('dict_keys([').rstrip('])')
 num1 = 0
 v_korzine = {}
+sum_total = 0
 while num1 != 'n':
     num1 = input('''Если вы хотите:
     посмотреть описание товара, введите 1,
@@ -39,7 +40,7 @@ while num1 != 'n':
                 if num1 == '1':
                     print(f'В состав товара "{k}" входит: {v[0]}', end='.\n')
                 elif num1 == '2':
-                    print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
+                    print(f'Цена товара "{k}": {v[1]} рублей', end='.\n')
                 elif num1 == '3':
                     print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
                 elif num1 == '4':
@@ -47,40 +48,32 @@ while num1 != 'n':
                     print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
                     print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
                 elif num1 == '5':
-                    choise = 1
-                    sum_total = 0
-                    while choise == 1:
-                        for k, v in dict1.items():
-                            if k == product:
-                                kol = int(input(f'Введите количество товара в граммах (в наличии {v[2]} грамм) или для возврата в главное меню введите 0: '))
-                                if kol == '0':
-                                    break
-                                elif kol <= int(v[2]):
-                                    sum1 = float(v[1]) * kol / 100
-                                    sum_total += sum1
-                                    print(f'В корзине товар "{k}", масса: {kol}, сумма за данное количество товара: {sum1}')
-                                    print(f'В наличии товара "{k}", осталось: {int(v[2]) - kol}')
-                                    v_korzine[k] = kol
-                                    dict1[k] = [int(v[2]) - kol]
-                                    print('У вас в корзине (товар: масса в граммах):', v_korzine)
-                                elif kol > int(v[2]):
-                                    print(f'Ошибка! В наличии есть только {v[2]} грамм(-ов)')
-                                    break
-                        choise = input('''Если вы
-                хотите продолжить покупки введите цифру 1,
-                хотите вернуться в главное меню введите цифру 0.
-                Сделайте свой выбор: ''')
-                        if choise == '1':
-                            product = input(f'Введите новое название товара для покупки из списка {list1}: ')
-                        else:
-                            print(f'Ваши покупки: {v_korzine}\nСумма покупок составляет {sum_total}')
-                            print(f'Количество оставшихся товаров: {dict1}')
+                    print(f'В наличии есть {v[2]}')
+                    weight = int(input(f'Введите количество товара в граммах или для возврата в главное меню введите 0: '))
+                    if weight == '0':
+                        break
+                    elif weight > int(v[2]):
+                        print(f'Ошибка! В наличии есть только {v[2]} грамм(-ов)')
+                        continue
+                    elif weight <= int(v[2]):
+                        sum1 = float(v[1]) * weight / 100
+                        sum_total += sum1
+                        print(f'\nВ корзине товар "{k}", масса: {weight} грамм(-ов), сумма за данное количество товара: {sum1} рублей')
+                        if product in v_korzine.keys():
+                            v_korzine[k] += weight
+                        elif product not in v_korzine.keys():
+                            v_korzine[k] = weight
+
+                        dict1[k] = int(v[2]) - weight
+                        print('Ваши покупки (товар и масса в граммах):')
+                        for key, value in v_korzine.items():
+                            print(f'{key} - {value} грамм(-ов)')
+                        print(f'Сумма покупок составляет {sum_total} рублей')
     else:
         print('Ошибка! Сделайте свой выбор еще раз!')
-
-
-
-
+print('Количество оставшихся товаров:', end='')
+for key, value in dict1.items():
+    print(f'''"{key}": {value[2]}грамм''')
 print('До свидания!')
 
 
