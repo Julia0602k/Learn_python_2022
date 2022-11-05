@@ -27,8 +27,7 @@ while num1 != 'n':
     Сделайте свой выбор: ''')
     if num1 == 'n':
         break
-    elif num1 in range(1, 6):
-            num1 == '1':
+    elif int(num1) in range(1, 6):
         product = input(f'Введите название товара из списка {dict1.keys()}: ')
         while product not in dict1.keys():
             product = input(f'Вы ошиблись! Введите название товара из списка {dict1.keys()} или введите 6 для выхода в главное меню: ')
@@ -36,7 +35,17 @@ while num1 != 'n':
                 break
         for k, v in dict1.items():
             if k == product:
-                print(f'В состав товара "{k}" входит: {v[0]}', end='.\n')
+                if num1 == '1':
+                    print(f'В состав товара "{k}" входит: {v[0]}', end='.\n')
+                elif num1 == '2':
+                    print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
+                elif num1 == '3':
+                    print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
+                elif num1 == '4':
+                    print(f'В состав товара "{k}" входит: {v[0]}', end='.\n')
+                    print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
+                    print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
+                elif num1 == '5':
 
     else:
         print('Ошибка! Сделайте свой выбор еще раз!')
