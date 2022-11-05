@@ -48,7 +48,11 @@ while num1 != 'n':
                     print(f'Цена товара "{k}": {v[1]} руб.', end='.\n')
                     print(f'Количество товара "{k}" в граммах: {v[2]}', end='.\n')
                 elif num1 == '5':
-                    print(f'В наличии есть {v[2]}')
+                    for key, value in v_korzine.items():
+                        if key in v_korzine.keys():
+                            print(f'В наличии есть {int(v[2])-value}')
+                        elif key not in v_korzine.keys():
+                            print(f'В наличии есть {int(v[2])}')
                     weight = int(input(f'Введите количество товара в граммах или для возврата в главное меню введите 0: '))
                     if weight == '0':
                         break
@@ -59,13 +63,14 @@ while num1 != 'n':
                         sum1 = float(v[1]) * weight / 100
                         sum_total += sum1
                         print(f'\nВ корзине товар "{k}", масса: {weight} грамм(-ов), сумма за данное количество товара: {sum1} рублей')
-                        if product in v_korzine.keys():
-                            v_korzine[k] += weight
-                        elif product not in v_korzine.keys():
+                        if product not in v_korzine.keys():
                             v_korzine[k] = weight
-
-                        dict1[k] = int(v[2]) - weight
+                        else:
+                            v_korzine[k] += weight
                         print('Ваши покупки (товар и масса в граммах):')
+                        # for k, v in dict1.items():
+                        #     if product == k:
+                        #         dict[k] = int(v[2]) - weight
                         for key, value in v_korzine.items():
                             print(f'{key} - {value} грамм(-ов)')
                         print(f'Сумма покупок составляет {sum_total} рублей')
