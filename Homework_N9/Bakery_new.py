@@ -65,8 +65,8 @@ while num1 != 'n':
 print('Вы купили:')
 for key, value in v_korzine.items():
     if value != 0:
-        print(f'''"{key}"- {value}грамм''')
+        print(f'''"{key}"- {value} грамм''')
 print('Количество оставшихся товаров:')
 for k, v in dict1.items():
-    print(f'''"{k}": {v[2]}грамм''')
+    print(f'''"{k}": {v[2]} грамм''')
 print('До свидания!')
