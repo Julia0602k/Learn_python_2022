@@ -12,7 +12,3 @@ while rashod <= ost_na_karte:
     list1.append(rashod)
 print('Были произведены следующие расходы:', list1)
 print('На карте осталось: ', ost_na_karte)
-
-
-
-
