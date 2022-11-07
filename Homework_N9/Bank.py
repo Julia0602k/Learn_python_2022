@@ -16,8 +16,11 @@ while spend_money <= sum_card:
     if spend_money > 0:
         list1.append(spend_money)
     if sum_card == 0:
-            break
-    spend_money = int(input('Введите расходы (в рублях): '))
+        break
+    spend_money = input('Введите расходы (в рублях): ')
+    while not spend_money.isdigit():
+        spend_money = input('Ошибка! Введите расходы (в рублях): ')
+    spend_money = int(spend_money)
 if spend_money > sum_card:
     print('Операция по оплате не прошла. Не хватает денежных средств на карте')
 if len(list1) == 0:
