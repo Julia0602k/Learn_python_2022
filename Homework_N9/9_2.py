@@ -21,8 +21,9 @@ test_3.close()
 os.rename('test_1.txt', 'rename_1.txt')
 os.rename('test_2.txt', 'rename_2.txt')
 os.rename('test_3.txt', 'rename_3.txt')
+os.remove('rename_1.txt')
+os.remove('rename_2.txt')
+os.remove('rename_3.txt')
 os.chdir('..')
 print(os.getcwd())
-# Не помню, как удалить папку с файлами через os, поэтому нашла такой способ
-import shutil
-shutil.rmtree('new')
+os.rmdir('new')
