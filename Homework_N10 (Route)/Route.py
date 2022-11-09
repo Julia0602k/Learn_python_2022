@@ -54,6 +54,7 @@ if num_points != 0:
     with open('points.txt', 'a') as f:
         f.write(f'Маршрут из города {city1} в город {city2}, расстояние {distance} км:\n')
         f.write(f'На пути {num_points} промежуточных населенных пункта(-ов):\n')
+    distance_all_point = 0
 # Промежуточные населенные пункты (если маршрут не был ранее сохранен)
 for i in range(num_points):
     point = input(f'Введите промежуточный населенный пункт N{i + 1}: ')
@@ -65,7 +66,15 @@ for i in range(num_points):
     while not point_long.isdigit():
         point_long = input(f'Ошибка! Введите протяженность населенного пункта {point} (в км): ')
     point_long = int(point_long)
+    distance_all_point += point_long
     with open('points.txt', 'a') as f:
         f.write(f'N{i + 1}: населенный пункт {point}, максимальная разрешенная скорость: {point_speed} км/ч, протяженность населенного пункта {point_long} км\n')
 #Время, за которое пользователь хочет добраться
-time = input('Введите время, за которое вы хотите добраться в точку прибытия: ')
+
+# time = input('Введите время, за которое вы хотите добраться в точку прибытия (в часах): ')
+# while not time.isdigit():
+#     time = input(f'Ошибка! Введите время, за которое вы хотите добраться в точку прибытия (в часах): ')
+# time = int(time)
+# speed_middle = (distance - distance_all_point) / (time - (distance_all_point / 60))
+# with open('points.txt', 'a') as f:
+#     f.write(f'Чтобы добраться за {time} часа(-ов) вне населенных пунктов нужно двигаться со скоростью {speed_middle} км/ч')
