@@ -2,7 +2,7 @@
 # месяц принадлежит (зима, весна, лето или осень). Номер месяца вводить с клавиатуры
 
 # Решение
-def season1(a):
+def season(a):
     for k, v in dict1.items():
         if a in v:
             return k
@@ -12,7 +12,7 @@ while count == 0:
     b = input('Введите номер месяца (от 1 до 12): ')
     for v in dict1.values():
         if b in v:
-            print(season1(b))
+            print(f'''Месяц принадлежит сезону "{season(b)}"''')
             count = 1
 
 # # Вариант 2 (без проверки)
