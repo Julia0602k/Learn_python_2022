@@ -15,6 +15,10 @@ while start:
             print(f'''Месяц принадлежит сезону "{season(b)}"''')
             start = 0
 
+
+
+
+
 # # Вариант 2 (без проверки)
 # def season(a):
 #     for k, v in dict1.items():

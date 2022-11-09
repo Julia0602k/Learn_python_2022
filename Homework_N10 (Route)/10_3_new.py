@@ -41,18 +41,26 @@ def type_str(a):
     print(f'Количество букв строки {b}')
     return b
 
+# def is_alpha(a):
+#     b = 0
+#     for i in str(a):
+#         if i.isalpha():
+#             b += 1
+#     return b
+
+def what_is_type(abc):
+    if type(abc) is tuple:
+        type_tuple(abc)
+    elif type(abc) is list:
+        type_list(abc)
+    elif type(abc) is int:
+        type_int(abc)
+    elif type(abc) is str:
+        type_str(abc)
+
 t = ('Hello world', 123, 'April')
 h = ['Hello world', 123, 'April']
 n = 123
 w = 'Hello world'
 
-abc = w      #Здесь нужно ввести букву из переменных выше
-
-if type(abc) is tuple:
-    type_tuple(abc)
-elif type(abc) is list:
-    type_list(abc)
-elif type(abc) is int:
-    type_int(abc)
-elif type(abc) is str:
-    type_str(abc)
+what_is_type(h)      #Здесь нужно ввести букву из переменных выше
