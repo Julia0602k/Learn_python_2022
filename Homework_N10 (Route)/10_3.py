@@ -5,14 +5,26 @@
 # Сделать проверку со всеми этими случаями
 a = [1, 2, 3]
 def type_is(a):
+    b = 0
+    c = 0
     if a is tuple:
-        pass
-    elif a is  list:
-        pass
+        for i in str(a):
+            if i.isalpha():
+                b += 1
+    elif a is list:
+        for i in str(a):
+            if i.isalpha():
+                b += 1
+            elif i.isdigit():
+                c += 1
     elif a is int:
-        pass
-    elif a is str:
-        pass
-    return b
+        for i in str(a):
+            if int(i) % 2:
+                b += 1
+    elif a is str(a):
+        for i in str(a):
+            if i.isalpha():
+                b += 1
+    return b, с
 
 print(type_is(a))

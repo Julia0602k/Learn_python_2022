@@ -20,21 +20,8 @@ def season1(a):
     for k, v in dict1.items():
         if a in v:
             return k
-print(season(a))
+print(season1(a))
 
-
-
-
-
-
-
-# a = input('Введите номер месяца (от 1 до 12): ')
-# b = 0
-# for v in dict1.values():
-#     if a in v:
-#         b = 1
-# while b == 0:
-#     a = input('Введите номер месяца (от 1 до 12): ')
 
 # Вариант 3
 # def season():
