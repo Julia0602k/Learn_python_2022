@@ -5,9 +5,12 @@
 
 def season():
     a = input('Введите номер месяца (от 1 до 12): ')
+    tuple1 = tuple()
+    for v in dict1.values():
+        tuple1 += v
+    while not a in tuple1:
+        a = input('Ошибка! Введите номер месяца (от 1 до 12): ')
     for k, v in dict1.items():
-        while not a in v:
-            a = input('Ошибка! Введите номер месяца (от 1 до 12): ')
         if a in v:
             return k
 
