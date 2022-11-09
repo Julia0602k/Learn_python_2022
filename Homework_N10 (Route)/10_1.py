@@ -1,27 +1,27 @@
 # 1. Написать функцию season, принимающую 1 аргумент — номер месяца (от 1 до 12), и возвращающую время года, которому этот
 # месяц принадлежит (зима, весна, лето или осень). Номер месяца вводить с клавиатуры
 
-# Вариант 1 (без проверки)
-def season(a):
+# Решение
+def season1(a):
     for k, v in dict1.items():
         if a in v:
             return k
 dict1 = {'зима': ('1', '2', '12'), 'весна': ('3', '4', '5'), 'лето': ('6', '7', '8'), 'осень': ('9', '10', '11')}
-print(season(input('Введите номер месяца (от 1 до 12): ')))
+count = 0
+while count == 0:
+    b = input('Введите номер месяца (от 1 до 12): ')
+    for v in dict1.values():
+        if b in v:
+            print(season1(b))
+            count = 1
 
-# Вариант 2
-def season1(a):
-    count = 0
-    while count == 0:
-        a = input('Введите номер месяца (от 1 до 12): ')
-        for v in dict1.values():
-            if a in v:
-                count = 1
-    for k, v in dict1.items():
-        if a in v:
-            return k
-print(season1(a))
-
+# # Вариант 2 (без проверки)
+# def season(a):
+#     for k, v in dict1.items():
+#         if a in v:
+#             return k
+# dict1 = {'зима': ('1', '2', '12'), 'весна': ('3', '4', '5'), 'лето': ('6', '7', '8'), 'осень': ('9', '10', '11')}
+# print(season(input('Введите номер месяца (от 1 до 12): ')))
 
 # Вариант 3
 # def season():
@@ -37,8 +37,7 @@ print(season1(a))
 #         s = 'лето'
 #     else:
 #         s = 'осень'
-#     return s
-#
+#     return s#
 # print(season())
 
 
