@@ -3,3 +3,16 @@
 # Число – кол-во нечётных цифр.
 # Строка – количество букв.
 # Сделать проверку со всеми этими случаями
+a = [1, 2, 3]
+def type_is(a):
+    if a is tuple:
+        pass
+    elif a is  list:
+        pass
+    elif a is int:
+        pass
+    elif a is str:
+        pass
+    return b
+
+print(type_is(a))
