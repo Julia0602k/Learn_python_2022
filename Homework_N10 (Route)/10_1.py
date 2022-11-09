@@ -7,13 +7,13 @@ def season(a):
         if a in v:
             return k
 dict1 = {'зима': ('1', '2', '12'), 'весна': ('3', '4', '5'), 'лето': ('6', '7', '8'), 'осень': ('9', '10', '11')}
-count = 0
-while count == 0:
+start = 1
+while start:
     b = input('Введите номер месяца (от 1 до 12): ')
     for v in dict1.values():
         if b in v:
             print(f'''Месяц принадлежит сезону "{season(b)}"''')
-            count = 1
+            start = 0
 
 # # Вариант 2 (без проверки)
 # def season(a):
