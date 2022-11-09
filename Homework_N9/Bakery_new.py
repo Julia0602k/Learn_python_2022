@@ -49,6 +49,7 @@ while num1 != 'n':
                         if weight == '0':
                             break
                         elif int(weight) > v[2]:
+                            # while
                             print(f'Ошибка! В наличии есть только {v[2]} грамм(-ов)')
                             continue
                         elif int(weight) <= v[2]:
