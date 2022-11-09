@@ -31,28 +31,41 @@
 # чтобы пользователь платил, как можно меньше за топливо. И программа дожна выдавать на экран
 # на каких заправках, сколько и на какую сумму нужно будет дозаправить
 
-city1 = input('Введите точку отправлени (город): ')                #Точки отправления и прибытия
+city1 = input('Введите точку отправления (город): ')                #Точки отправления и прибытия
 city2 = input('Введите точку прибытия (город): ')
 distance = input('Введите расстояние между городами (в км): ')     #Расстояние между точками
 while not distance.isdigit():
     distance = input('Ошибка! Введите расстояние между городами (в км): ')
 distance = int(distance)
-dict_points = {}                                                    #Промежуточные населенные пункты
+with open('points.txt', 'a') as f:
+    f.write(f'Маршрут из города {city1} в город {city2}, расстояние: {distance} км:\n')
+#Промежуточные населенные пункты
 num_points = input('Введите количество населенных пунктов: ')
 while not num_points.isdigit():
-    num_points = input('Введите количество населенных пунктов: ')
+    num_points = input('Ошибка! Введите количество населенных пунктов: ')
+    print('Промежуточные населенные пункты:')
 num_points = int(num_points)
-for i in range(num_points):
-    point = input(f'Введите промежуточный населенный пункт N{i+1}: ')
+# count_points = 0
+# while not count_points == num_points:
+
+    point = input(f'Введите промежуточный населенный пункт N{count_points + 1}: ')
     point_speed = input(f'Введите максимально разрешенную скорость в населенном пункте {point} (в км/ч): ')
     while not point_speed.isdigit():
-        point_speed = input(f'Введите максимально разрешенную скорость в населенном пункте {point} (в км/ч): ')
+        point_speed = input(f'Ошибка! Введите максимально разрешенную скорость в населенном пункте {point} (в км/ч): ')
     point_speed = int(point_speed)
     point_long = input(f'Введите протяженность населенного пункта {point} (в км): ')
     while not point_long.isdigit():
-        point_long = input(f'Введите протяженность населенного пункта {point} (в км): ')
+        point_long = input(f'Ошибка! Введите протяженность населенного пункта {point} (в км): ')
     point_long = int(point_long)
-    dict_points[point] = (point_speed, point_long)
+    # stop_input = input('''Если вы хотите:
+    #        изменить название промежуточного населенного пункта и данные о нем, введите 1
+    #        если не хотите ничего изменять, введите любое число''')
+    # if stop_input == '1':
+    #     break
+    # count_points += 1
+    with open('points.txt', 'a') as f:
+        f.write(f'N{count_points}: город {point}, максимальная разрешенная скорость: {point_speed}, протяженность {point_long} км\n')
+
 
 
 
