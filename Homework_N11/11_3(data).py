@@ -11,9 +11,9 @@ def date(day, month, year):
                 print(True)
             else:
                 print(False)
-day = int(input('введите число: '))
-month = int(input('введите номер месяца: '))
-year = int(input('введите год: '))
+day = int(input('Введите число: '))
+month = int(input('Введите номер месяца: '))
+year = int(input('Введите год: '))
 
 dict1 = {28: (2,), 30: (4, 6, 9, 11), 31: (1, 3, 5, 7, 8, 10, 12)}
 date(day, month, year)
