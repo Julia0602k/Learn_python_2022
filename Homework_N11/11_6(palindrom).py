@@ -10,7 +10,7 @@
 # Примечание 3. Следующий программный код:
 #
 # print(is_palindrome(‘А роза упала на лапу Азора.’))
-# print(is_palindrome(‘Gabler Ruby — burrel bag!’))
+# print(is_palindrome(‘Gabler Ruby - burrel bag!’))
 # print(is_palindrome(‘BEEGEEK’))
 # должен выводить:
 #
@@ -18,38 +18,17 @@
 # True
 # False
 
-# # def is_palindrome(text):
-#     for i in list(text.lower()):
-#         if i not in [' ', ',', '.', '!', '?', '-']:
-#             list_new.append(i)
-#     list_new2 = list.reverse(list_new)
-#     print(list_new, list_new2)
-#     # for i in list_new:
-#     #     if i ==
-#     #     if len(list_new) % 2:
-#     #
-#     #     print(True)
-#     # else:
-#     #     print(False)
-# text = input('Введите текст: ')
-# list_new = []
-
-
-
-
-#
+def is_palindrome(text):
+    for i in list(text.lower()):
+        if i not in [' ', ',', '.', '!', '?', '-']:
+            list_new.append(i)
+    list_new2 = list.copy(list_new)
+    list.reverse(list_new2)
+    if list_new == list_new2:
+        print(True)
+    else:
+        print(False)
 text = input('Введите текст: ')
 list_new = []
-for i in list(text.lower()):
-    if i not in [' ', ',', '.', '!', '?', '-']:
-        list_new.append(i)
-list_new2 = list.copy(list_new)
-    list.reverse(list_new)
-# print(list_new, list_new2)
-
-
-
-
-
-
+is_palindrome(text)
 
