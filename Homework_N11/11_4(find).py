@@ -18,3 +18,14 @@
 # [0, 4, 7, 8, 9]
 # []
 # [4]
+
+def find_all(target, symbol):
+    list1 = []
+    for i in target:
+        if i == symbol:
+            print(target.index(i))
+            list1.append(target.index(i))
+    return list1
+target = input('Введите строку: ')
+symbol = input('Введите символ для поиска в строке: ')
+print(find_all(target, symbol))
