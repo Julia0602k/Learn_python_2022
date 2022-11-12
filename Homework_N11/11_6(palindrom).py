@@ -17,3 +17,39 @@
 # True
 # True
 # False
+
+# # def is_palindrome(text):
+#     for i in list(text.lower()):
+#         if i not in [' ', ',', '.', '!', '?', '-']:
+#             list_new.append(i)
+#     list_new2 = list.reverse(list_new)
+#     print(list_new, list_new2)
+#     # for i in list_new:
+#     #     if i ==
+#     #     if len(list_new) % 2:
+#     #
+#     #     print(True)
+#     # else:
+#     #     print(False)
+# text = input('Введите текст: ')
+# list_new = []
+
+
+
+
+#
+text = input('Введите текст: ')
+list_new = []
+for i in list(text.lower()):
+    if i not in [' ', ',', '.', '!', '?', '-']:
+        list_new.append(i)
+list_new2 = list.copy(list_new)
+    list.reverse(list_new)
+# print(list_new, list_new2)
+
+
+
+
+
+
+
