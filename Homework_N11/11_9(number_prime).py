@@ -8,8 +8,14 @@
 # print(is_prime(10))
 # print(is_prime(17))
 # должен выводить:
-#
 # False
 # False
 # True
-#
+
+def is_prime(num):
+    del1 = 2
+    while num % del1 != 0:
+        del1 += 1
+    return num == del1
+num = int(input('Введите натуральное число: '))
+print(is_prime(num))
