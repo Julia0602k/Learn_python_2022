@@ -38,3 +38,5 @@ password = input('''Введите надежный пароль:
 print(is_password_good(password))
 while not is_password_good(password):
     password = input('Ошибка! Введите пароль правильно: ')
+else:
+    print(is_password_good(password))
