@@ -23,10 +23,8 @@ def is_palindrome(text):
             list_new.append(i)
     list_new2 = list.copy(list_new)
     list.reverse(list_new2)
-    if list_new == list_new2:
-        return True
-    else:
-        return False
+    return list_new == list_new2
+
 text = input('Введите текст: ')
 list_new = []
 print(is_palindrome(text))
