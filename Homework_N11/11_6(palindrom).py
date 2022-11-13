@@ -22,7 +22,8 @@ def is_palindrome(text):
         if i not in [' ', ',', '.', '!', '?', '-']:
             list_new.append(i)
     list_new2 = list.copy(list_new)
-    list.reverse(list_new2)
+    list_new2.reverse()
+    print(list_new, list_new2)
     return list_new == list_new2
 
 text = input('Введите текст: ')

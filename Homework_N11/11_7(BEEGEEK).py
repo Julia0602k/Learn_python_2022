@@ -32,12 +32,9 @@ def is_digit(*args):
             count += 1
     return count == 0
 def is_palindrome(num):
-    list_new = []
-    for i in list(num.lower()):
-        if i not in [' ', ',', '.', '!', '?', '-']:
-            list_new.append(i)
+    list_new = list(num)
     list_new2 = list.copy(list_new)
-    list.reverse(list_new2)
+    list_new2.reverse()
     return list_new == list_new2
 def is_prime(num):
     if int(num) >= 2:
