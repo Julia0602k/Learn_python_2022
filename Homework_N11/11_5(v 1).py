@@ -21,10 +21,7 @@ def is_one_away(word1, word2):
         for i in range(len(word1)):
             if word1[i] == word2[i]:
                 count += 1
-    if len(word1) - count == 1 and len(word1) == len(word2):
-        return True
-    else:
-        return False
+    return len(word1) - count == 1 and len(word1) == len(word2)
 
 word1 = input('Введите первое слово: ')
 word2 = input('Введите второе слово: ')

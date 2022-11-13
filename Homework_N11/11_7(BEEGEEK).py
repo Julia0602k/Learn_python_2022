@@ -24,3 +24,45 @@
 # False
 # False
 # False
+# def is_valid_password(password):
+#     if :
+#         return True
+#     else:
+#         return False
+
+# def is_palindrome(text):
+#     list_new = []
+#     for i in list(text.lower()):
+#         if i not in [' ', ',', '.', '!', '?', '-']:
+#             list_new.append(i)
+#     list_new2 = list.copy(list_new)
+#     list.reverse(list_new2)
+#     if list_new == list_new2:
+#         return True
+#     else:
+#         return False
+def is_prime(num):
+    del1 = 2
+    while int(num) % del1 != 0:
+        del1 += 1
+    return num == del1
+
+
+
+
+
+# print('Введите пароль в формате a:b:c')
+# a = input('Введите a (число должно быть палиндромом): ')
+# while True:
+#     if not is_palindrome(a) or not a.isdigit():
+#         a = input('Ошибка! Введите a: ')
+b = input('Введите b (число должно быть простым): ')
+while True:
+    if not is_prime(b) or not b.isdigit():
+        print(is_prime(b))
+        b = input('Ошибка! Введите b: ')
+
+# c = input('Введите c: (должно быть четным): ')
+
+# print(is_valid_password(password))
+# password = a + b + c
