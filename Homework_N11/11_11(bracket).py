@@ -25,7 +25,6 @@
 def is_correct_bracket(text):
     while '()' in text:
         text = text.replace('()', '')
-    else:
-        return not text
+    return not text
 text = input('''Введите строку, состоящую из символов "(" и ")" : ''')
 print(is_correct_bracket(text))
