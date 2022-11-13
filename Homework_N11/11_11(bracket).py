@@ -17,30 +17,25 @@ def is_correct_bracket(text):
     count2 = 0
     count3 = 0
     while count2 - count1 == count3 - count2:
-        for i in text[count1:]:
-            if i == '(':
-                count2 += 1
-            else:
-                break
-        for i in text[count2:]:
-            if i == ')':
-                count3 += 1
-            else:
-                break
+        start = 1
+        while start:
+            for i in text[count1:]:
+                if i == '(':
+                    count2 += 1
+                else:
+                    break
+        start = 1
+        count3 = count2
+        print(111, count1, count2, count3)
+        while start:
+            for i in text[count2:]:
+                if i == ')':
+                    count3 += 1
+                else:
+                    break
+        count1 = count3
+        print(222, count1, count2, count3)
     return True
-    # for i in text:
-    #     if i == '(' and
-    #
+
 text = input('''Введите строку, состоящую из символов "(" и ")" : ''')
 print(is_correct_bracket(text))
-# start = 1
-# count = 0
-# while start:
-#     for i in text:
-#         if i in ['(', ')']:
-#             count += 1
-#     if count == len(text):
-#         start = 0
-#         print('ok')
-#     else:
-#         text = input('''Ошибка! Введите строку, состоящую из символов "(" и ")" : ''')
