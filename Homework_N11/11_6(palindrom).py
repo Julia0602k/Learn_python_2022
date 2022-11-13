@@ -17,7 +17,6 @@
 # True
 # True
 # False
-
 def is_palindrome(text):
     for i in list(text.lower()):
         if i not in [' ', ',', '.', '!', '?', '-']:
@@ -25,10 +24,9 @@ def is_palindrome(text):
     list_new2 = list.copy(list_new)
     list.reverse(list_new2)
     if list_new == list_new2:
-        print(True)
+        return True
     else:
-        print(False)
+        return False
 text = input('Введите текст: ')
 list_new = []
-is_palindrome(text)
-
+print(is_palindrome(text))
