@@ -17,17 +17,18 @@
 #
 # True
 # False
-
 def is_password_good(password):
     a = 0
     b = 0
     c = 0
-
-        for i in password:
-            if
-    if len(password) < 8:
-
-    return True
+    for i in password:
+        if i.isupper():
+            a += 1
+        if i.islower():
+            b += 1
+        if i.isdigit():
+            c += 1
+    return len(password) >= 8 and a >= 1 and b >= 1 and c >= 1
 password = input('''Введите надежный пароль:
 его длина не менее 8 символов;
 он содержит как минимум одну заглавную букву (верхний регистр);
@@ -36,6 +37,4 @@ password = input('''Введите надежный пароль:
 Введите пароль: ''')
 print(is_password_good(password))
 while not is_password_good(password):
-    password = input('Ошибка! Введите пароль в формате правильно: ')
-
-
+    password = input('Ошибка! Введите пароль правильно: ')
