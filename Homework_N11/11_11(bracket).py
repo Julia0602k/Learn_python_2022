@@ -12,15 +12,20 @@
 # True
 # False
 
+# def is_correct_bracket(text):
+#     count1 = 0
+#     for i in text:
+#         if i == '(':
+#             count1 += 1
+#         elif i == ')':
+#             count1 -= 1
+#         if count1 < 0:
+#             return False
+#     return count1 == 0
 def is_correct_bracket(text):
-    count1 = 0
-    for i in text:
-        if i == '(':
-            count1 += 1
-        elif i == ')':
-            count1 -= 1
-        if count1 < 0:
-            return False
-    return count1 == 0
+    while '()' in text:
+        text = text.replace('()', '')
+    else:
+        return not text
 text = input('''Введите строку, состоящую из символов "(" и ")" : ''')
 print(is_correct_bracket(text))
