@@ -25,8 +25,6 @@ def is_valid_password(password):
         c = password.split(':')[2]
         if is_digit(a,b,c) and is_palindrome(a) and is_prime(b) and is_even(c):
             return True
-        else:
-            return False
     return False
 def is_digit(*args):
     count = 0
@@ -57,4 +55,3 @@ password = input('''Введите пароль в формате a:b:c
 print(is_valid_password(password))
 while not is_valid_password(password):
     password = input('Ошибка! Введите пароль в формате a:b:c правильно: ')
-
