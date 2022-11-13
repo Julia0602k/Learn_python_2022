@@ -23,8 +23,7 @@ def is_valid_password(password):
         a = password.split(':')[0]
         b = password.split(':')[1]
         c = password.split(':')[2]
-        if is_digit(a,b,c) and is_palindrome(a) and is_prime(b) and is_even(c):
-            return True
+        return is_digit(a,b,c) and is_palindrome(a) and is_prime(b) and is_even(c)
     return False
 def is_digit(*args):
     count = 0
@@ -41,10 +40,12 @@ def is_palindrome(num):
     list.reverse(list_new2)
     return list_new == list_new2
 def is_prime(num):
-    del1 = 2
-    while int(num) % del1 != 0:
-        del1 += 1
-    return int(num) == del1
+    if int(num) >= 2:
+        del1 = 2
+        while int(num) % del1 != 0:
+            del1 += 1
+        return int(num) == del1
+    return False
 def is_even(num):
     return int(num) % 2 == 0
 password = input('''Введите пароль в формате a:b:c

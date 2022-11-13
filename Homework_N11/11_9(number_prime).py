@@ -13,9 +13,11 @@
 # True
 
 def is_prime(num):
-    del1 = 2
-    while num % del1 != 0:
-        del1 += 1
-    return num == del1
+    if num >= 2:
+        del1 = 2
+        while num % del1 != 0:
+            del1 += 1
+        return num == del1
+    return False
 num = int(input('Введите натуральное число: '))
 print(is_prime(num))

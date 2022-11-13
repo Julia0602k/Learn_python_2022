@@ -19,8 +19,14 @@
 # False
 
 def is_password_good(password):
-    # if len(password):
-    #
+    a = 0
+    b = 0
+    c = 0
+
+        for i in password:
+            if
+    if len(password) < 8:
+
     return True
 password = input('''Введите надежный пароль:
 его длина не менее 8 символов;
