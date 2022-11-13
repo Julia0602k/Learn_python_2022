@@ -15,10 +15,17 @@
 # 7
 # 11
 # 17
-# def is_prime(num):
-#     del1 = 2
-#     while int(num) % del1 != 0:
-#         del1 += 1
-#     return int(num) == del1
-# num = int(input('Введите целое натуральное число: '))
-# print(is_prime(num))
+def get_next_prime(num):
+    while not is_prime(num):
+        num += 1
+    return num
+def is_prime(num):
+    if num >= 2:
+        del1 = 2
+        while num % del1 != 0:
+            del1 += 1
+        return num == del1
+    return False
+num = int(input('Введите натуральное число: '))
+num += 1
+print(get_next_prime(num))
