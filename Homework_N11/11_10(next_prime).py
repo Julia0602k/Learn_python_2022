@@ -26,6 +26,8 @@ def is_prime(num):
             del1 += 1
         return num == del1
     return False
-num = int(input('Введите натуральное число: '))
+num = input('Введите натуральное число: ')
+while num.isdigit():
+    num = input('Введите натуральное число: ')
 num += 1
 print(get_next_prime(num))
