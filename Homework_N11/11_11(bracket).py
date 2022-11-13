@@ -15,3 +15,19 @@
 #
 # True
 # False
+
+def is_correct_bracket(text):
+    for i in text:
+        if i == '(' and
+text = input('''Введите строку, состоящую из символов "(" и ")" : ''')
+start = 1
+count = 0
+while start:
+    for i in text:
+        if i in ['(', ')']:
+            count += 1
+    if count == len(text):
+        start = 0
+        print('ok')
+    else:
+        text = input('''Ошибка! Введите строку, состоящую из символов "(" и ")" : ''')
