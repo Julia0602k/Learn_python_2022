@@ -21,14 +21,9 @@
 
 def find_all(target, symbol):
     list1 = []
-    count = 0
-    for i in target:
-        if i == symbol:
-            print(target[count:])
-            n = target[count:].find(i)
-            print(n, count)
-            list1.append(n)
-            count = n+1
+    for i in range(len(target)):
+        if target[i] == symbol:
+            list1.append(i)
     return list1
 target = input('Введите строку: ')
 symbol = input('Введите символ для поиска в строке: ')
