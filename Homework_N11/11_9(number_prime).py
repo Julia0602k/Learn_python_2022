@@ -11,7 +11,6 @@
 # False
 # False
 # True
-
 def is_prime(num):
     if num >= 2:
         del1 = 2
