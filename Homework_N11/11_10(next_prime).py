@@ -11,7 +11,6 @@
 # print(get_next_prime(7))
 # print(get_next_prime(14))
 # должен выводить:
-#
 # 7
 # 11
 # 17
@@ -27,7 +26,7 @@ def is_prime(num):
         return num == del1
     return False
 num = input('Введите натуральное число: ')
-while num.isdigit():
+while not num.isdigit() or int(num) < 1:
     num = input('Введите натуральное число: ')
-num += 1
+num = int(num) + 1
 print(get_next_prime(num))
