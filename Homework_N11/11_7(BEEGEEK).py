@@ -53,3 +53,5 @@ password = input('''Введите пароль в формате a:b:c
 print(is_valid_password(password))
 while not is_valid_password(password):
     password = input('Ошибка! Введите пароль в формате a:b:c правильно: ')
+else:
+    print(is_valid_password(password))
