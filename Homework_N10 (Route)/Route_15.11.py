@@ -118,38 +118,45 @@ def refuel():
         car()
         car_m = newCar
     list_azs_all = []
-    dict_azs_all = {}
     for i in azs(0):
         if i == choise_m:
             list_azs_all += azs(0)[azs(0).index(i) + 1].split(' ')
-    for i in list_azs_all[1::3]:
-        dict_azs_all[int(i)] = float(list_azs_all[list_azs_all.index(i) + 1])
     print(list_azs_all)
-    print(dict_azs_all)
     print(car(0))
     for i in car(0):
         if i == car_m:
-            rashod = car(0)[car(0).index(i) + 1]
-            volume = car(0)[car(0).index(i) + 2]
+            rashod = int(car(0)[car(0).index(i) + 1])
+            volume = int(car(0)[car(0).index(i) + 2])
+            print(rashod)
+            print(volume)
     now_fuel_tank = int(input('Введите объем топлива в баке в начале поездки: '))
-    print(rashod)
-    print(volume)
+    all_way = choise_m.split(' ')[2].strip('км')
+    amount_fuel_all_way = all_way * rashod / 100
+    if now_fuel_tank >= amount_fuel_all_way:
+        return f'Вам не нужны дозаправки! По окончании маршрута у вас останется {now_fuel_tank - amount_fuel_all_way}л'
+    # while
+    list3_optimal = []
+    list4_ideal = []
+    for i in list_azs_all[1::3]:
+        if int(i) < (now_fuel_tank * 100 / rashod):
+            list3_optimal.append(list_azs_all[i - 1:i + 2])
+    minimal = list3_optimal[0][2]
+    for i in list3_optimal[1:]:
+        if i[2] < (list3_optimal.index(i) - 1)[2]:
+            minimal = i[2]
+            list4_ideal = i
+    amount_fuel_azs = volume - (now_fuel_tank - int(list4_ideal[1]) * rashod / 100)
+    print(f'''Нужно заправить автомобиль на заправке N{list4_ideal[0]}, на {list4_ideal[1]}км пути, цена топлива {list4_ideal[2]} рублей за 1 литр.
+Заправить нужно {amount_fuel_azs} литров на сумму {amount_fuel_azs * list4_ideal[2]} рублей''')
 
-
-
-
-    # amount_fuel_all_way = int(route_is(0)[n].split(' ')[2].strip('км')) * int(car(0)[n1+1]) / 100
-
-#     for i in azs(0):
-#         if i == choise_m:
-#             list2 = azs(0)[int(azs(0).index(i))+1].split(' ')
-#     if now_fuel_tank >= amount_fuel_all:
-#         return f'Вам не нужны дозаправки! По окончании маршрута у вас останется {now_fuel_tank - amount_fuel_all}л'
-#     dict1 = {}
-#     distance = now_fuel_tank * 100 / int(car(0)[n1+1])
-#     i = 1
-#     list3_optimal = []
-#     list4_ideal = []
+#         else:
+#             print(f'Вы не сможете доехать до следующей заправки N{list2[i - 1]}!')
+#
+#     start = 1
+#     while start:
+#         if (now_fuel_tank * 100 / rashod) >
+#
+# #     list4_ideal = []
 #     start = 1
 #     while start:
 #         while distance >= list2[i]:
@@ -163,7 +170,7 @@ def refuel():
 #         i = list2.index(minimal[1]) + 3
 #         distance = int(car(0)[n1+2]) *100 / int(car(0)[n1+1]) - (int(list2[i]) - int(list2[i-3]))
 #         if distance < 0:
-#             print(f'Вы не сможете доехать до следующей заправки N{list2[i-1]}!')
+#
 #         # if
     return dict_azs_all
 ##
