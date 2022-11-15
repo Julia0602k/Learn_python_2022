@@ -117,24 +117,29 @@ def refuel():
     if car_m == 'New':
         car()
         car_m = newCar
-    dict_azs_all ={}
+    list_azs_all = []
+    dict_azs_all = {}
     for i in azs(0):
         if i == choise_m:
-            list_azs_all = list(azs(0)[azs(0).index(i) + 1])
-    for i in range(len(list_azs_all)):
-        if i == 1:
-            # dict_azs_all[] =
-            # for j in azs(0)[azs(0).index(i) + 1]:
-            #     if .index(j) == 1:
-            #         dict_azs[azs(0)[i+1]] = azs(0)[i+2]
-            #         j += 3
-    return dict_azs
+            list_azs_all += azs(0)[azs(0).index(i) + 1].split(' ')
+    for i in list_azs_all[1::3]:
+        dict_azs_all[int(i)] = float(list_azs_all[list_azs_all.index(i) + 1])
+    print(list_azs_all)
+    print(dict_azs_all)
+    print(car(0))
+    for i in car(0):
+        if i == car_m:
+            rashod = car(0)[car(0).index(i) + 1]
+            volume = car(0)[car(0).index(i) + 2]
+    now_fuel_tank = int(input('Введите объем топлива в баке в начале поездки: '))
+    print(rashod)
+    print(volume)
 
-#     for i in car(0):
-#         if i == car_m:
-#             n1 = car(0).index(i)
-#     amount_fuel_all = int(route_is(0)[n].split(' ')[2].strip('км')) * int(car(0)[n1+1]) / 100
-#     now_fuel_tank = int(input('Введите объем топлива в баке: '))
+
+
+
+    # amount_fuel_all_way = int(route_is(0)[n].split(' ')[2].strip('км')) * int(car(0)[n1+1]) / 100
+
 #     for i in azs(0):
 #         if i == choise_m:
 #             list2 = azs(0)[int(azs(0).index(i))+1].split(' ')
@@ -160,6 +165,7 @@ def refuel():
 #         if distance < 0:
 #             print(f'Вы не сможете доехать до следующей заправки N{list2[i-1]}!')
 #         # if
+    return dict_azs_all
 ##
 #
 #
