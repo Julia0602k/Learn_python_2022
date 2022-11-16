@@ -125,8 +125,6 @@ def refuel():
     for i in azs(0):
         if i == choise_m:
             list_azs_all += azs(0)[azs(0).index(i) + 1].split(' ')
-    # print(list_azs_all)
-    # print(car(0))
     rashod = ''
     volume = ''
     for i in car(0):
@@ -137,71 +135,73 @@ def refuel():
             print(volume)
 
 
-
+    #Объем топлива в баке в начале поездки
     now_fuel_tank = int(input('Введите объем топлива в баке в начале поездки: '))
+    #Расстояние (весь маршрут)
     all_way = choise_m.split(' ')[2].strip('км')
+    #Количество топлива на весь путь:
     amount_fuel_all_way = int(all_way) * rashod / 100
     if now_fuel_tank >= amount_fuel_all_way:
         return f'Вам не нужны дозаправки! По окончании маршрута у вас останется {now_fuel_tank - amount_fuel_all_way}л'
-    # while
-    print(list_azs_all)
-    print(car(0))
-    list2_can_drive = [] #Заправки, до которых можно доехать на залитом топливе
-    list3_1azs_for_me = [] #Список для одной заправки с минимальной ценой, до которой можно доехать
-    list4_optimal_on_way = []
+    print('list_azs_all', list_azs_all)
+    print('rashod =', rashod, 'volume =', volume)
+    # Расстояние на полном баке (запас 5л)
+    distance_all_fuel_tank = (volume - 5) * 100 / rashod
+    # Заправки, до которых можно доехать на залитом топливе
+    list2_can_drive = []
+    n = ''
     for i in list_azs_all[1::3]:
         if int(i) <= ((now_fuel_tank - 5) * 100 / rashod):
             n = list_azs_all.index(i)
             list2_can_drive += list_azs_all[n - 1:n + 2]
     print('list_can_drive', list2_can_drive)
-    list_for_minimal = []     #список с минимальными ценами
+    # Определение минимальной цены на ближайших заправках
+    list_for_minimal = []
     minimal = ''
     for i in list2_can_drive[2::3]:
         list_for_minimal.append(float(i))
         minimal = min(list_for_minimal)
     print('list_for_minimal', list_for_minimal)
     print('minimal =', minimal)
+    #Список данных НУЖНОЙ заправки
+    list3_1azs_for_me = []
     for i in list2_can_drive:
         if float(i) == minimal:
             n3 = list2_can_drive.index(i)
             list3_1azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
     print('list3_1azs_for_me', list3_1azs_for_me)
 
-    distance_all_fuel_tank = (volume - 5) * 100 / rashod    #запас 5л
-                        # Точка, до которой могу доехать при полном баке с этой заправки
-
-                                 # point_distance_all_fuel_tank = distance_all_fuel_tank + int(list3_1azs_for_me[1])
-    list2_can_drive = []
-    n5 = ''
-    for i in list_azs_all:
-        if i == list3_1azs_for_me[2]:
-            n5 = list_azs_all.index(i)
-    for i in list_azs_all[n5+2::3]:
-        if int(i) - int(list3_1azs_for_me[1]) <= distance_all_fuel_tank:
-            n6 = list_azs_all.index(i)
-            list2_can_drive += list_azs_all[n6 - 1:n6 + 2]
-    print('list_can_drive', list2_can_drive)
-    list3_2azs_for_me = []
-    list_for_minimal = []     #список с минимальными ценами
-    minimal = ''
-    for i in list2_can_drive[2::3]:
-        list_for_minimal.append(float(i))
-        minimal = min(list_for_minimal)
-    print('list_for_minimal', list_for_minimal)
-    print('minimal =', minimal)
-    for i in list2_can_drive:
-        if float(i) == minimal:
-            n3 = list2_can_drive.index(i)
-            list3_2azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
-    print('list3_2azs_for_me', list3_2azs_for_me)
-    amount_fuel_on_azs = (int(list3_2azs_for_me[1]) - int(list3_1azs_for_me[1]))*rashod / 100
-    print(f'''Нужно заправить автомобиль на заправке N{list3_1azs_for_me[0]}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
+    start = 1
+    while start:
+        list2_can_drive = []
+        n5 = ''
+        for i in list_azs_all:
+            if i == list3_1azs_for_me[2]:
+                n5 = list_azs_all.index(i)
+        for i in list_azs_all[n5+2::3]:
+            if int(i) - int(list3_1azs_for_me[1]) <= distance_all_fuel_tank:
+                n6 = list_azs_all.index(i)
+                list2_can_drive += list_azs_all[n6 - 1:n6 + 2]
+        print('list_can_drive', list2_can_drive)
+        list3_2azs_for_me = []
+        list_for_minimal = []     #список с минимальными ценами
+        minimal = ''
+        for i in list2_can_drive[2::3]:
+            list_for_minimal.append(float(i))
+            minimal = min(list_for_minimal)
+        print('list_for_minimal', list_for_minimal)
+        print('minimal =', minimal)
+        for i in list2_can_drive:
+            if float(i) == minimal:
+                n3 = list2_can_drive.index(i)
+                list3_2azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
+        print('list3_2azs_for_me', list3_2azs_for_me)
+        amount_fuel_on_azs = (int(list3_2azs_for_me[1]) - int(list3_1azs_for_me[1]))*rashod / 100
+        print(f'''Нужно заправить автомобиль на заправке N{list3_1azs_for_me[0]}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
 Заправить нужно {amount_fuel_on_azs} литров на сумму {amount_fuel_on_azs * float(list3_1azs_for_me[2])} рублей''')
 
-    return list2_can_drive
+    return 1
 
-#         else:
-#             print(f'Вы не сможете доехать до следующей заправки N{list2[i - 1]}!')
 
 
 while True:
