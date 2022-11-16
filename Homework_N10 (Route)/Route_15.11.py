@@ -145,13 +145,17 @@ def refuel():
             n = list_azs_all.index(i)
             list2_can_drive += list_azs_all[n - 1:n + 2]
     print(list2_can_drive)
-    minimal = list2_can_drive[2]         #?????
+    list_for_minimal= []
+    # minimal = list2_can_drive[2]         #?????
     for i in list2_can_drive[2::3]:
-        n1 = list2_can_drive.index(i)
-        if float(list2_can_drive[n1]) > float(list2_can_drive[n1 + 3]):
-            minimal = list2_can_drive[n1 + 3]
-        else:
-            minimal = list2_can_drive[n1]
+        list_for_minimal.append(int(i))
+        minimal = min(list_for_minimal)
+    print(list_for_minimal)
+    # for i in list2_can_drive:
+    #     if i == minimal:
+    #         n3 = list2_can_drive.index(i)
+    #         list3_optimal += list2_can_drive[n3 - 2:n3 + 1]
+    # print(list3_optimal)
     for i in list2_can_drive:
         if i == minimal:
             n2 = list2_can_drive.index(i)
