@@ -173,15 +173,20 @@ def refuel():
 
     start = 1
     while start:
+        num = ''
+        for i in list_azs_all:
+            if i == list3_2azs_for_me[1]:
+                num = list_azs_all.index(i)
         list2_can_drive = []
-        n5 = ''
         for i in list_azs_all:
             if i == list3_1azs_for_me[2]:
                 n5 = list_azs_all.index(i)
-        for i in list_azs_all[n5+2::3]:
+        for i in list_azs_all[num + 3::3]:
             if int(i) - int(list3_1azs_for_me[1]) <= distance_all_fuel_tank:
                 n6 = list_azs_all.index(i)
                 list2_can_drive += list_azs_all[n6 - 1:n6 + 2]
+            else:
+
         print('list_can_drive', list2_can_drive)
         list3_2azs_for_me = []
         list_for_minimal = []     #список с минимальными ценами
@@ -199,7 +204,6 @@ def refuel():
         amount_fuel_on_azs = (int(list3_2azs_for_me[1]) - int(list3_1azs_for_me[1]))*rashod / 100
         print(f'''Нужно заправить автомобиль на заправке N{list3_1azs_for_me[0]}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
 Заправить нужно {amount_fuel_on_azs} литров на сумму {amount_fuel_on_azs * float(list3_1azs_for_me[2])} рублей''')
-
     return 1
 
 
