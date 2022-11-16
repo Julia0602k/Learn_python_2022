@@ -170,13 +170,10 @@ def refuel():
             n3 = list2_can_drive.index(i)
             list3_1azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
     print('list3_1azs_for_me', list3_1azs_for_me)
-
+    num = ''
     start = 1
     while start:
-        num = ''
-        for i in list_azs_all:
-            if i == list3_2azs_for_me[1]:
-                num = list_azs_all.index(i)
+        # Заправки, до которых можно доехать на залитом топливе
         list2_can_drive = []
         for i in list_azs_all:
             if i == list3_1azs_for_me[2]:
@@ -185,22 +182,27 @@ def refuel():
             if int(i) - int(list3_1azs_for_me[1]) <= distance_all_fuel_tank:
                 n6 = list_azs_all.index(i)
                 list2_can_drive += list_azs_all[n6 - 1:n6 + 2]
-            else:
-
+            # else:
+        # Определение минимальной цены на ближайших заправках
         print('list_can_drive', list2_can_drive)
-        list3_2azs_for_me = []
-        list_for_minimal = []     #список с минимальными ценами
+        list_for_minimal = []
         minimal = ''
         for i in list2_can_drive[2::3]:
             list_for_minimal.append(float(i))
             minimal = min(list_for_minimal)
         print('list_for_minimal', list_for_minimal)
         print('minimal =', minimal)
+        # Список данных НУЖНОЙ заправки
+        list3_2azs_for_me = []
         for i in list2_can_drive:
             if float(i) == minimal:
                 n3 = list2_can_drive.index(i)
                 list3_2azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
         print('list3_2azs_for_me', list3_2azs_for_me)
+
+        for i in list_azs_all:
+            if i == list3_2azs_for_me[1]:
+                num = list_azs_all.index(i)
         amount_fuel_on_azs = (int(list3_2azs_for_me[1]) - int(list3_1azs_for_me[1]))*rashod / 100
         print(f'''Нужно заправить автомобиль на заправке N{list3_1azs_for_me[0]}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
 Заправить нужно {amount_fuel_on_azs} литров на сумму {amount_fuel_on_azs * float(list3_1azs_for_me[2])} рублей''')
