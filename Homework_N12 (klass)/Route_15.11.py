@@ -109,7 +109,13 @@ def azs(a = 1):
 # # *** Сделайте так, чтобы программа определяла самые оптимальные точки для остановок на дозаправку,
 # чтобы пользователь платил, как можно меньше за топливо. И программа дожна выдавать на экран
 # на каких заправках, сколько и на какую сумму нужно будет дозаправить
-
+def minimal1(a):
+    list_for_minimal = []
+    minimal = ''
+    for i in a[2::3]:
+        list_for_minimal.append(float(i))
+    minimal = min(list_for_minimal)
+    return minimal
 def refuel():
     choise_m = input(f'''Ваши сохраненные маршруты: {str(route_is(0)[::3])[1:-1]}
 Напишите свой выбор или "New", чтобы добавить новый: ''')
@@ -144,7 +150,6 @@ def refuel():
     print('rashod =', rashod, 'volume =', volume)
     # Расстояние на полном баке (запас 5л)
     distance_all_fuel_tank = (volume - 5) * 100 / rashod
-    # Заправки, до которых можно доехать на залитом топливе
     num = -2
     start = 1
     azs1_km = 0
@@ -152,30 +157,25 @@ def refuel():
     while start:
         if int(now_fuel_tank) >= int(amount_fuel_way):
             return f'Вам не нужно заезжать на AЗС, по окончании маршрута у вас останется {now_fuel_tank - amount_fuel_way}л'
+        # Заправки, до которых можно доехать на залитом топливе
         list2_can_drive = []
         for i in list_azs_all[num + 3::3]:
             if int(i) - azs1_km <= ((now_fuel_tank - 5) * 100 / rashod):
                 n = list_azs_all.index(i)
                 list2_can_drive += list_azs_all[n - 1:n + 2]
         print('list2_can_drive', list2_can_drive)
-        # Определение минимальной цены на ближайших заправках
-        list_for_minimal = []
-        minimal = ''
-        for i in list2_can_drive[2::3]:
-            list_for_minimal.append(float(i))
-            minimal = min(list_for_minimal)
-        print('list_for_minimal', list_for_minimal)
-        print('minimal =', minimal)
+        # Определение минимальной цены на ближайших заправках (функция выше)
+        # minimal1(list2_can_drive)
         #Список данных НУЖНОЙ заправки
         list3_1azs_for_me = []
         for i in list2_can_drive:
-            if float(i) == minimal:
+            if float(i) == minimal1(list2_can_drive):
                 n3 = list2_can_drive.index(i)
                 list3_1azs_for_me += list2_can_drive[n3 - 2:n3 + 1]
                 azs1_km = int(list2_can_drive[1])
         print('list3_1azs_for_me', list3_1azs_for_me)
 
-        # Список данных СЛЕДУЮЩЕЙ заправки
+        # Заправки СЛЕДУЮЩИЕ, до которых можно доехать на залитом топливе
         num_next = 0
         list2_can_drive_next = []
         for i in list_azs_all[1::3]:
@@ -183,12 +183,16 @@ def refuel():
                 n = list_azs_all.index(i)
                 list2_can_drive_next += list_azs_all[n - 1:n + 2]
         print('list2_can_drive_next', list2_can_drive_next)
+        # Определение минимальной цены на СЛЕДУЮЩИХ заправках (функция выше)
+        # minimal1(list2_can_drive_next)
+        # Список данных СЛЕДУЮЩЕЙ заправки
         list3_2azs_for_me = []
         for i in list2_can_drive_next:
-            if float(i) == minimal:
+            if float(i) == minimal1(list2_can_drive_next):
                 n3 = list2_can_drive_next.index(i)
                 list3_2azs_for_me += list2_can_drive_next[n3 - 2:n3 + 1]
                 azs2_km = list2_can_drive_next[1]
+        #Количество топлива
         amount_fuel_way = (int(all_way) - int(azs1_km)) * rashod / 100
         print('list3_2azs_for_me', list3_2azs_for_me)
         #
