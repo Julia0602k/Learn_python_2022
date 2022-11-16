@@ -123,32 +123,45 @@ def refuel():
             list_azs_all += azs(0)[azs(0).index(i) + 1].split(' ')
     print(list_azs_all)
     print(car(0))
-    for i in car(0):
-        if i == car_m:
-            rashod = int(car(0)[car(0).index(i) + 1])
-            volume = int(car(0)[car(0).index(i) + 2])
-            print(rashod)
-            print(volume)
+    # for i in car(0):
+    #     if i == car_m:
+    #         rashod = int(car(0)[car(0).index(i) + 1].strip('л'))
+    #         volume = int(car(0)[car(0).index(i) + 2].strip('л'))
+    #         print(rashod)
+    #         print(volume)
+    rashod = 10
+    volume = 70
     now_fuel_tank = int(input('Введите объем топлива в баке в начале поездки: '))
     all_way = choise_m.split(' ')[2].strip('км')
-    amount_fuel_all_way = all_way * rashod / 100
+    amount_fuel_all_way = int(all_way) * rashod / 100
     if now_fuel_tank >= amount_fuel_all_way:
         return f'Вам не нужны дозаправки! По окончании маршрута у вас останется {now_fuel_tank - amount_fuel_all_way}л'
     # while
+    list2_can_drive = [] #Заправки, до которых можно доехать на залитом топливе
     list3_optimal = []
     list4_ideal = []
     for i in list_azs_all[1::3]:
         if int(i) < (now_fuel_tank * 100 / rashod):
-            list3_optimal.append(list_azs_all[i - 1:i + 2])
-    minimal = list3_optimal[0][2]
-    for i in list3_optimal[1:]:
-        if i[2] < (list3_optimal.index(i) - 1)[2]:
-            minimal = i[2]
-            list4_ideal = i
-    amount_fuel_azs = volume - (now_fuel_tank - int(list4_ideal[1]) * rashod / 100)
-    print(f'''Нужно заправить автомобиль на заправке N{list4_ideal[0]}, на {list4_ideal[1]}км пути, цена топлива {list4_ideal[2]} рублей за 1 литр.
-Заправить нужно {amount_fuel_azs} литров на сумму {amount_fuel_azs * list4_ideal[2]} рублей''')
-
+            n = list_azs_all.index(i)
+            list2_can_drive += list_azs_all[n - 1:n + 2]
+    print(list2_can_drive)
+    minimal = list2_can_drive[2]         #?????
+    for i in list2_can_drive[2::3]:
+        n1 = list2_can_drive.index(i)
+        if float(list2_can_drive[n1]) > float(list2_can_drive[n1 + 3]):
+            minimal = list2_can_drive[n1 + 3]
+        else:
+            minimal = list2_can_drive[n1]
+    for i in list2_can_drive:
+        if i == minimal:
+            n2 = list2_can_drive.index(i)
+            list3_optimal += list2_can_drive[n2:n2 + 3]
+    print(list3_optimal)
+#     amount_fuel_azs = volume - (now_fuel_tank - int(list4_ideal[1]) * rashod / 100)
+#     print(f'''Нужно заправить автомобиль на заправке N{list4_ideal[0]}, на {list4_ideal[1]}км пути, цена топлива {list4_ideal[2]} рублей за 1 литр.
+# Заправить нужно {amount_fuel_azs} литров на сумму {amount_fuel_azs * list4_ideal[2]} рублей''')
+#     print(list3_optimal, '\n', list4_ideal)
+    return list2_can_drive
 #         else:
 #             print(f'Вы не сможете доехать до следующей заправки N{list2[i - 1]}!')
 #
@@ -172,15 +185,8 @@ def refuel():
 #         if distance < 0:
 #
 #         # if
-    return dict_azs_all
-##
-#
-#
-#
-#
-#     return
-#
-#
+#     return dict_azs_all
+
 
 
 # # *** Сделайте так, чтобы программа определяла самые оптимальные точки для остановок на дозаправку,
