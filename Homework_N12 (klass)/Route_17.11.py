@@ -162,6 +162,12 @@ def refuel():
     minimal_1azs = ''
     minimal_2azs = ''
     distance_ost = 0
+    km1 = 0
+    # for i in list_azs_all[1::3]:
+    #     if int(i) - km1 > volume *100 / 10:
+    #         return f'Вы не сможете проехать весь путь от заправки до заправки (проблема возникнет на {km1} - {int(i)} км пути). Возьмите с собой канистру'
+    #     else:
+    #         km = i
     while True:
         # Заправки, до которых можно доехать на залитом топливе
         while len(list2_can_drive) == 0:
