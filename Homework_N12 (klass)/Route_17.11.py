@@ -184,7 +184,7 @@ def refuel():
                     list3_1azs_for_me.append(list2_can_drive[n - 1])
                     list3_1azs_for_me.append(list2_can_drive[n])
         minimal_1azs = minimal1(list2_can_drive)  # Определение минимальной цены на ближайших заправках (функция выше)
-        print('minimal_1azs', minimal_1azs)
+        # print('minimal_1azs', minimal_1azs)
         azs1_km = int(list3_1azs_for_me[1])
         # Заправки СЛЕДУЮЩИЕ, до которых можно доехать на залитом топливе
         list2_can_drive_next = []
@@ -193,12 +193,12 @@ def refuel():
                 list2_can_drive_next += list_azs_all[list_azs_all.index(i) - 1:list_azs_all.index(i) + 2]
         if len(list2_can_drive_next) == 0:
             distance_ost = int(all_way) - azs1_km
-            print('distance_ost', distance_ost)
+            # print('distance_ost', distance_ost)
             now_fuel_tank -= (azs1_km - point_0) * rashod / 100
-            print('now_fuel_tank до заправки', now_fuel_tank)
+            # print('now_fuel_tank до заправки', now_fuel_tank)
             amount_fuel_on_azs = (distance_ost *10 / 100 + 5) - now_fuel_tank
             now_fuel_tank += amount_fuel_on_azs
-            print('now_fuel_tank после заправки', now_fuel_tank)
+            # print('now_fuel_tank после заправки', now_fuel_tank)
             print(f'''Нужно заправить автомобиль на заправке N{int(list3_1azs_for_me[0]) + 1}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
 Заправить нужно {amount_fuel_on_azs} литров на сумму {amount_fuel_on_azs * float(list3_1azs_for_me[2])} рублей''')
             sum_fuel_rub += amount_fuel_on_azs * float(list3_1azs_for_me[2])
@@ -208,31 +208,30 @@ def refuel():
         elif len(list2_can_drive_next) != 0:
             # Список данных СЛЕДУЮЩЕЙ заправки
             list3_2azs_for_me = []
-            minimal_2azs = minimal1(
-                list2_can_drive_next)  # Определение минимальной цены на ближайших заправках (функция выше)
-            print('minimal_2azs', minimal_2azs)
+            minimal_2azs = minimal1(list2_can_drive_next)  # Определение минимальной цены на ближайших заправках (функция выше)
+            # print('minimal_2azs', minimal_2azs)
             for i in list2_can_drive_next:
                 if float(i) == minimal_2azs:
                     n = list2_can_drive_next.index(i)
                     list3_2azs_for_me.append(list2_can_drive_next[n - 2])
                     list3_2azs_for_me.append(list2_can_drive_next[n - 1])
                     list3_2azs_for_me.append(list2_can_drive_next[n])
-            print('list2_can_drive', list2_can_drive)
-            print('list3_1azs_for_me', list3_1azs_for_me)
-            print('list2_can_drive_next', list2_can_drive_next)
-            print('list3_2azs_for_me', list3_2azs_for_me)
+            # print('list2_can_drive', list2_can_drive)
+            # print('list3_1azs_for_me', list3_1azs_for_me)
+            # print('list2_can_drive_next', list2_can_drive_next)
+            # print('list3_2azs_for_me', list3_2azs_for_me)
     # Количество топлива, которое нужно заправить ОПТИМАЛЬНО (до следующей заправки с минимальной ценой, до которой смогу доехать)
         now_fuel_tank -= (azs1_km - point_0) * rashod / 100
-        print('now_fuel_tank до заправки', now_fuel_tank)
+        # print('now_fuel_tank до заправки', now_fuel_tank)
         if minimal_1azs <= minimal_2azs:
             #Заливаем полный бак
             amount_fuel_on_azs = volume - now_fuel_tank
             now_fuel_tank = volume
-            print('amount_fuel_on_azs', amount_fuel_on_azs)
+            # print('amount_fuel_on_azs', amount_fuel_on_azs)
         elif minimal_1azs > minimal_2azs:
             amount_fuel_on_azs = (int(list3_2azs_for_me[1]) - int(list3_1azs_for_me[1])) * rashod / 100 - now_fuel_tank + 5
             now_fuel_tank += amount_fuel_on_azs
-        print('now_fuel_tank после заправки', now_fuel_tank)
+        # print('now_fuel_tank после заправки', now_fuel_tank)
         print(f'''Нужно заправить автомобиль на заправке N{int(list3_1azs_for_me[0]) + 1}, на {list3_1azs_for_me[1]}км пути, цена топлива {list3_1azs_for_me[2]} рублей за 1 литр.
 Заправить нужно {amount_fuel_on_azs} литров на сумму {amount_fuel_on_azs * float(list3_1azs_for_me[2])} рублей''')
         sum_fuel_rub += amount_fuel_on_azs * float(list3_1azs_for_me[2])
