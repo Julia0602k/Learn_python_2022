@@ -163,11 +163,11 @@ def refuel():
     minimal_2azs = ''
     distance_ost = 0
     km1 = 0
-    # for i in list_azs_all[1::3]:
-    #     if int(i) - km1 > volume *100 / 10:
-    #         return f'Вы не сможете проехать весь путь от заправки до заправки (проблема возникнет на {km1} - {int(i)} км пути). Возьмите с собой канистру'
-    #     else:
-    #         km = i
+    for i in list_azs_all[1::3]:
+        if (int(i) - int(km1)) < volume * 100 / 10:
+            km1 = i
+        else:
+            return f'Вы не сможете проехать весь путь от заправки до заправки (проблема возникнет на {km1} - {int(i)} км пути). Возьмите с собой канистру'
     while True:
         # Заправки, до которых можно доехать на залитом топливе
         while len(list2_can_drive) == 0:
@@ -204,7 +204,7 @@ def refuel():
             sum_fuel_rub += amount_fuel_on_azs * float(list3_1azs_for_me[2])
             amount_fuel_way_ost = (int(all_way) - int(azs1_km)) * rashod / 100
             return f'''Больше не нужно заезжать на AЗС, по окончании маршрута у вас останется {int(now_fuel_tank - amount_fuel_way_ost)}л.
-Стоимость топлива для поездки составит {sum_fuel_rub} рублей'''
+Стоимость топлива для поездки составит {sum_fuel_rub} рублей\n'''
         elif len(list2_can_drive_next) != 0:
             # Список данных СЛЕДУЮЩЕЙ заправки
             list3_2azs_for_me = []
@@ -243,7 +243,7 @@ def refuel():
         list3_1azs_for_me = list3_2azs_for_me
         if int(now_fuel_tank) >= int(amount_fuel_way_ost):
             return f'''Больше не нужно заезжать на AЗС, по окончании маршрута у вас останется {now_fuel_tank - amount_fuel_way_ost}л.
-Стоимость топлива для поездки составит {sum_fuel_rub} рублей'''
+Стоимость топлива для поездки составит {sum_fuel_rub} рублей\n'''
 
 while True:
     choise = int(input('''Если хотите проложить новый маршрут, введите - 1            
