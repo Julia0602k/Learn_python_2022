@@ -38,5 +38,4 @@ class Str_or_int:
         return len(abc)
 
 house = Str_or_int()
-a = input('Введите строку или число: ')
-print(house.str_or_int(a))
+print(house.str_or_int(input('Введите строку или число: ')))
