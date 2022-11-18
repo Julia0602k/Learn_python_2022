@@ -7,35 +7,36 @@
 #
 # Длину строки и числа искать во втором методе
 #
-class House:
-    def input1(self):
-        abc = input('Введите строку или число: ')
-        return abc
-    def calculation(self, abc):
-        if abc.isdigit:
-            count1 = len(abc)
+class Str_or_int:
+    def str_or_int(self, abc):
+        if abc.isdigit():
+            count1 = self.calculation(abc)
             for i in abc:
-                if i % 2 == 0:
+                if int(i) % 2 == 0:
                     count1 *= int(i)
             return count1
-        elif not abc.isdigit:
+        elif not abc.isdigit():
             abc = abc.lower()
             str_gl = ''
             str_sogl = ''
             count_gl = 0
             count_sogl = 0
             for i in abc:
-                if i.isalpha:
+                if i.isalpha():
                     if i in ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']:
                         str_gl += i
                         count_gl += 1
                     else:
                         str_sogl += i
                         count_sogl += 1
-            if count_gl * count_sogl <= len(abc):
+            if count_gl * count_sogl <= self.calculation(abc):
                 return str_gl
             else:
                 return str_sogl
-house = House()
-print(house.input1())
-print(house.calculation())
+
+    def calculation(self, abc):
+        return len(abc)
+
+house = Str_or_int()
+a = input('Введите строку или число: ')
+print(house.str_or_int(a))
