@@ -14,7 +14,7 @@ class Str_or_int:
             for i in abc:
                 if int(i) % 2 == 0:
                     count1 *= int(i)
-            return count1
+            print(count1)
         elif not abc.isdigit():
             abc = abc.lower()
             str_gl = ''
@@ -30,12 +30,12 @@ class Str_or_int:
                         str_sogl += i
                         count_sogl += 1
             if count_gl * count_sogl <= self.calculation(abc):
-                return str_gl
+                print(str_gl)
             else:
-                return str_sogl
+                print(str_sogl)
 
     def calculation(self, abc):
         return len(abc)
 
 house = Str_or_int()
-print(house.str_or_int(input('Введите строку или число: ')))
+house.str_or_int(input('Введите строку или число: '))
