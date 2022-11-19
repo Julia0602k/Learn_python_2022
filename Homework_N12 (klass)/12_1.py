@@ -26,7 +26,7 @@ weather2.wind = 5
 weather2.print_weather()
 
 
-Инкапсуляция
+# Инкапсуляция
 class Num1:
     def number1(self, num1):
         self.num1 = num1
@@ -43,7 +43,7 @@ ex1.number1('Первый')
 ex1._number2('Второй')
 ex1._Num1__number3('Третий')
 
-Наследование
+# Наследование
 class Flower:
     def __init__(self, color):
         self.color = color
