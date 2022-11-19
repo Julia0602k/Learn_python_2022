@@ -9,7 +9,14 @@ class Road:
     pass
 # Полиморфизм
 class Weather:
+    def __init__(self, temperature, wind):
+        self.temperature = temperature
+        self.wind = wind
+    def print_weather(self):
+        print(f'Температура {self.temperature} градусов, ветер {self.wind} м/c')
+class Weather_new(Weather):
     pass
+
 # Инкапсуляция
 class Num1:
     def number1(self, num1):
@@ -37,14 +44,14 @@ class Summer_Flower(Flower):
     def __init__(self, color, height):
         super().__init__(color)
         self.height = height
-    def print_info(self):
-        print(f'Цветок {self.color}, высотой {self.height}')
+    def print_info1(self):
+        print(f'Цветок высотой {self.height}')
 class Spring_Flower(Flower):
     def __init__(self, color, month):
         super().__init__(color)
         self.month = month
-    def print_info(self):
-        print(f'''Цветок {self.color}, цветет в месяце "{self.month}"''')
+    def print_info1(self):
+        print(f'''Цветок цветет в месяце "{self.month}"''')
 class New_flower(Spring_Flower):
     def __init__(self, color, month, price):
         super().__init__(color, month)
@@ -57,14 +64,17 @@ flower3 = Summer_Flower('розовый', '50 см')
 
 flower1.print_info()
 flower2.print_info()
+flower2.print_info1()
 flower3.print_info()
+flower3.print_info1()
 
-flower2.color = 'синий'
-flower2.month = 'март'
-flower2.print_info()
+# flower2.color = 'синий'
+# flower2.month = 'март'
+# flower2.print_info()
 
 flower4 = New_flower('желтый', 'апрель', '10 рублей')
 flower4.print_info()
+flower4.print_info1()
 flower4.print_info2()
 
 
