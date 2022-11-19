@@ -37,5 +37,5 @@ class Str_or_int:
     def calculation(self, abc):
         return len(abc)
 
-house = Str_or_int()
-house.str_or_int(input('Введите строку или число: '))
+word1 = Str_or_int()
+word1.str_or_int(input('Введите строку (на русском языке) или число: '))
