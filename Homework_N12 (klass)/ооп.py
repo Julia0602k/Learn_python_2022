@@ -1,13 +1,13 @@
 # # Пример создания пустого класса:
 # class Example:
 #     pass
-
-
-# Пример создания экземпляра класса
+#
+#
+# # Пример создания экземпляра класса
 # ex_1 = Example()
-
-
-# Тип переменной ex_1(Экземпляр класса):
+#
+#
+# # Тип переменной ex_1(Экземпляр класса):
 # print(type(ex_1))
 
 
@@ -25,8 +25,8 @@
 #         print('Я метод экземпляра класса "Example_3"')
 # ex_3 = Example_3()
 # ex_3.print_info()
-#
-#
+# #
+# #
 # # Методы бывают пользовательские и встроенные
 # class Metods:
 #     def __init__(self): # Встроенный метод уже есть по умолчанию
@@ -69,17 +69,16 @@
 #     def __init__(self, color, model): # Переопределяем метод __init__
 #         self.color1 = color # Это динамический метод
 #         self.model1 = model # Это динамический метод
-#
 #     def print_info(self,n1,n2,n3):
 #         c = n1 + n2 + n3
 #         print(c)
-#
 # car1 = Car('red', 'Ferrari')
 # print(car1.color1, '|', car1.model1, '|', car1.weight)
+# # print(Car.weight)
 #
 # car2 = Car('black', 'Tesla')
 # print(car2.color1, '|', car2.model1, '|', car2.weight)
-
+# #
 
 # Методы экземпляра класса, методы класса, статические методы
 # class Example_6:
@@ -87,33 +86,28 @@
 #     @staticmethod
 #     def print_info(): # теперь это статический метод, self не указывается
 #         print('Информация')
-#
+# #
 # Example_6.print_info()
 
+class ClassMetods:
+    total_odject = 0
+    @classmethod
+    def __init__(cls):
+        cls.total_odject += 1
+    @classmethod
+    def get_count_info(cls):
+        print(f'Total Object are = {cls.total_odject}')
+class ClassMetods2(ClassMetods):
+    def print_info(self):
+        print('Информация')
 
-
-# class ClassMetods:
-#     total_odject = 0
-#
-#     @classmethod
-#     def __init__(cls):
-#         cls.total_odject += 1
-#
-#
-#     @classmethod
-#     def get_count_info(cls):
-#         print(f'Total Object are = {cls.total_odject}')
-#
-#
-# class ClassMetods2(ClassMetods):
-#     def print_info(self):
-#         print('Информация')
-#
-# class1 = ClassMetods()
-# class2 = ClassMetods()
-# class3 = ClassMetods2()
-# ClassMetods.get_count_info()
-# ClassMetods2.get_count_info()
+class1 = ClassMetods()
+class2 = ClassMetods()
+classs = ClassMetods()
+class3 = ClassMetods2()
+ClassMetods.get_count_info()
+ClassMetods2.get_count_info()
+class3.print_info()
 
 
 # Уровни доступа атрибутов
