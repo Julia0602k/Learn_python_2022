@@ -5,11 +5,20 @@
 # Наследование
 # Продемонстрировать работу данных классов, отвечающих за примеры парадигм ООП.
 # Абстракция
-class
+class Road:
+    pass
 
 # Полиморфизм
 class Tree:
+    pass
 # Инкапсуляция
-class Flower:
-# Наследование
 class Weather:
+    pass
+
+# Наследование
+class Flower:
+    pass
+class Summer_Flower:
+    pass
+class Spring_Flower:
+    pass
