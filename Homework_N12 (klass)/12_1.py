@@ -11,7 +11,7 @@ class Road:
         self.distance = distance
     def print1(self):
         print(f'Ширина дороги {self.distance}')
-road1 = Road('')
+road1 = Road('10м')
 road1.print1()
 
 # Полиморфизм
