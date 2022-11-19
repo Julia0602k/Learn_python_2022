@@ -4,9 +4,16 @@
 # Инкапсуляция
 # Наследование
 # Продемонстрировать работу данных классов, отвечающих за примеры парадигм ООП.
+
 # Абстракция
 class Road:
-    pass
+    def __init__(self, distance):
+        self.distance = distance
+    def print1(self):
+        print(f'Ширина дороги {self.distance}')
+road1 = Road('30км')
+road1.print1()
+
 # Полиморфизм
 class Weather:
     def __init__(self, temperature, wind):
@@ -24,7 +31,6 @@ weather2.print_weather()
 weather2.temperature = 0
 weather2.wind = 5
 weather2.print_weather()
-
 
 # Инкапсуляция
 class Num1:
