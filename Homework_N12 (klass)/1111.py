@@ -11,7 +11,7 @@
 # class Example:
 #     a = 1
 #     b = 2
-#     def __init__(self, c, d, e):
+#     def __init__(self, c, d):
 #         self.c1 = c
 #         self.d1 = d
 #
