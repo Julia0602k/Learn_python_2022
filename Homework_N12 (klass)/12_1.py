@@ -8,9 +8,9 @@
 # Абстракция
 class Car:
     def print1(self):
-        return 1
+        pass
     def info1(self):
-        return 2
+        pass
 class Car2(Car):
     def print1(self):
         print('BMW X5')
