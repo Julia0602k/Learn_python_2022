@@ -6,12 +6,12 @@
 # Продемонстрировать работу данных классов, отвечающих за примеры парадигм ООП.
 
 # Абстракция
-class Road:
-    def __init__(self, distance):
-        self.distance = distance
+class Car:
+    def __init__(self, color):
+        self.color = color
     def print1(self):
-        print(f'Ширина дороги {self.distance}')
-road1 = Road('10м')
+        print(f'Цвет машины {self.color}')
+road1 = Car('orange')
 road1.print1()
 
 # Полиморфизм
