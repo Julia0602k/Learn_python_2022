@@ -1,4 +1,11 @@
 # ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
+# У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
+# 1) Пол: Мужчина или Женщина
+# 2) Рандомное имя в зависимости от пола:
+# М(Lionel McCoy, Charles Cross, John Pitz, Jeffry Young, Johnathan Randall, Edward Townsend, Lewis Pope)
+# Ж(Aubrey Gilmore, Avice Reynolds, Theresa Bradford, Shonda Douglas, Karen Sanders, Ruby Rice, Ruth Rice)
+# Можно дополнить своими вариантами
+# 3) Возраст: от 18 до 100 лет
 class Human:
     def __init__(self, gender, name, age):
         self.gender = gender
@@ -20,13 +27,7 @@ for i in range(random.randint(2, 5)):
 print(dict_human)
 print(len(dict_human))
 
-# У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
-            # 1) Пол: Мужчина или Женщина
-            # 2) Рандомное имя в зависимости от пола:
-            # М(Lionel McCoy, Charles Cross, John Pitz, Jeffry Young, Johnathan Randall, Edward Townsend, Lewis Pope)
-            # Ж(Aubrey Gilmore, Avice Reynolds, Theresa Bradford, Shonda Douglas, Karen Sanders, Ruby Rice, Ruth Rice)
-            # Можно дополнить своими вариантами
-3) Возраст: от 18 до 100 лет
+
 # 4) Характер: холерик или сангвиник или меланхолик или флегматик
 # 5) Место работы: Рабочий или Безработный
 # 6) Рандомный капитал от 100$ до 10000$
