@@ -7,12 +7,21 @@
 
 # Абстракция
 class Car:
-    def __init__(self, color):
-        self.color = color
     def print1(self):
-        print(f'Цвет машины {self.color}')
-car1 = Car('orange')
+        return 1
+    def info1(self):
+        return 2
+class Car2(Car):
+    def print1(self):
+        print('BMW X5')
+    def info1(self):
+        a = 1
+        b = 2
+        return a + b
+car1 = Car2()
 car1.print1()
+print(car1.info1())
+
 
 # Полиморфизм
 class Weather:
