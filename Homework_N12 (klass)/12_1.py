@@ -11,8 +11,8 @@ class Car:
         self.color = color
     def print1(self):
         print(f'Цвет машины {self.color}')
-road1 = Car('orange')
-road1.print1()
+car1 = Car('orange')
+car1.print1()
 
 # Полиморфизм
 class Weather:
