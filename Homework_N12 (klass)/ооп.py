@@ -86,28 +86,28 @@
 #     @staticmethod
 #     def print_info(): # теперь это статический метод, self не указывается
 #         print('Информация')
-# #
+#
 # Example_6.print_info()
 
-class ClassMetods:
-    total_odject = 0
-    @classmethod
-    def __init__(cls):
-        cls.total_odject += 1
-    @classmethod
-    def get_count_info(cls):
-        print(f'Total Object are = {cls.total_odject}')
-class ClassMetods2(ClassMetods):
-    def print_info(self):
-        print('Информация')
+# class ClassMetods:
+#     total_odject = 0
+#     @classmethod
+#     def __init__(cls):
+#         cls.total_odject += 1
+#     @classmethod
+#     def get_count_info(cls):
+#         print(f'Total Object are = {cls.total_odject}')
+# class ClassMetods2(ClassMetods):
+#     def print_info(self):
+#         print('Информация')
 
-class1 = ClassMetods()
-class2 = ClassMetods()
-classs = ClassMetods()
-class3 = ClassMetods2()
-ClassMetods.get_count_info()
-ClassMetods2.get_count_info()
-class3.print_info()
+# class1 = ClassMetods()
+# # class2 = ClassMetods()
+# # classs = ClassMetods()
+# class3 = ClassMetods2()
+# # ClassMetods.get_count_info()
+# ClassMetods2.get_count_info()
+
 
 
 # Уровни доступа атрибутов
@@ -123,29 +123,32 @@ class3.print_info()
 
 
 # class Point:
-#     def __init__(self, x=0, y=0):
-#         self.__x = x
-#         self.__y = y
+#     def __init__(self, a='jj', b=0):
+#         self.__x = a
+#         self.__y = b
 #
-#     def set_coord(self, x, y):
-#         if type(x) in (int, float) and type(y) in (int, float): # проверяем прежде чем перезаписывать
-#             self.__x = x # так можно обратиться внутри к переменным типа Protected
-#             self.__y = y
+#     def set_coord(self, a=8, b=9):
+#         if type(a) in (int, float) and type(b) in (int, float): # проверяем прежде чем перезаписывать
+#             self.__x = a # так можно обратиться внутри к переменным типа Protected
+#             self.__y = b
 #         else:
 #             raise ValueError("Координаты должны быть числами")
 #
-#     def get_сoord(self):
+#     def get_coord(self):
 #         return self.__x, self.__y
 #
 # pt = Point()
 # # print(dir(pt))
 # # print(pt.__x, pt.__y) # будет ошибка, так нельзя
-# # print(pt._Point__x, pt._Point__y)
-# print(pt.get_сoord()) # так можно обратиться снаружи к переменным типа Protected
+# pt.set_coord(5,6)
+# print(pt._Point__x, pt._Point__y)
+# # print(pt.set_coord(111, 5))
+# # print(pt.get_coord()) # так можно обратиться снаружи к переменным типа Protected
 # pt.set_coord(10, 20) # так можно поменять значение этих переменных
-# print(pt.get_сoord()) # убеджаемся, что поменяли
+# print(pt.get_coord()) # убеджаемся, что поменяли
 
-# # setter getter deleter
+
+# setter getter deleter
 # class Phone:
 #     # Инициализатор класса
 #     def __init__(self):
@@ -155,9 +158,8 @@ class3.print_info()
 #     @property
 #     def turn_on(self):
 #         self.is_on = True
-#         print('123')
-#         c = 3 + 5
-#         return c
+#         return self.is_on
+#
 #     @turn_on.setter
 #     def turn_on(self,num1):
 #         self.is_on = num1
@@ -166,28 +168,37 @@ class3.print_info()
 #     def turn_on(self):
 #         del self.is_on
 #         print('delete')
-#         c = 5+6
-#         return c
+#
 #
 # my_phone = Phone()
-# # print(my_phone.turn_on)
-# # my_phone.turn_on = 1
+# print(my_phone.turn_on)
+# my_phone.turn_on = 1
 # del my_phone.turn_on
 
 
-# class Phone:
-#     # Инициализатор класса
-#     def __init__(self):
-#         self.is_on = False
-#
-#     # Включаем телефон
-#     def turn_on(self):
-#         self.is_on = True
-#
-#     # Если телефон включен, то делаем звонок
-#     def call(self):
-#         if self.is_on:
-#             print('Making call...')
+class Phone:
+    # Инициализатор класса
+    def __init__(self):
+        self.is_on = False
+
+    # Включаем телефон
+    def turn_on(self):
+        self.is_on = True
+
+    def turn_off(self):
+        self.is_on = False
+
+    # Если телефон включен, то делаем звонок
+    def call(self):
+        if self.is_on:
+            print('Making call...')
+        else:
+            print('off')
+# tel1 = Phone()
+# tel1.turn_on()
+# tel1.call()
+# tel1.turn_off()
+# tel1.call()
 #
 #
 # class MobilePhone(Phone):
@@ -199,12 +210,18 @@ class3.print_info()
 #     def charge(self, num):
 #         self.battery = num
 #         print(f'Charging battery up to ... {self.battery}%')
+#     def call(self):
+#         if self.is_on and self.battery > 0:
+#             print('Making call...')
+#         else:
+#             print('off')
 #
 # mobile_phone_copy_1 = MobilePhone()
 # print(dir(mobile_phone_copy_1))
 #
 # mobile_phone_copy_1.turn_on()
 # mobile_phone_copy_1.call()
+# mobile_phone_copy_1.charge(0)
 
 
 # class Vehicle:
