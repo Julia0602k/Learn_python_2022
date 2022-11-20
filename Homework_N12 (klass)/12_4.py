@@ -5,7 +5,6 @@ class Human:
         self.name = name
         self.age = age
 
-
 dict_human = {}
 n = ''
 import random
@@ -20,29 +19,6 @@ for i in range(random.randint(2, 5)):
     dict_human[human1] = [g, n, a]
 print(dict_human)
 print(len(dict_human))
-
-#     if i == 1:
-#         x = random.choice('mw')
-#         human1 = Human(x)
-#         dict_human[human1] = x
-#     elif i == 2:
-#         x = random.choice('mw')
-#         human2 = Human(x)
-#         dict_human[human2] = x
-#     elif i == 3:
-#         x = random.choice('mw')
-#         human3 = Human(x)
-#         dict_human[human3] = x
-#     elif i == 4:
-#         x = random.choice('mw')
-#         human4 = Human(x)
-#         dict_human[human4] = x
-#     elif i == 5:
-#         x = random.choice('mw')
-#         human5 = Human(x)
-#         dict_human[human5] = x
-# print(dict_human)
-
 
 # У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
             # 1) Пол: Мужчина или Женщина
