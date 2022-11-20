@@ -4,8 +4,8 @@ class Human:
         self.gender = gender
         self.name = name
         self.age = age
-    # def print_info(self):
-    #     print(self.gender)
+
+
 dict_human = {}
 n = ''
 import random
