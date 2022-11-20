@@ -1,4 +1,47 @@
 # ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
+class Human:
+    def __init__(self, gender, name):
+        self.gender = gender
+        self.name = name
+    # def print_info(self):
+    #     print(self.gender)
+dict_human = {}
+n = ''
+import random
+for i in range(random.randint(2, 5)):
+    x = random.choice('mw')
+    if x == 'm':
+        n = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend', 'Lewis Pope'])
+    elif x == 'w':
+        n = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice', 'Ruth Rice'])
+    human1 = Human(x, n)
+    dict_human[human1] = [x, n]
+print(dict_human)
+print(len(dict_human))
+
+#     if i == 1:
+#         x = random.choice('mw')
+#         human1 = Human(x)
+#         dict_human[human1] = x
+#     elif i == 2:
+#         x = random.choice('mw')
+#         human2 = Human(x)
+#         dict_human[human2] = x
+#     elif i == 3:
+#         x = random.choice('mw')
+#         human3 = Human(x)
+#         dict_human[human3] = x
+#     elif i == 4:
+#         x = random.choice('mw')
+#         human4 = Human(x)
+#         dict_human[human4] = x
+#     elif i == 5:
+#         x = random.choice('mw')
+#         human5 = Human(x)
+#         dict_human[human5] = x
+# print(dict_human)
+
+
 # У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
 # 1) Пол: Мужчина или Женщина
 # 2) Рандомное имя в зависимости от пола:
