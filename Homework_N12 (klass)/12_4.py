@@ -1,46 +1,106 @@
-# ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
-# У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
-# 1) Пол: Мужчина или Женщина
-# 2) Рандомное имя в зависимости от пола:
-# М(Lionel McCoy, Charles Cross, John Pitz, Jeffry Young, Johnathan Randall, Edward Townsend, Lewis Pope)
-# Ж(Aubrey Gilmore, Avice Reynolds, Theresa Bradford, Shonda Douglas, Karen Sanders, Ruby Rice, Ruth Rice)
-# Можно дополнить своими вариантами
+        # ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
+        # У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
+        # 1) Пол: Мужчина или Женщина
+        # 2) Рандомное имя в зависимости от пола:
+        # М(Lionel McCoy, Charles Cross, John Pitz, Jeffry Young, Johnathan Randall, Edward Townsend, Lewis Pope)
+        # Ж(Aubrey Gilmore, Avice Reynolds, Theresa Bradford, Shonda Douglas, Karen Sanders, Ruby Rice, Ruth Rice)
+        # Можно дополнить своими вариантами
 # 3) Возраст: от 18 до 100 лет
+        # 4) Характер: холерик или сангвиник или меланхолик или флегматик
 class Human:
-    def __init__(self, gender, name, age):
+    def __init__(self, gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence):
         self.gender = gender
         self.name = name
         self.age = age
+        self.temper = temper
+        self.work = work
+        self.capital = capital
+        self.income = income
+        self.d_birth = d_birth
+        self.d_death = d_death
+        self.house = house
+        self.car = car
+        self.family = family
+        self.d_wedding = d_wedding
+        self.expence = expence
+    @staticmethod
+    def date(day, month, year):
+        dict1 = {28: (2,), 30: (4, 6, 9, 11), 31: (1, 3, 5, 7, 8, 10, 12)}
+        start = 1
+        while start:
+            for k, v in dict1.items():
+                if month in v:
+                    if day in range(1, k + 1):
+                        start = 0
+                    elif day == 29 and month == 2 and (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
+                        start = 0
+        if day < 10:
+            day = '0' + str(day)
+        if month <
+        birthday = str(day) + '.' + str(month) + '.' + str(year)
+        return birthday
+
+
+
+import random
+print(Human.date(random.randint(1, 31), random.randint(1, 12), random.randint(1923, 2004)))
 
 dict_human = {}
 n = ''
 import random
 for i in range(random.randint(2, 5)):
-    g = random.choice('mw')
-    if g == 'm':
-        n = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend', 'Lewis Pope'])
-    elif g == 'w':
-        n = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice', 'Ruth Rice'])
-    a = random.randint(18, 100)
-    human1 = Human(g, n, a)
-    dict_human[human1] = [g, n, a]
+    #Определение имени, пола, семейного положения, темперамента
+    gender = random.choice('mw')
+    if gender == 'm':
+        name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend', 'Lewis Pope'])
+        family = random.choice(['Свободен', 'Женат'])
+    elif gender == 'w':
+        name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice', 'Ruth Rice'])
+        family = random.choice(['Свободна', 'Замужем'])
+    temper = random.choice(['холерик', 'сангвиник', 'флегматик', 'меланхолик'])
+    # Определение возраста, даты рождения, свадьбы, смерти
+    age = random.randint(18, 100)
+
+
+
+
+
+    # d_birth = (r
+    # d_death =
+    # d_wedding =
+
+
+    # Работа, доходы, имущество
+
+    work = random.choice(['Рабочий', 'Безработный'])
+    capital = random.randint(100, 10000)
+    if work == 'Рабочий':
+        income = random.randint(1000, 5000)
+    else:
+        income = random.randint(100, 300)
+    expence = 0.3 * income
+    house = random.choice(['Свой дом', 'Аренда'])
+    car = (['Есть', 'Нет'])
+
+    # human1 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, wedding, expence)
+    # dict_human[human1] = [gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, wedding, expence]
 print(dict_human)
 print(len(dict_human))
 
 
-# 4) Характер: холерик или сангвиник или меланхолик или флегматик
-# 5) Место работы: Рабочий или Безработный
-# 6) Рандомный капитал от 100$ до 10000$
-# 7) Рандомный ежемесячный доход от 1000$ до 5000$, при наличии работы. Если работы нет, то от 100$ до 300$.
+        # 4) Характер: холерик или сангвиник или меланхолик или флегматик
+        # 5) Место работы: Рабочий или Безработный
+        # 6) Рандомный капитал от 100$ до 10000$
+        # 7) Рандомный ежемесячный доход от 1000$ до 5000$, при наличии работы. Если работы нет, то от 100$ до 300$.
 # 8) Рандомная дата рождения в формате xx.xx.xxxx(тип Protected)
 # 9) Рандомная дата смерти в формате xx.xx.xxxx(тип Protected)
-# 10) Наличие дома: Свой дом или Аренда
-# 11) Наличие машины: Есть или нет
-# 12) Семейное положение: Свободен или Женат/Замужем в зависимости от пола
+        # 10) Наличие дома: Свой дом или Аренда
+        # 11) Наличие машины: Есть или нет
+        # 12) Семейное положение: Свободен или Женат/Замужем в зависимости от пола
 # 13) Дата свадьбы, если статус Женат/Замужем присвоен сразу, то рандомная дата
 # в формате xx.xx.xxxx(тип Protected) в диапазоне от даты рождения +18 лет до текущего возраста
 # Если изначально статус свободен, то значение None
-# 14) Ежемесячные расходы 30% от ежемесячного дохода
+        # 14) Ежемесячные расходы 30% от ежемесячного дохода
 #
 # Создать метод info() с информацией о каждом объекте класса Human
 #
