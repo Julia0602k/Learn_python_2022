@@ -114,9 +114,9 @@
 #     smallhouse.buy_house(human1, 0.3)
 # human1.info()
 
-while True:
-    try:
-        x = int(input("Please enter a number: "))
-        break
-    except ValueError:
-        print("Oops!  That was no valid number.  Try again...")
+# while True:
+#     try:
+#         x = int(input("Please enter a number: "))
+#         break
+#     except ValueError:
+#         print("Oops!  That was no valid number.  Try again...")

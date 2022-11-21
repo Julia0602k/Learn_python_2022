@@ -18,13 +18,23 @@
 #
 #
 # # Пример создания метода класса
-# class Example_3:
-#     print('Я экземпляр класса "Example_3"')
-#
-#     def print_info(self): # Функция = метод класса. Под "self" подрозумевается экземпляр класса
-#         print('Я метод экземпляра класса "Example_3"')
-# ex_3 = Example_3()
-# ex_3.print_info()
+class Example_3:
+    # print('Я экземпляр класса "Example_3"')
+    a = 5
+
+    @staticmethod
+    def print_info(a):    # Функция = метод класса. Под "self" подрозумевается экземпляр класса
+        print(a, 'Я метод экземпляра класса "Example_3"')
+    def gfh(self):
+        print(123)
+ex_3 = Example_3()
+ex_3.gfh()
+# ex_3.print_info(55)
+# ex_3.a = 6
+# ex_3.print_info(6)
+# Example_3.print_info(55)
+# print(ex_3.a)
+# print(Example_3.a)
 # #
 # #
 # # Методы бывают пользовательские и встроенные
@@ -176,24 +186,24 @@
 # del my_phone.turn_on
 
 
-class Phone:
-    # Инициализатор класса
-    def __init__(self):
-        self.is_on = False
-
-    # Включаем телефон
-    def turn_on(self):
-        self.is_on = True
-
-    def turn_off(self):
-        self.is_on = False
-
-    # Если телефон включен, то делаем звонок
-    def call(self):
-        if self.is_on:
-            print('Making call...')
-        else:
-            print('off')
+# class Phone:
+#     # Инициализатор класса
+#     def __init__(self):
+#         self.is_on = False
+#
+#     # Включаем телефон
+#     def turn_on(self):
+#         self.is_on = True
+#
+#     def turn_off(self):
+#         self.is_on = False
+#
+#     # Если телефон включен, то делаем звонок
+#     def call(self):
+#         if self.is_on:
+#             print('Making call...')
+#         else:
+#             print('off')
 # tel1 = Phone()
 # tel1.turn_on()
 # tel1.call()
