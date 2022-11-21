@@ -190,48 +190,31 @@ print(len(dict_human))
 #     human1.jobs = 'Рабочий'
 # elif human1.work == 'Рабочий':
 #     human1.jobs = 'Безработный'
-human1 = ''
-human2 = ''
-human3 = ''
-human4 = ''
-human5 = ''
-import random
-for i in range(random.randint(2, 5)):
-    if i == 1:
-        human1 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-        list_h1 = []
-    elif i == 2:
-        human2 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-        list_h2 = []
-    elif i == 3:
-        human3 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-        list_h3 = []
-    elif i == 4:
-        human4 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-        list_h4 = []
-    elif i == 5:
-        human5 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-        list_h5 = []
 
-for i in [human1, human2, human3, human4, human5]:
-    if i == 'Рабочий':
-        if i.temper == 'холерик' and random.randint(1, 7) == 1:
-            i.jobs = 'Безработный'
-        elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
-            i.jobs = 'Безработный'
-        elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
-            i.jobs = 'Безработный'
-        elif i.temper == 'флегматик'and random.randint(1, 20) == 1:
-            i.jobs = 'Безработный'
-    elif work == 'Безработный':
-        if i.temper == 'холерик'and random.randint(1, 2) == 1:
-            i.jobs = 'Рабочий'
-        elif i.temper == 'сангвиник' and random.randint(1, 3) == 1:
-            i.jobs = 'Рабочий'
-        elif i.temper == 'меланхолик' and random.randint(1, 7) == 1:
-            i.jobs = 'Рабочий'
-        elif i.temper == 'флегматик' and random.randint(1, 5) == 1:
-            i.jobs = 'Рабочий'
+for i in range(random.randint(2, 5)):
+    dict_human[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
+
+
+for k,v in dict_human.items():
+    if v.work == 'Рабочий':
+        pass
+    #     if i.temper == 'холерик' and random.randint(1, 7) == 1:
+    #         i.jobs = 'Безработный'
+    #     elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
+    #         i.jobs = 'Безработный'
+    #     elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
+    #         i.jobs = 'Безработный'
+    #     elif i.temper == 'флегматик'and random.randint(1, 20) == 1:
+    #         i.jobs = 'Безработный'
+    # elif work == 'Безработный':
+    #     if i.temper == 'холерик'and random.randint(1, 2) == 1:
+    #         i.jobs = 'Рабочий'
+    #     elif i.temper == 'сангвиник' and random.randint(1, 3) == 1:
+    #         i.jobs = 'Рабочий'
+    #     elif i.temper == 'меланхолик' and random.randint(1, 7) == 1:
+    #         i.jobs = 'Рабочий'
+    #     elif i.temper == 'флегматик' and random.randint(1, 5) == 1:
+    #         i.jobs = 'Рабочий'
 
 
 
