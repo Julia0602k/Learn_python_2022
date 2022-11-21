@@ -23,8 +23,8 @@ class Human:
         self.family = family
         self.d_wedding = d_wedding
         self.expence = expence
-    @staticmethod
-    def date(day, month, year):
+
+    def date(self, day, month, year):
         dict1 = {28: (2,), 30: (4, 6, 9, 11), 31: (1, 3, 5, 7, 8, 10, 12)}
         start = 1
         while start:
@@ -34,21 +34,22 @@ class Human:
                         start = 0
                     elif day == 29 and month == 2 and (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
                         start = 0
+                    if year == 2022 and month >= 11:
+                        continue
+                    elif year == 1923 and month < 11:
+                        continue
         if day < 10:
             day = '0' + str(day)
-        if month <
-        birthday = str(day) + '.' + str(month) + '.' + str(year)
-        return birthday
-
-
-
-import random
-print(Human.date(random.randint(1, 31), random.randint(1, 12), random.randint(1923, 2004)))
+        if month < 10:
+            month = '0' + str(month)
+        self.d_birth = str(day) + '.' + str(month) + '.' + str(year)
+        return self.d_birth
 
 dict_human = {}
 n = ''
 import random
 for i in range(random.randint(2, 5)):
+
     #Определение имени, пола, семейного положения, темперамента
     gender = random.choice('mw')
     if gender == 'm':
@@ -60,7 +61,7 @@ for i in range(random.randint(2, 5)):
     temper = random.choice(['холерик', 'сангвиник', 'флегматик', 'меланхолик'])
     # Определение возраста, даты рождения, свадьбы, смерти
     age = random.randint(18, 100)
-
+    .date(random.randint(1, 31), random.randint(1, 12), random.randint(1923, 2004))
 
 
 
