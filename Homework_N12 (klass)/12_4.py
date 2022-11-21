@@ -76,33 +76,9 @@ class Human:
         return self.work
     @jobs.setter
     def jobs(self, w):
-        w = 'Безработный'
-        if self.work == 'Рабочий':
-            if self.temper == 'холерик':
-                if random.randint(1, 7) == 1:
-                    self.work = w
-            elif self.temper == 'сангвиник':
-                if random.randint(1, 10) == 1:
-                    self.work = w
-            elif self.temper == 'меланхолик':
-                if random.randint(1, 6) == 1:
-                    self.work = w
-            elif self.temper == 'флегматик':
-                if random.randint(1, 20) == 1:
-                    self.work = w
-        elif work == 'Безработный':
-            if self.temper == 'холерик':
-                if random.randint(1, 2) == 1:
-                    self.work = 'Рабочий'
-            elif self.temper == 'сангвиник':
-                if random.randint(1, 3) == 1:
-                    self.work = 'Рабочий'
-            elif self.temper == 'меланхолик':
-                if random.randint(1, 7) == 1:
-                    self.work = 'Рабочий'
-            elif self.temper == 'флегматик':
-                if random.randint(1, 5) == 1:
-                    self.work = 'Рабочий'
+        self.work = w
+
+
 
 ################ Создать метод wedding() который ежегодно(1 итерация цикла) будет определять появиться ли вторая
     # половинка, если ее не было. От 18 до 30 лет шансы 1/4, от 31 до 45 шансы 1/7,
@@ -214,25 +190,48 @@ print(len(dict_human))
 #     human1.jobs = 'Рабочий'
 # elif human1.work == 'Рабочий':
 #     human1.jobs = 'Безработный'
-
+human1 = ''
+human2 = ''
+human3 = ''
+human4 = ''
+human5 = ''
 import random
 for i in range(random.randint(2, 5)):
     if i == 1:
         human1 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
         list_h1 = []
-    if i == 2:
+    elif i == 2:
         human2 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
         list_h2 = []
-    if i == 3:
+    elif i == 3:
         human3 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
         list_h3 = []
-    if i == 4:
+    elif i == 4:
         human4 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
         list_h4 = []
-    if i == 5:
+    elif i == 5:
         human5 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
         list_h5 = []
 
+for i in [human1, human2, human3, human4, human5]:
+    if i == 'Рабочий':
+        if i.temper == 'холерик' and random.randint(1, 7) == 1:
+            i.jobs = 'Безработный'
+        elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
+            i.jobs = 'Безработный'
+        elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
+            i.jobs = 'Безработный'
+        elif i.temper == 'флегматик'and random.randint(1, 20) == 1:
+            i.jobs = 'Безработный'
+    elif work == 'Безработный':
+        if i.temper == 'холерик'and random.randint(1, 2) == 1:
+            i.jobs = 'Рабочий'
+        elif i.temper == 'сангвиник' and random.randint(1, 3) == 1:
+            i.jobs = 'Рабочий'
+        elif i.temper == 'меланхолик' and random.randint(1, 7) == 1:
+            i.jobs = 'Рабочий'
+        elif i.temper == 'флегматик' and random.randint(1, 5) == 1:
+            i.jobs = 'Рабочий'
 
 
 
