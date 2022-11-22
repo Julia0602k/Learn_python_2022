@@ -43,7 +43,7 @@ def date_is(year1, year2):
     return str_date
 
 class Human:
-    year = 2022
+    year_now = 2022
     def __init__(self):
         self.gender = random.choice(['Мужчина', 'Женщина'])
         if self.gender == 'Мужчина':
@@ -73,6 +73,10 @@ class Human:
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
+
+    def year(self, year_now):
+        year_now += 1
+        return year_now
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
@@ -115,16 +119,17 @@ class Human:
     # половинка, если ее не было. От 18 до 30 лет шансы 1/4, от 31 до 45 шансы 1/7,
     # от 46 до 65 шансы 1/12, от 66+ шансы 1/20
     # Метод должен перезаписывать дату свадьбы
-    # @property
-    # def wedding(self):
-    #     return self.family
-    # @wedding.setter
-    # def wedding(self):
+    def wedding(self, year_now):
+        dict_wedding = {4: (18, 30), 7: (31, 45), 12: (46, 65), 20: (66, 100)}
+        for k, v in dict_wedding.items():
+            if self.family == 'Свободен' and v[0] <= self.age <= v[1] and random.randint(1, k) == 1:
+                self.family = 'Женат'
+                self.__d_wedding = date_is(2022, 2100)[:6] + str(year_now)
+            elif self.family == 'Свободна' and v[0] <= self.age <= v[1] and random.randint(1, k) == 1:
+                self.family = 'Замужем'
+                self.__d_wedding = date_is(2022, 2100)[:6] + str(year_now)
 
-
-
-
-    # Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
+###############Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
 
     # def salary(self):
