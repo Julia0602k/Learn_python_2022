@@ -1,3 +1,17 @@
+import random
+dict_job1_temper = {'холерик': (7, 2), 'сангвиник': (10, 3), 'меланхолик': (6, 7), 'флегматик': (20, 5)}
+work = 'Рабочий'
+# for v in dict_human1.values():
+for key, value in dict_job1_temper.items():
+    if work == 'Рабочий' and random.randint(1, ) == 1:
+
+
+
+
+
+
+
+
 # import random
 # class Human:
 #     # gender = random.choice('mw')
@@ -49,6 +63,6 @@
 # for v in dict_human.values():
 #     v.info()
 #
-# # print(len(dict_human))
-str = '11.22.3333'
-print(str[6:])
+# # # print(len(dict_human))
+# str = '11.22.3333'
+# print(str[6:])

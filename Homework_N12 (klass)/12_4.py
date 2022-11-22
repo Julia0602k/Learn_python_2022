@@ -197,27 +197,14 @@ print(len(dict_human1))
 # for v in dict_human2.values():
 #     v.info()
 
-# dict_job1_temper = {'холерик': (7, 2), 'сангвиник' : (10, 3), 'меланхолик' : (6, 7), 'флегматик' : (20, 5)}
-# for k,v in dict_human1.items():
-#     if v.work == 'Рабочий':
-#         if v.temper ==
-#         if v.temper == 'холерик' and random.randint(1, 7) == 1:
-#             v.jobs = 'Безработный'
-#         elif v.temper == 'сангвиник' and random.randint(1, 10) == 1:
-#             v.jobs = 'Безработный'
-#         elif v.temper == 'меланхолик' and random.randint(1, 6) == 1:
-#             v.jobs = 'Безработный'
-#         elif v.temper == 'флегматик'and random.randint(1, 20) == 1:
-#             v.jobs = 'Безработный'
-#     elif v.work == 'Безработный':
-#         if v.temper == 'холерик'and random.randint(1, 2) == 1:
-#             v.jobs = 'Рабочий'
-#         elif v.temper == 'сангвиник' and random.randint(1, 3) == 1:
-#             v.jobs = 'Рабочий'
-#         elif v.temper == 'меланхолик' and random.randint(1, 7) == 1:
-#             v.jobs = 'Рабочий'
-#         elif v.temper == 'флегматик' and random.randint(1, 5) == 1:
-#             v.jobs = 'Рабочий'
+dict_job1_temper = {'холерик': (7, 2), 'сангвиник': (10, 3), 'меланхолик': (6, 7), 'флегматик': (20, 5)}
+for v in dict_human1.values():
+    for key, value in dict_job1_temper.items():
+        if key == v.temper:
+            if v.work == 'Рабочий' and random.randint(1, value[0]) == 1:
+                v.jobs = 'Безработный'
+            elif v.work == 'Безработный' and random.randint(1, value[1]) == 1:
+                v.jobs = 'Рабочий'
 
 
 
