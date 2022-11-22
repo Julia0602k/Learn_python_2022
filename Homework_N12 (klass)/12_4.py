@@ -191,10 +191,16 @@ for k, v in dict_human1.items():
     print(k, '-', v.info_name(), end='; ')
 
 human_number = input('\nвведите цифру: ')
+print('Данные в 2022 году:')
+for k, v in dict_human1.items():
+    if k == int(human_number):
+        v.info()
+# print('Данные в конце жизни: ')
+# for k, v in dict_human_death.items():
+#     if k == human_number:
+#         v.info()
 
-#
-# for k, v in dict_human1.items():
-#     v.info()
+
 
 
 
