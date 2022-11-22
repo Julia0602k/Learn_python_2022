@@ -43,7 +43,6 @@ def date_is(year1, year2):
     return str_date
 
 class Human:
-    year_now = 2022
     def __init__(self):
         self.gender = random.choice(['Мужчина', 'Женщина'])
         if self.gender == 'Мужчина':
@@ -73,23 +72,14 @@ class Human:
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
-    def list_names(self, list_names):
-        list_names.append(self.name)
-
-
-    # def year(self, year_now):
-    #     year_now += 1
-    #     return year_now
-
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
         print(f'''Имя: {self.name}\nпол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
 капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
 наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
 ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\n''')
-
-
-
+    def info_name(self):
+        return self.name
 ######Создать метод life() который ежегодно(1 итерация цикла) будет прибавлять 1 год объекту класса Human
 # Добавить шанс 1/30, что жизнь может оборваться преждевременно, в таком случае изменить дату смерти
 #     def life(self, year):
@@ -175,7 +165,7 @@ for i in range(random.randint(2, 5)):
     dict_human1[i] = Human()
 print(dict_human1)
 print(len(dict_human1))
-list_names = []
+# list_names = []
 #################################################################
     # Как только все объекты умрут, добавить возможность выбора о каком объекте вывести информацию
     # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
@@ -195,10 +185,16 @@ dict_human_death = []
 
 
 ###########Выдача информации в конце программы
-# human_info = input()
-print(dict_human1)
+# list_names(dict_human1)
+print(f'Информацию о каком человеке вы хотите получить? Список имен:')
 for k, v in dict_human1.items():
-    v.info()
+    print(k, '-', v.info_name(), end='; ')
+
+human_number = input('\nвведите цифру: ')
+
+#
+# for k, v in dict_human1.items():
+#     v.info()
 
 
 
