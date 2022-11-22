@@ -83,7 +83,6 @@ class Human:
 # Добавить шанс 1/30, что жизнь может оборваться преждевременно, в таком случае изменить дату смерти
 #     def life(self, year):
 #         self.age += 1
-#         year += 1
 #         num_d = random.randint(1,30)
 #         if num_d == 1:
 #             # del
@@ -95,12 +94,12 @@ class Human:
     # Если характер "меланхолик", то шансы устроиться на работу 1/7, шансы быть уволеным 1/6
     # Если характер "флегматик", то шансы устроиться на работу 1/5, шансы быть уволеным 1/20
     # Добавить счётчик, который посчитает кол-во работ за всю жизнь.
-    # @property
-    # def jobs(self):
-    #     return self.work
-    # @jobs.setter
-    # def jobs(self, w):
-    #     self.work = w
+    @property
+    def jobs(self):
+        return self.work
+    @jobs.setter
+    def jobs(self, w):
+        self.work = w
 
 
 
@@ -200,33 +199,25 @@ print(len(dict_human1))
 
 
 
-# for k,v in dict_human.items():
-#     if v.work == 'Рабочий':
-#     #     if i.temper == 'холерик' and random.randint(1, 7) == 1:
-#     #         i.jobs = 'Безработный'
-#     #     elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
-#     #         i.jobs = 'Безработный'
-#     #     elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
-#     #         i.jobs = 'Безработный'
-    #     elif i.temper == 'флегматик'and random.randint(1, 20) == 1:
-    #         i.jobs = 'Безработный'
-    # elif work == 'Безработный':
-    #     if i.temper == 'холерик'and random.randint(1, 2) == 1:
-    #         i.jobs = 'Рабочий'
-    #     elif i.temper == 'сангвиник' and random.randint(1, 3) == 1:
-    #         i.jobs = 'Рабочий'
-    #     elif i.temper == 'меланхолик' and random.randint(1, 7) == 1:
-    #         i.jobs = 'Рабочий'
-    #     elif i.temper == 'флегматик' and random.randint(1, 5) == 1:
-    #         i.jobs = 'Рабочий'
-
-
-
-
-# if human1.work == 'Безработный':
-#     human1.jobs = 'Рабочий'
-# elif human1.work == 'Рабочий':
-#     human1.jobs = 'Безработный'
+for k,v in dict_human1.values():
+    if v.work == 'Рабочий':
+        if v.temper == 'холерик' and random.randint(1, 7) == 1:
+            v.jobs = 'Безработный'
+        elif v.temper == 'сангвиник' and random.randint(1, 10) == 1:
+            v.jobs = 'Безработный'
+        elif v.temper == 'меланхолик' and random.randint(1, 6) == 1:
+            v.jobs = 'Безработный'
+        elif v.temper == 'флегматик'and random.randint(1, 20) == 1:
+            v.jobs = 'Безработный'
+    elif v.work == 'Безработный':
+        if v.temper == 'холерик'and random.randint(1, 2) == 1:
+            v.jobs = 'Рабочий'
+        elif v.temper == 'сангвиник' and random.randint(1, 3) == 1:
+            v.jobs = 'Рабочий'
+        elif v.temper == 'меланхолик' and random.randint(1, 7) == 1:
+            v.jobs = 'Рабочий'
+        elif v.temper == 'флегматик' and random.randint(1, 5) == 1:
+            v.jobs = 'Рабочий'
 
 
 
