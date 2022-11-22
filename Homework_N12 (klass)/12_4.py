@@ -191,8 +191,8 @@ while len(dict_human1) != len(dict_human_death):
         v.wedding(year_now)
         v.salary()
         v.expenses()
-        v.house()
-        v.car()
+        # v.house()
+        # v.car()
 
 
 ###########Выдача информации в конце программы
