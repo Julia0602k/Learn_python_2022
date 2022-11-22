@@ -86,8 +86,6 @@ class Human:
         self.age += 1
         if random.randint(1, 30) == 1:
             self.__d_death = date_is(2022, 2100)[:6] + str(year_now)
-
-
 #########Создать метод jobs() который ежегодно(1 итерация цикла) будет определять появится ли работа у того,
     # у кого ее не было, или уволят ли того, у кого работа была и перезавписывать это свойство объекта.
     # Если характер "холерик", то шансы устроиться на работу 1/2, шансы быть уволеным 1/7
@@ -159,29 +157,32 @@ class Human:
             self.capital -= price_of_car
 #################################################################
 dict_human1 = {}
-name = ''
-family = ''
 for i in range(random.randint(2, 5)):
     dict_human1[i] = Human()
 print(dict_human1)
 print(len(dict_human1))
-# list_names = []
 #################################################################
     # Как только все объекты умрут, добавить возможность выбора о каком объекте вывести информацию
     # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
     # сравнить данные.
 year_now = 2022
-dict_human_death = []
-# while len(dict_human1) != len(dict_human_death):
-#     year_now += 1
-#     for v in dict_human1.values():
-#         # v.life()
-#         v.jobs()
-#         v.wedding(year_now)
-#         v.salary()
-#         v.expenses()
-#         v.houses()
-#         v.cars()
+# dict_human_live = dict.copy(dict_human1)
+# print(dict_human_live)
+dict_human_death = {}
+while len(dict_human1) != len(dict_human_death):
+    year_now += 1
+    for k, v in dict_human1.items():
+        for key in dict_human_death.keys():
+            if k != key:
+                v.life(year_now)
+                if v._Human__d_death[-4:] == str(year_now):
+                    dict_human_death[k] = v
+                v.jobs()
+                v.wedding(year_now)
+                v.salary()
+                v.expenses()
+                v.houses()
+                v.cars()
 
 
 ###########Выдача информации в конце программы
@@ -189,16 +190,15 @@ dict_human_death = []
 print(f'Информацию о каком человеке вы хотите получить? Список имен:')
 for k, v in dict_human1.items():
     print(k, '-', v.info_name(), end='; ')
-
 human_number = input('\nвведите цифру: ')
 print('Данные в 2022 году:')
 for k, v in dict_human1.items():
     if k == int(human_number):
         v.info()
-# print('Данные в конце жизни: ')
-# for k, v in dict_human_death.items():
-#     if k == human_number:
-#         v.info()
+print('Данные в конце жизни: ')
+for k, v in dict_human_death.items():
+    if k == human_number:
+        v.info()
 
 
 
