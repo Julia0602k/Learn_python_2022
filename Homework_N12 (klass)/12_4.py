@@ -44,7 +44,7 @@ def date_is(year1, year2):
 
 class Human:
     year = 2022
-    def __init__(self, gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence, count_jobs):
+    def __init__(self, gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expense, count_jobs):
         self.gender = gender
         self.name = name
         self.age = age
@@ -58,7 +58,7 @@ class Human:
         self.car = car
         self.family = family
         self.__d_wedding = d_wedding
-        self.expence = expence
+        self.expense = expense
         self.count_jobs = count_jobs
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
@@ -67,7 +67,7 @@ class Human:
 пол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
 капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
 наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
-ежемесячные расходы: {self.expence}\nколичество работ: {self.count_jobs}\n''')
+ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\n''')
 
 
 
@@ -87,17 +87,16 @@ class Human:
     # Если характер "флегматик", то шансы устроиться на работу 1/5, шансы быть уволеным 1/20
     # Добавить счётчик, который посчитает кол-во работ за всю жизнь.
 
-    def jobs(self, count_jobs, dict_job1_temper):
-        self.count_jobs = count_jobs
-        for v in dict_human1.values():
-            for key, value in dict_job1_temper.items():
-                if key == v.temper:
-                    if v.work == 'Рабочий' and random.randint(1, value[0]) == 1:
-                        v.jobs = 'Безработный'
-                    elif v.work == 'Безработный' and random.randint(1, value[1]) == 1:
-                        v.jobs = 'Рабочий'
-                        self.count_jobs += 1
-        return self.jobs
+    def jobs(self):
+        dict_job1_temper = {'холерик': (7, 2), 'сангвиник': (10, 3), 'меланхолик': (6, 7), 'флегматик': (20, 5)}
+        for k, v in dict_job1_temper.items():
+            if k == self.temper:
+                if self.work == 'Рабочий' and random.randint(1, v[0]) == 1:
+                    self.work = 'Безработный'
+                elif self.work == 'Безработный' and random.randint(1, v[1]) == 1:
+                    self.work = 'Рабочий'
+                    self.count_jobs += 1
+        # return self.work
 
 
 
@@ -168,7 +167,7 @@ for i in range(random.randint(2, 5)):
         income = round(random.randint(1000, 5000), -2)
     else:
         income = round(random.randint(100, 300), -2)
-    expence = int(round(0.3 * income))
+    expense = int(round(0.3 * income))
     house = random.choice(['Свой дом', 'Аренда'])
     car = random.choice(['Есть', 'Нет'])
     # Даты жизни, свадьбы, возраст
@@ -183,14 +182,15 @@ for i in range(random.randint(2, 5)):
     count_jobs = 0
     if work == 'Рабочий':
         count_jobs = 1
-    dict_human1[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence, count_jobs)
+    dict_human1[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expense, count_jobs)
 
 print(dict_human1)
 for v in dict_human1.values():
     v.info()
+    v.jobs()
+    v.info()
 print(len(dict_human1))
-###
-dict_job1_temper = {'холерик': (7, 2), 'сангвиник': (10, 3), 'меланхолик': (6, 7), 'флегматик': (20, 5)}
+
 # for v in dict_human1.values():
 #     for key, value in dict_job1_temper.items():
 #         if key == v.temper:
