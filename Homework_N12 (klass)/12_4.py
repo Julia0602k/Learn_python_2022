@@ -64,20 +64,10 @@ class Human:
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
         print(f'''Имя: {self.name}
-пол: {self.gender}
-возраст: {self.age}
-характер: {self.temper}
-место работы: {self.work}
-капитал: {self.capital}
-ежемесячный доход: {self.income}
-дата рождения: {self.__d_birth}
-дата смерти: {self.__d_death}
-наличие дома: {self.house}
-наличие машины: {self.car}
-семейное положение: {self.family}
-дата свадьбы: {self.__d_wedding}
-ежемесячные расходы: {self.expence}
-количество работ: {self.count_jobs}\n''')
+пол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
+капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
+наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
+ежемесячные расходы: {self.expence}\nколичество работ: {self.count_jobs}\n''')
 
 
 
