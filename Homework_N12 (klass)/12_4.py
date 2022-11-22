@@ -100,8 +100,10 @@ class Human:
             if k == self.temper:
                 if self.work == 'Рабочий' and random.randint(1, v[0]) == 1:
                     self.work = 'Безработный'
+                    self.income = round(random.randint(100, 300), -2)
                 elif self.work == 'Безработный' and random.randint(1, v[1]) == 1:
                     self.work = 'Рабочий'
+                    self.income = round(random.randint(1000, 5000), -2)
                     self.count_jobs += 1
 
 ################ Создать метод wedding() который ежегодно(1 итерация цикла) будет определять появиться ли вторая
@@ -129,6 +131,7 @@ class Human:
     # При наличии арендного жилья расходы должны увеличиваться на 15%, при собственном жилье только на 7%
     # При наличии авто расходы должны увеличиваться на 13%
     def expenses(self):
+        self.expense = 0.3 * self.income
         if self.house == 'Аренда':
             a = 1.15 * self.expense
             self.capital -= (self.expense*1.15)
@@ -137,6 +140,7 @@ class Human:
         if self.car == 'Есть':
             self.capital -= (self.expense * 1.13)
         self.capital = int(round(self.capital, -1))
+        self.expense = int(self.expense)
 ######################Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
     # дом, если его еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену дома при покупке. Цена дома генирируется рандомно каждый год от 20000$ до 50000$
