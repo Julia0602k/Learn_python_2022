@@ -44,22 +44,35 @@ def date_is(year1, year2):
 
 class Human:
     year = 2022
-    def __init__(self, gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expense, count_jobs):
-        self.gender = gender
-        self.name = name
-        self.age = age
-        self.temper = temper
-        self.work = work
-        self.capital = capital
-        self.income = income
-        self.__d_birth = d_birth
-        self.__d_death = d_death
-        self.house = house
-        self.car = car
-        self.family = family
-        self.__d_wedding = d_wedding
-        self.expense = expense
-        self.count_jobs = count_jobs
+    def __init__(self):
+        self.gender = random.choice(['Мужчина', 'Женщина'])
+        if self.gender == 'Мужчина':
+            self.name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend', 'Lewis Pope'])
+            self.family = random.choice(['Свободен', 'Женат'])
+        elif self.gender == 'Женщина':
+            self.name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice', 'Ruth Rice'])
+            self.family = random.choice(['Свободна', 'Замужем'])
+        self.temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
+        self.work = random.choice(['Рабочий', 'Безработный'])
+        self.capital = round(random.randint(100, 10000), -2)
+        if self.work == 'Рабочий':
+            self.income = round(random.randint(1000, 5000), -2)
+        else:
+            self.income = round(random.randint(100, 300), -2)
+        self.expense = int(round(0.3 * self.income))
+        self.house = random.choice(['Свой дом', 'Аренда'])
+        self.car = random.choice(['Есть', 'Нет'])
+        self.__d_birth = date_is(1923, 2004)
+        self.__d_death = date_is(2023, (int(self.__d_birth[-4:]) + 100))
+        self.__d_wedding = ''
+        if self.family == 'Женат' or self.family == 'Замужем':
+            self.__d_wedding = date_is((int(self.__d_birth[-4:]) + 18), 2022)
+        elif self.family == 'Свободен' or self.family == 'Свободна':
+            self.__d_wedding = None
+        self.age = 2023 - int(self.__d_birth[-4:])
+        self.count_jobs = 0
+        if self.work == 'Рабочий':
+            self.count_jobs = 1
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
@@ -98,9 +111,6 @@ class Human:
                     self.count_jobs += 1
         # return self.work
 
-
-
-
 ################ Создать метод wedding() который ежегодно(1 итерация цикла) будет определять появиться ли вторая
     # половинка, если ее не было. От 18 до 30 лет шансы 1/4, от 31 до 45 шансы 1/7,
     # от 46 до 65 шансы 1/12, от 66+ шансы 1/20
@@ -108,9 +118,9 @@ class Human:
     # @property
     # def wedding(self):
     #     return self.family
-    # # @wedding.setter
-    # # def wedding(self, ):
-    # #     year += 1
+    # @wedding.setter
+    # def wedding(self):
+
 
 
 
@@ -151,38 +161,7 @@ dict_human1 = {}
 name = ''
 family = ''
 for i in range(random.randint(2, 5)):
-    #Имя, пол, семейное положение, характер
-    gender = random.choice(['Мужчина', 'Женщина'])
-    if gender == 'Мужчина':
-        name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend','Lewis Pope'])
-        family = random.choice(['Свободен', 'Женат'])
-    elif gender == 'Женщина':
-        name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice','Ruth Rice'])
-        family = random.choice(['Свободна', 'Замужем'])
-    temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
-    # Работа, доходы, имущество
-    work = random.choice(['Рабочий', 'Безработный'])
-    capital = round(random.randint(100, 10000), -2)
-    if work == 'Рабочий':
-        income = round(random.randint(1000, 5000), -2)
-    else:
-        income = round(random.randint(100, 300), -2)
-    expense = int(round(0.3 * income))
-    house = random.choice(['Свой дом', 'Аренда'])
-    car = random.choice(['Есть', 'Нет'])
-    # Даты жизни, свадьбы, возраст
-    d_birth = date_is(1923, 2004)
-    d_death = date_is(2023, (int(d_birth[-4:]) + 100))
-    d_wedding = ''
-    if family == 'Женат' or family == 'Замужем':
-        d_wedding = date_is((int(d_birth[-4:]) + 18), 2022)
-    elif family == 'Свободен' or family == 'Свободна':
-        d_wedding = None
-    age = 2023 - int(d_birth[-4:])
-    count_jobs = 0
-    if work == 'Рабочий':
-        count_jobs = 1
-    dict_human1[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expense, count_jobs)
+    dict_human1[i] = Human()
 
 print(dict_human1)
 for v in dict_human1.values():
