@@ -1,4 +1,4 @@
-        # ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
+import copy  # ***4. Напишите программу, которая будет рандомно генирировать от 2 до 5 объектов класса Human.
         # У каждого объекта этого класса рандомным образом должны определяться следующие свойства:
         # 1) Пол: Мужчина или Женщина
         # 2) Рандомное имя в зависимости от пола:
@@ -125,7 +125,6 @@ class Human:
         self.capital += self.income
         if random.randint(1, 4) == 1:
             self.income = round(random.randint(1000, 5000), -2)
-
 ######################## Создать метод expenses() который ежегодно будет отнимать расходы от капитала
     # При наличии арендного жилья расходы должны увеличиваться на 15%, при собственном жилье только на 7%
     # При наличии авто расходы должны увеличиваться на 13%
@@ -137,7 +136,7 @@ class Human:
             self.capital -= (self.expense * 1.07)
         if self.car == 'Есть':
             self.capital -= (self.expense * 1.13)
-
+        self.capital = int(round(self.capital, -1))
 ######################Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
     # дом, если его еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену дома при покупке. Цена дома генирируется рандомно каждый год от 20000$ до 50000$
@@ -146,7 +145,6 @@ class Human:
         if self.house == 'Аренда' and self.capital >= price_of_house and random.randint(1,4) == 1:
             self.house = 'Свой дом'
             self.capital -= price_of_house
-
 #####################Создать метод car() который ежегодно с шансом 1/3 будет определять, появиться ли у обекта своя
     # машина, если ее еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену машины при покупке. Цена машины генирируется рандомно каждый год от 5000$ до 100000$
@@ -166,7 +164,8 @@ print(len(dict_human1))
     # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
     # сравнить данные.
 year_now = 2022
-dict_human_live = dict_human1
+dict_human_live = copy.deepcopy(dict_human1)
+    # {k:v for k,v in dict_human1}
 print(dict_human1)
 print(dict_human_live)
 list_human = []
@@ -193,18 +192,17 @@ print(dict_human1)
 print(dict_human_live)
 print(dict_human_death)
 print(list_human)
-
 ###########Выдача информации в конце программы
-# list_names(dict_human1)
-print(f'Информацию о каком человеке вы хотите получить? Список имен:')
-for k, v in dict_human1.items():
-    print(k, '-', v.info_name(), end='; ')
-human_number = input('\nвведите цифру: ')
-print('Данные в 2022 году:')
-for k, v in dict_human_live.items():
-    if k == int(human_number):
-        v.info()
-print('Данные в конце жизни: ')
-for k, v in dict_human_death.items():
-    if k == int(human_number):
-        v.info()
+while True:
+    print(f'Информацию о каком человеке вы хотите получить? Список имен:')
+    for k, v in dict_human1.items():
+        print(k, '-', v.info_name(), end='; ')
+    human_number = input('\nвведите цифру: ')
+    print('Данные в 2022 году:')
+    for k, v in dict_human_live.items():
+        if k == int(human_number):
+            v.info()
+    print('Данные в конце жизни: ')
+    for k, v in dict_human_death.items():
+        if k == int(human_number):
+            v.info()
