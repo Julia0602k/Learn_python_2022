@@ -177,9 +177,9 @@ for i in range(random.randint(2, 5)):
     d_birth = date_is(1923, 2004)
     d_death = date_is(2023, (int(d_birth[-4:]) + 100))
     d_wedding = ''
-    if family == 'Женат' or 'Замужем':
+    if family == 'Женат' or family == 'Замужем':
         d_wedding = date_is((int(d_birth[-4:]) + 18), 2022)
-    else:
+    elif family == 'Свободен' or family == 'Свободна':
         d_wedding = None
     age = 2023 - int(d_birth[-4:])
     dict_human1[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
