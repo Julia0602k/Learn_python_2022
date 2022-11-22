@@ -137,13 +137,18 @@ class Human:
         if random.randint(1, 4) == 1:
             self.income = round(random.randint(1000, 5000), -2)
 
-
-
-    # Создать метод expenses() который ежегодно будет отнимать расходы от капитала
+######################## Создать метод expenses() который ежегодно будет отнимать расходы от капитала
     # При наличии арендного жилья расходы должны увеличиваться на 15%, при собственном жилье только на 7%
     # При наличии авто расходы должны увеличиваться на 13%
-    # def expenses(self):
-    #
+    def expenses(self):
+        if self.house == 'Аренда':
+            a = 1.15 * self.expense
+            self.capital -= (self.expense*1.15)
+        elif self.house == 'Свой дом':
+            self.capital -= (self.expense * 1.07)
+        if self.car == 'Есть':
+            self.capital -= (self.expense * 1.13)
+
 
 
     # Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
