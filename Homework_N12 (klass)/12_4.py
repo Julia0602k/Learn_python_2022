@@ -38,6 +38,7 @@ class Human:
         self.d_wedding = d_wedding
         self.expence = expence
     def person1(self):
+        # Определение имени, пола, семейного положения, темперамента
         self.gender = random.choice('mw')
         if self.gender == 'm':
             self.name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend','Lewis Pope'])
@@ -46,6 +47,16 @@ class Human:
             self.name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice','Ruth Rice'])
             self.family = random.choice(['Свободна', 'Замужем'])
         self.temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
+        # Работа, доходы, имущество
+        self.work = random.choice(['Рабочий', 'Безработный'])
+        self.capital = random.randint(100, 10000)
+        if self.work == 'Рабочий':
+            self.income = random.randint(1000, 5000)
+        else:
+            self.income = random.randint(100, 300)
+        self.expence = 0.3 * self.income
+        self.house = random.choice(['Свой дом', 'Аренда'])
+        self.car = (['Есть', 'Нет'])
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
@@ -160,27 +171,9 @@ class Human:
     #     self.d_birth = str(day) + '.' + str(month) + '.' + str(year)
     #     return self.d_birth
 ##########################################################################################################################################
-#   1   -    Определение имени, пола, семейного положения, темперамента
-family= ''
-name = ''
-gender = random.choice('mw')
-if gender == 'm':
-    name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend', 'Lewis Pope'])
-    family = random.choice(['Свободен', 'Женат'])
-elif gender == 'w':
-    name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice', 'Ruth Rice'])
-    family = random.choice(['Свободна', 'Замужем'])
-temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
-#   2    -    Работа, доходы, имущество
-work = random.choice(['Рабочий', 'Безработный'])
-capital = random.randint(100, 10000)
-if work == 'Рабочий':
-    income = random.randint(1000, 5000)
-else:
-    income = random.randint(100, 300)
-expence = 0.3 * income
-house = random.choice(['Свой дом', 'Аренда'])
-car = (['Есть', 'Нет'])
+
+
+
 
 # Определение возраста, даты рождения, свадьбы, смерти
 age = random.randint(18, 100)
@@ -188,6 +181,9 @@ age = random.randint(18, 100)
 # d_birth = (r
 # d_death =
 # d_wedding =
+for i in range(random.randint(2, 5))
+
+
 
 dict_human = {i: Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence) for i in range(random.randint(2, 5))}
 print(dict_human)
