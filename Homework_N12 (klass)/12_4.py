@@ -83,8 +83,7 @@ class Human:
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
-        print(f'''Имя: {self.name}
-пол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
+        print(f'''Имя: {self.name}\nпол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
 капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
 наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
 ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\n''')
@@ -154,7 +153,7 @@ class Human:
 ######################Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
     # дом, если его еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену дома при покупке. Цена дома генирируется рандомно каждый год от 20000$ до 50000$
-    def house(self):
+    def houses(self):
         price_of_house = round(random.randint(20000, 50000), -2)
         if self.house == 'Аренда' and self.capital >= price_of_house and random.randint(1,4) == 1:
             self.house = 'Свой дом'
@@ -163,7 +162,7 @@ class Human:
 #####################Создать метод car() который ежегодно с шансом 1/3 будет определять, появиться ли у обекта своя
     # машина, если ее еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену машины при покупке. Цена машины генирируется рандомно каждый год от 5000$ до 100000$
-    def car(self):
+    def cars(self):
         price_of_car = round(random.randint(5000, 100000), -2)
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
@@ -183,22 +182,23 @@ list_names = []
     # сравнить данные.
 year_now = 2022
 dict_human_death = []
-while len(dict_human1) != len(dict_human_death):
-    year_now += 1
-    for v in dict_human1.values():
-        # v.life()
-        v.jobs()
-        v.wedding(year_now)
-        v.salary()
-        v.expenses()
-        # v.house()
-        # v.car()
+# while len(dict_human1) != len(dict_human_death):
+#     year_now += 1
+#     for v in dict_human1.values():
+#         # v.life()
+#         v.jobs()
+#         v.wedding(year_now)
+#         v.salary()
+#         v.expenses()
+#         v.houses()
+#         v.cars()
 
 
 ###########Выдача информации в конце программы
-human_info = input()
-# for k, v in dict_human1.items():
-#     v.info()
+# human_info = input()
+print(dict_human1)
+for k, v in dict_human1.items():
+    v.info()
 
 
 
