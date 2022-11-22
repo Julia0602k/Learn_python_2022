@@ -214,4 +214,3 @@ while True:
     for k, v in dict_human_death.items():
         if k == int(human_number):
             v.info()
-
