@@ -73,6 +73,9 @@ class Human:
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
+    def list_names(self, list_names):
+        list_names.append(self.name)
+
 
     # def year(self, year_now):
     #     year_now += 1
@@ -165,41 +168,38 @@ class Human:
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
             self.capital -= price_of_car
-
-    # Как только все объекты умрут, добавить возможность выбора о каком объекте вывести информацию
-    # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
-    # сравнить данные.
-##########################################################################################################################################
-
+#################################################################
 dict_human1 = {}
 name = ''
 family = ''
 for i in range(random.randint(2, 5)):
     dict_human1[i] = Human()
-
 print(dict_human1)
-for v in dict_human1.values():
-    v.info()
-    v.jobs()
-    v.info()
 print(len(dict_human1))
+list_names = []
+#################################################################
+    # Как только все объекты умрут, добавить возможность выбора о каком объекте вывести информацию
+    # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
+    # сравнить данные.
+year_now = 2022
+dict_human_death = []
+while len(dict_human1) != len(dict_human_death):
+    year_now += 1
+    for v in dict_human1.values():
+        # v.life()
+        v.jobs()
+        v.wedding(year_now)
+        v.salary()
+        v.expenses()
+        v.house()
+        v.car()
 
-# for v in dict_human1.values():
-#     for key, value in dict_job1_temper.items():
-#         if key == v.temper:
-#             if v.work == 'Рабочий' and random.randint(1, value[0]) == 1:
-#                 v.jobs = 'Безработный'
-#             elif v.work == 'Безработный' and random.randint(1, value[1]) == 1:
-#                 v.jobs = 'Рабочий'
-
-# count = len(dict_human1)
-# while count:    #значение счетчика становится меньше, когда кто-то умирает. Как только count == 0 - цикл остановится и выведется информация о людях
 
 ###########Выдача информации в конце программы
-# for v in dict_human1.values():
+human_info = input()
+# for k, v in dict_human1.items():
 #     v.info()
-# for v in dict_human2.values():
-#     v.info()
+
 
 
 
