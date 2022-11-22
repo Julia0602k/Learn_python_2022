@@ -147,7 +147,7 @@ class Human:
         self.d_birth = str(day) + '.' + str(month) + '.' + str(year)
         return self.d_birth
 
-dict_human = {}
+
 n = ''
 family= ''
 name = ''
@@ -184,20 +184,18 @@ name = ''
 
     # human1 = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, wedding, expence)
     # dict_human[human1] = [gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, wedding, expence]
-print(dict_human)
-print(len(dict_human))
+
 # if human1.work == 'Безработный':
 #     human1.jobs = 'Рабочий'
 # elif human1.work == 'Рабочий':
 #     human1.jobs = 'Безработный'
-
-for i in range(random.randint(2, 5)):
-    dict_human[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
-
+dict_human = {i: Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence) for i in range(random.randint(2, 5))}
+# for i in range(random.randint(2, 5)):
+#     dict_human[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
+print(dict_human)
 
 for k,v in dict_human.items():
     if v.work == 'Рабочий':
-        pass
     #     if i.temper == 'холерик' and random.randint(1, 7) == 1:
     #         i.jobs = 'Безработный'
     #     elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
