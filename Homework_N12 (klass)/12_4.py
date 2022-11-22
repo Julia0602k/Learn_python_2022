@@ -183,8 +183,6 @@ while len(dict_human1) != len(dict_human_death):
                 v.expenses()
                 v.houses()
                 v.cars()
-
-
 ###########Выдача информации в конце программы
 # list_names(dict_human1)
 print(f'Информацию о каком человеке вы хотите получить? Список имен:')
