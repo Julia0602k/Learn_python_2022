@@ -74,9 +74,9 @@ class Human:
         if self.work == 'Рабочий':
             self.count_jobs = 1
 
-    def year(self, year_now):
-        year_now += 1
-        return year_now
+    # def year(self, year_now):
+    #     year_now += 1
+    #     return year_now
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
@@ -132,10 +132,10 @@ class Human:
 ###############Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
 
-    # def salary(self):
-    #     self.capital += income
-    #     if random.randint(1, 4) == 1:
-    #         self.income = random.randint(1000, 5000)
+    def salary(self):
+        self.capital += self.income
+        if random.randint(1, 4) == 1:
+            self.income = round(random.randint(1000, 5000), -2)
 
 
 
