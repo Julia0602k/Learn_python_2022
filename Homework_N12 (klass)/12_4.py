@@ -22,70 +22,69 @@
 import random
 class Human:
     year = 2022
-    def __init__(self, gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence):
+    def __init__(self, gender, name, temper, work, capital, income, house, car, family, expence):
         self.gender = gender
         self.name = name
-        self.age = age
+        # self.age = age
         self.temper = temper
         self.work = work
         self.capital = capital
         self.income = income
-        self.d_birth = d_birth
-        self.d_death = d_death
+        # self.d_birth = d_birth
+        # self.d_death = d_death
         self.house = house
         self.car = car
         self.family = family
-        self.d_wedding = d_wedding
+        # self.d_wedding = d_wedding
         self.expence = expence
-    def person1(self):
-        # Определение имени, пола, семейного положения, темперамента
-        self.gender = random.choice('mw')
-        if self.gender == 'm':
-            self.name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend','Lewis Pope'])
-            self.family = random.choice(['Свободен', 'Женат'])
-        elif self.gender == 'w':
-            self.name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice','Ruth Rice'])
-            self.family = random.choice(['Свободна', 'Замужем'])
-        self.temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
-        # Работа, доходы, имущество
-        self.work = random.choice(['Рабочий', 'Безработный'])
-        self.capital = random.randint(100, 10000)
-        if self.work == 'Рабочий':
-            self.income = random.randint(1000, 5000)
-        else:
-            self.income = random.randint(100, 300)
-        self.expence = 0.3 * self.income
-        self.house = random.choice(['Свой дом', 'Аренда'])
-        self.car = (['Есть', 'Нет'])
+    # def person1(self):
+    #     # Определение имени, пола, семейного положения, темперамента
+    #     self.gender = random.choice('mw')
+    #     if self.gender == 'm':
+    #         self.name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend','Lewis Pope'])
+    #         self.family = random.choice(['Свободен', 'Женат'])
+    #     elif self.gender == 'w':
+    #         self.name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice','Ruth Rice'])
+    #         self.family = random.choice(['Свободна', 'Замужем'])
+    #     self.temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
+    #     # Работа, доходы, имущество
+    #     self.work = random.choice(['Рабочий', 'Безработный'])
+    #     self.capital = random.randint(100, 10000)
+    #     if self.work == 'Рабочий':
+    #         self.income = random.randint(1000, 5000)
+    #     else:
+    #         self.income = random.randint(100, 300)
+    #     self.expence = 0.3 * self.income
+    #     self.house = random.choice(['Свой дом', 'Аренда'])
+    #     self.car = (['Есть', 'Нет'])
 
 ####### Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
-        print(f'''Информация об человеке:
+        print(f'''Имя: {self.name}
 пол: {self.gender}
-имя: {self.name}
-возраст: {self.age}
+
 характер: {self.temper}
 место работы: {self.work}
 капитал: {self.capital}
 ежемесячный доход: {self.income}
-дата рождения: {self.d_birth}
-дата смерти: {self.d_death}
+
+
 наличие дома: {self.house}
 наличие машины: {self.car}
 семейное положение: {self.family}
-дата свадьбы: {self.d_wedding}
+
 ежемесячные расходы: {self.expence}''')
 
 
 
 ######Создать метод life() который ежегодно(1 итерация цикла) будет прибавлять 1 год объекту класса Human
 # Добавить шанс 1/30, что жизнь может оборваться преждевременно, в таком случае изменить дату смерти
-    def life(self, year):
-        self.age += 1
-        year += 1
-        num_d = random.randint(1,30)
-        if num_d == 1:
-            # del
+#     def life(self, year):
+#         self.age += 1
+#         year += 1
+#         num_d = random.randint(1,30)
+#         if num_d == 1:
+#             # del
 
 #########Создать метод jobs() который ежегодно(1 итерация цикла) будет определять появится ли работа у того,
     # у кого ее не было, или уволят ли того, у кого работа была и перезавписывать это свойство объекта.
@@ -181,26 +180,51 @@ age = random.randint(18, 100)
 # d_birth = (r
 # d_death =
 # d_wedding =
-for i in range(random.randint(2, 5))
+dict_human = {}
+name = ''
+family = ''
+for i in range(random.randint(2, 5)):
+    gender = random.choice('mw')
+    if gender == 'm':
+        name = random.choice(['Lionel McCoy', 'Charles Cross', 'John Pitz', 'Jeffry Young', 'Johnathan Randall', 'Edward Townsend','Lewis Pope'])
+        family = random.choice(['Свободен', 'Женат'])
+    elif gender == 'w':
+        name = random.choice(['Aubrey Gilmore', 'Avice Reynolds', 'Theresa Bradford', 'Shonda Douglas', 'Karen Sanders', 'Ruby Rice','Ruth Rice'])
+        family = random.choice(['Свободна', 'Замужем'])
+    temper = random.choice(['холерик', 'сангвиник', 'меланхолик', 'флегматик'])
+    # Работа, доходы, имущество
+    work = random.choice(['Рабочий', 'Безработный'])
+    capital = random.randint(100, 10000)
+    if work == 'Рабочий':
+        income = random.randint(1000, 5000)
+    else:
+        income = random.randint(100, 300)
+    expence = 0.3 * income
+    house = random.choice(['Свой дом', 'Аренда'])
+    car = random.choice(['Есть', 'Нет'])
+    dict_human[i] = Human(gender, name, temper, work, capital, income,  house, car, family, expence)
+# dict_human[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
 
 
-
-dict_human = {i: Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence) for i in range(random.randint(2, 5))}
+# dict_human = {i: Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence) for i in range(random.randint(2, 5))}
 print(dict_human)
+for v in dict_human.values():
+    v.info()
+print(len(dict_human))
 
 # if human1.work == 'Безработный':
 #     human1.jobs = 'Рабочий'
 # elif human1.work == 'Рабочий':
 #     human1.jobs = 'Безработный'
 
-for k,v in dict_human.items():
-    if v.work == 'Рабочий':
-    #     if i.temper == 'холерик' and random.randint(1, 7) == 1:
-    #         i.jobs = 'Безработный'
-    #     elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
-    #         i.jobs = 'Безработный'
-    #     elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
-    #         i.jobs = 'Безработный'
+# for k,v in dict_human.items():
+#     if v.work == 'Рабочий':
+#     #     if i.temper == 'холерик' and random.randint(1, 7) == 1:
+#     #         i.jobs = 'Безработный'
+#     #     elif i.temper == 'сангвиник' and random.randint(1, 10) == 1:
+#     #         i.jobs = 'Безработный'
+#     #     elif i.temper == 'меланхолик' and random.randint(1, 6) == 1:
+#     #         i.jobs = 'Безработный'
     #     elif i.temper == 'флегматик'and random.randint(1, 20) == 1:
     #         i.jobs = 'Безработный'
     # elif work == 'Безработный':
