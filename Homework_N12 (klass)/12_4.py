@@ -95,12 +95,12 @@ class Human:
     # Если характер "меланхолик", то шансы устроиться на работу 1/7, шансы быть уволеным 1/6
     # Если характер "флегматик", то шансы устроиться на работу 1/5, шансы быть уволеным 1/20
     # Добавить счётчик, который посчитает кол-во работ за всю жизнь.
-    @property
-    def jobs(self):
-        return self.work
-    @jobs.setter
-    def jobs(self, w):
-        self.work = w
+    # @property
+    # def jobs(self):
+    #     return self.work
+    # @jobs.setter
+    # def jobs(self, w):
+    #     self.work = w
 
 
 
@@ -148,38 +148,8 @@ class Human:
     # Как только все объекты умрут, добавить возможность выбора о каком объекте вывести информацию
     # на экран. Информация должна быть сначала изначальной, потом на конец жизни, чтобы можно было
     # сравнить данные.
-
-
-    # @staticmethod
-    # def date_death():
-    #
-    #     while start:
-    #         day = random.randint(1,31)
-    #         month = random.randint(1,12)
-    #         year = random.randint(2023, int(Human.date_birthday()[:-2]))
-    #         for k, v in dict1.items():
-    #             if month in v:
-    #                 if day in range(1, k + 1):
-    #                     start = 0
-    #                 elif day == 29 and month == 2 and (year % 4 == 0 and year % 100 != 0 or year % 400 == 0):
-    #                     start = 0
-    #     if day < 10:
-    #         day = '0' + str(day)
-    #     if month < 10:
-    #         month = '0' + str(month)
-    #     d_birth = str(day) + '.' + str(month) + '.' + str(year)
-    #     return d_birth
 ##########################################################################################################################################
 
-
-
-
-# Определение возраста, даты рождения, свадьбы, смерти
-age = random.randint(18, 100)
-# ????????.date(random.randint(1, 31), random.randint(1, 12), random.randint(1923, 2004))
-# d_birth = (r
-# d_death =
-# d_wedding =
 dict_human1 = {}
 name = ''
 family = ''
@@ -212,13 +182,19 @@ for i in range(random.randint(2, 5)):
     age = 2023 - int(d_birth[-4:])
     dict_human1[i] = Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence)
 
-
-# dict_human = {i: Human(gender, name, age, temper, work, capital, income, d_birth, d_death, house, car, family, d_wedding, expence) for i in range(random.randint(2, 5))}
 print(dict_human1)
 for v in dict_human1.values():
     v.info()
 print(len(dict_human1))
+
 # count = len(dict_human1)
+# while count:    #значение счетчика становится меньше, когда кто-то умирает. Как только count == 0 - цикл остановится и выведется информация о людях
+
+###########Выдача информации в конце программы
+# for v in dict_human1.values():
+#     v.info()
+# for v in dict_human2.values():
+#     v.info()
 
 
 
@@ -244,13 +220,7 @@ print(len(dict_human1))
 
 
 
-# while count:    #значение счетчика становится меньше, когда кто-то умирает. Как только count == 0 - цикл остановится и выведется информация о людях
 
-###########Выдача информации в конце программы
-# for v in dict_human1.values():
-#     v.info()
-# for v in dict_human2.values():
-#     v.info()
 # if human1.work == 'Безработный':
 #     human1.jobs = 'Рабочий'
 # elif human1.work == 'Рабочий':
