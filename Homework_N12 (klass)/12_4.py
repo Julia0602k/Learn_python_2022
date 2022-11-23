@@ -71,7 +71,7 @@ class Human:
         self.car = random.choice(['Есть', 'Нет'])
         self.__d_birth = date_is(1923, 2004)
         # self.__d_death = date_is(2023, (int(self.__d_birth[-4:]) + 100))
-        self.__d_death = ''
+        self.__d_death = 'неизвестна'
         self.__d_wedding = ''
         if self.family == 'Женат' or self.family == 'Замужем':
             self.__d_wedding = date_is((int(self.__d_birth[-4:]) + 18), 2022)
@@ -102,7 +102,8 @@ class Human:
     ### Метод для даты смерти человека:
     def date_death(self, year_now):
         death_this_year = ''
-        dict_date_death = {100:(0,20), 80:(21,30), 70:(31,40), 60:(41,50), 50:(51,60), 40:(61,70), 10:(71,80), 5:(81,90), 3:(91,150)}
+        dict_date_death = {100: (0, 20), 90: (21, 30), 80: (31, 40), 70: (41, 50), 50: (51, 60), 30: (61, 70),
+                           10: (71, 80), 5: (81, 90), 3: (91, 150)}
         for k, v in dict_date_death.items():
             if v[0] <= self.age <=v[1] and random.randint(1, k) == 1:
                 self.__d_death = date_is(year_now, year_now)
