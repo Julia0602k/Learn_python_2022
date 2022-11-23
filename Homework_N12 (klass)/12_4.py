@@ -145,7 +145,7 @@ class Human:
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
     def salary(self):
         self.capital += self.income
-        if random.randint(1, 4) == 1:
+        if self.work == 'Рабочий' and random.randint(1, 4) == 1:
             self.income = round(random.randint(1000, 5000), -2)
 
     #   Создать метод expenses() который ежегодно будет отнимать расходы от капитала
