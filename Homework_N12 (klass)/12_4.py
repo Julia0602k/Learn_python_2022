@@ -105,7 +105,7 @@ class Human:
         dict_date_death = {100: (0, 20), 90: (21, 30), 80: (31, 40), 70: (41, 50), 50: (51, 60), 30: (61, 70),
                            10: (71, 80), 5: (81, 90), 3: (91, 150)}
         for k, v in dict_date_death.items():
-            if v[0] <= self.age <=v[1] and random.randint(1, k) == 1:
+            if v[0] <= self.age <= v[1] and random.randint(1, k) == 1:
                 self.__d_death = date_is(year_now, year_now)
 
     #  Создать метод jobs() который ежегодно(1 итерация цикла) будет определять появится ли работа у того,
