@@ -70,7 +70,8 @@ class Human:
         self.house = random.choice(['Свой дом', 'Аренда'])
         self.car = random.choice(['Есть', 'Нет'])
         self.__d_birth = date_is(1923, 2004)
-        self.__d_death = date_is(2023, (int(self.__d_birth[-4:]) + 100))
+        # self.__d_death = date_is(2023, (int(self.__d_birth[-4:]) + 100))
+        self.__d_death = ''
         self.__d_wedding = ''
         if self.family == 'Женат' or self.family == 'Замужем':
             self.__d_wedding = date_is((int(self.__d_birth[-4:]) + 18), 2022)
@@ -98,6 +99,13 @@ class Human:
         self.age += 1
         if random.randint(1, 30) == 1:
             self.__d_death = date_is(2022, 2100)[:6] + str(year_now)
+    ### Метод для даты смерти человека:
+    def date_death(self, year_now):
+        death_this_year = ''
+        dict_date_death = {100:(0,20), 80:(21,30), 70:(31,40), 60:(41,50), 50:(51,60), 40:(61,70), 10:(71,80), 5:(81,90), 3:(91,150)}
+        for k, v in dict_date_death.items():
+            if v[0] <= self.age <=v[1] and random.randint(1, k) == 1:
+                self.__d_death = date_is(year_now, year_now)
 
     #  Создать метод jobs() который ежегодно(1 итерация цикла) будет определять появится ли работа у того,
     # у кого ее не было, или уволят ли того, у кого работа была и перезавписывать это свойство объекта.
@@ -190,6 +198,7 @@ while len(dict_human1) != len(dict_human_death):
     for k, v in dict_human1.items():
         if k in list_human:
             v.life(year_now)
+            v.date_death(year_now)
             if v._Human__d_death[-4:] == str(year_now):
                 dict_human_death[k] = v
                 list_human.remove(k)
