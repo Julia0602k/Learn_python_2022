@@ -195,6 +195,21 @@ class Human:
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
             self.capital -= price_of_car
+    def inheritance(self):
+        num = self.children
+        if self.family == 'Женат' or self.family == 'Замужем':
+            num += 1
+        print (f'Количество наследников: {num}')
+        if num < 0:
+            print('Близких родственников нет')
+        if num == 1:
+            print('Наследство:')
+            if self.car == 'Есть':
+                print('Автомобиль')
+            if self.house == 'Cвой дом':
+                print('Дом')
+            print(f'{self.capital}$')
+
 
 # class Children(Human):
 #     def __init__(self):
@@ -247,3 +262,4 @@ while True:
     for k, v in dict_human_death.items():
         if k == int(human_number):
             v.info()
+            v.inheritance()
