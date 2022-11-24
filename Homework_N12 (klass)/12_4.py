@@ -172,17 +172,19 @@ class Human:
     # При наличии авто расходы должны увеличиваться на 13%
     def expenses(self):
         self.expense = 0.3 * self.income
+        sum_expense = self.expense
         if self.house == 'Аренда':
-            a = 1.15 * self.expense
-            self.capital -= (self.expense * 1.15) * 12
+            sum_expense += (self.expense * 0.15)
         elif self.house == 'Свой дом':
-            self.capital -= (self.expense * 1.07) * 12
+            sum_expense += (self.expense * 0.07)
         if self.car == 'Есть':
-            self.capital -= (self.expense * 1.13) * 12
+            sum_expense += (self.expense * 0.13)
         if self.children > 0:
-            self.capital -= (self.expense * (1 + 0.1 * self.children)) * 12
+            sum_expense += (self.expense * (0.05 * self.children))
+        self.capital -= sum_expense * 12
         self.capital = int(round(self.capital, -1))
-        self.expense = int(self.expense)
+        self.expense = int(round(sum_expense, -1))
+
 
     #  Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
     # дом, если его еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
@@ -192,6 +194,7 @@ class Human:
         if self.house == 'Аренда' and self.capital >= price_of_house and random.randint(1, 4) == 1:
             self.house = 'Свой дом'
             self.capital -= price_of_house
+            print('Покупка дома')
 
     #  Создать метод car() который ежегодно с шансом 1/3 будет определять, появиться ли у обекта своя
     # машина, если ее еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
@@ -201,6 +204,7 @@ class Human:
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
             self.capital -= price_of_car
+            print('Покупка машины')
 
     def inheritance(self):
         num = self.children
