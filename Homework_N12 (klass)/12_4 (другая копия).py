@@ -73,17 +73,14 @@ class Human:
         # self.__d_death = date_is(2023, (int(self.__d_birth[-4:]) + 100))
         self.__d_death = 'неизвестна'
         self.__d_wedding = ''
-        self.age = 2023 - int(self.__d_birth[-4:])
         if self.family == 'Женат' or self.family == 'Замужем':
             self.__d_wedding = date_is((int(self.__d_birth[-4:]) + 18), 2022)
-            self.husband_or_wife = 'Есть'
         elif self.family == 'Свободен' or self.family == 'Свободна':
             self.__d_wedding = None
-            self.husband_or_wife = None
+        self.age = 2023 - int(self.__d_birth[-4:])
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
-        self.children = random.randint(0,2)
 
     #  Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
@@ -143,19 +140,7 @@ class Human:
             elif self.family == 'Свободна' and v[0] <= self.age <= v[1] and random.randint(1, k) == 1:
                 self.family = 'Замужем'
                 self.__d_wedding = date_is(2022, 2100)[:6] + str(year_now)
-    def birth_child(self):
-        dict_birth_child = {10:(18,30), 20:(31,40), 50:(41,50)}
-        for k,v in dict_birth_child:
-            if self.family == 'Женат' or self.family == 'Замужем' and random.randint(1, k) == 1 and v[0] <= self.age <= v[1]:
-                self.children += 1
-            elif self.family == 'Свободен' or self.family == 'Свободна' and random.randint(1, k*5) == 1 and v[0] <= self.age <= v[1]:
-                self.children += 1
-    def divorce_or_death_of_h_w(self):
-        if self.family == 'Женат' and random.randint(1,20) == 1:
-            self.family = 'Свободен'
-            self.__d_wedding = None
-        elif self.family == 'Замужем' and random.randint(1,20) == 1:
-            self.family = 'Свободна'
+
     #  Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
     def salary(self):
@@ -175,8 +160,6 @@ class Human:
             self.capital -= (self.expense * 1.07) * 12
         if self.car == 'Есть':
             self.capital -= (self.expense * 1.13) * 12
-        if self.children > 0:
-            self.capital -= (self.expense * (1 + 0.1*self.children)) * 12
         self.capital = int(round(self.capital, -1))
         self.expense = int(self.expense)
 
@@ -198,12 +181,6 @@ class Human:
             self.car = 'Есть'
             self.capital -= price_of_car
 
-class Children(Human):
-    def __init__(self):
-        super().__init__()
-ex = Children()
-print(1111111)
-ex.info()
 
 dict_human1 = {}
 for i in range(random.randint(2, 5)):
@@ -229,7 +206,6 @@ while len(dict_human1) != len(dict_human_death):
                 continue
             v.jobs()
             v.wedding(year_now)
-            v.divorce_or_death_of_h_w()
             v.salary()
             v.expenses()
             v.houses()
