@@ -76,10 +76,8 @@ class Human:
         self.age = 2023 - int(self.__d_birth[-4:])
         if self.family == 'Женат' or self.family == 'Замужем':
             self.__d_wedding = date_is((int(self.__d_birth[-4:]) + 18), 2022)
-            self.husband_or_wife = 'Есть'
         elif self.family == 'Свободен' or self.family == 'Свободна':
             self.__d_wedding = None
-            self.husband_or_wife = None
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
@@ -91,7 +89,7 @@ class Human:
             f'''Имя: {self.name}\nпол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
 капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
 наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
-ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\n''')
+ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\nколичество детей: {self.children}''')
 
     def info_name(self):
         return self.name
@@ -145,10 +143,10 @@ class Human:
                 self.__d_wedding = date_is(2022, 2100)[:6] + str(year_now)
     def birth_child(self):
         dict_birth_child = {10:(18,30), 20:(31,40), 50:(41,50)}
-        for k,v in dict_birth_child:
-            if self.family == 'Женат' or self.family == 'Замужем' and random.randint(1, k) == 1 and v[0] <= self.age <= v[1]:
+        for k,v in dict_birth_child.items():
+            if (self.family == 'Женат' or self.family == 'Замужем') and random.randint(1, k) == 1 and v[0] <= self.age <= v[1]:
                 self.children += 1
-            elif self.family == 'Свободен' or self.family == 'Свободна' and random.randint(1, k*5) == 1 and v[0] <= self.age <= v[1]:
+            elif (self.family == 'Свободен' or self.family == 'Свободна') and random.randint(1, k*5) == 1 and v[0] <= self.age <= v[1]:
                 self.children += 1
     def divorce_or_death_of_h_w(self):
         if self.family == 'Женат' and random.randint(1, 20) == 1:
@@ -198,12 +196,12 @@ class Human:
             self.car = 'Есть'
             self.capital -= price_of_car
 
-class Children(Human):
-    def __init__(self):
-        super().__init__()
-ex = Children()
-print(1111111)
-ex.info()
+# class Children(Human):
+#     def __init__(self):
+#         super().__init__()
+# ex = Children()
+# print(1111111)
+# ex.info()
 
 dict_human1 = {}
 for i in range(random.randint(2, 5)):
