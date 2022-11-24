@@ -81,15 +81,15 @@ class Human:
         self.count_jobs = 0
         if self.work == 'Рабочий':
             self.count_jobs = 1
-        self.children = random.randint(0,2)
+        self.children = random.randint(0, 2)
 
     #  Создать метод info() с информацией о каждом объекте класса Human
     def info(self):
         print(
             f'''Имя: {self.name}\nпол: {self.gender}\nвозраст: {self.age}\nхарактер: {self.temper}\nместо работы: {self.work}
-капитал: {self.capital}\nежемесячный доход: {self.income}\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
+капитал: {self.capital}$\nежемесячный доход: {self.income}$\nдата рождения: {self.__d_birth}\nдата смерти: {self.__d_death}
 наличие дома: {self.house}\nналичие машины: {self.car}\nсемейное положение: {self.family}\nдата свадьбы: {self.__d_wedding}
-ежемесячные расходы: {self.expense}\nколичество работ: {self.count_jobs}\nколичество детей: {self.children}''')
+ежемесячные расходы: {self.expense}$\nколичество работ: {self.count_jobs}\nколичество детей: {self.children}\n''')
 
     def info_name(self):
         return self.name
@@ -100,6 +100,7 @@ class Human:
         self.age += 1
         if random.randint(1, 30) == 1:
             self.__d_death = date_is(2022, 2100)[:6] + str(year_now)
+
     ### Метод для даты смерти человека:
     def date_death(self, year_now):
         death_this_year = ''
@@ -141,19 +142,24 @@ class Human:
             elif self.family == 'Свободна' and v[0] <= self.age <= v[1] and random.randint(1, k) == 1:
                 self.family = 'Замужем'
                 self.__d_wedding = date_is(2022, 2100)[:6] + str(year_now)
+
     def birth_child(self):
-        dict_birth_child = {10:(18,30), 20:(31,40), 50:(41,50)}
-        for k,v in dict_birth_child.items():
-            if (self.family == 'Женат' or self.family == 'Замужем') and random.randint(1, k) == 1 and v[0] <= self.age <= v[1]:
+        dict_birth_child = {10: (18, 30), 20: (31, 40), 50: (41, 50)}
+        for k, v in dict_birth_child.items():
+            if (self.family == 'Женат' or self.family == 'Замужем') and random.randint(1, k) == 1 and v[
+                0] <= self.age <= v[1]:
                 self.children += 1
-            elif (self.family == 'Свободен' or self.family == 'Свободна') and random.randint(1, k*5) == 1 and v[0] <= self.age <= v[1]:
+            elif (self.family == 'Свободен' or self.family == 'Свободна') and random.randint(1, k * 5) == 1 and v[
+                0] <= self.age <= v[1]:
                 self.children += 1
+
     def divorce_or_death_of_h_w(self):
         if self.family == 'Женат' and random.randint(1, 20) == 1:
             self.family = 'Свободен'
             self.__d_wedding = None
         elif self.family == 'Замужем' and random.randint(1, 20) == 1:
             self.family = 'Свободна'
+
     #  Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
     def salary(self):
@@ -174,7 +180,7 @@ class Human:
         if self.car == 'Есть':
             self.capital -= (self.expense * 1.13) * 12
         if self.children > 0:
-            self.capital -= (self.expense * (1 + 0.1*self.children)) * 12
+            self.capital -= (self.expense * (1 + 0.1 * self.children)) * 12
         self.capital = int(round(self.capital, -1))
         self.expense = int(self.expense)
 
@@ -195,12 +201,13 @@ class Human:
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
             self.capital -= price_of_car
+
     def inheritance(self):
         num = self.children
         if self.family == 'Женат' or self.family == 'Замужем':
             num += 1
-        print (f'Количество наследников: {num}')
-        if num < 0:
+        print(f'Количество наследников: {num}')
+        if num == 0:
             print('Близких родственников нет')
         if num == 1:
             print('Наследство:')
@@ -208,15 +215,19 @@ class Human:
                 print('Автомобиль')
             if self.house == 'Cвой дом':
                 print('Дом')
-            print(f'{self.capital}$')
+            print(f'Денежная сумма наследнику:{self.capital}$')
+        if num > 1:
+            print('Наследство:')
+            if self.car == 'Есть':
+                a = round(random.randint(5000, 50000), -3)
+                print(f'Автомобиль продан за {a}$')
+                self.capital += a
+            if self.house == 'Свой дом':
+                b = round(random.randint(50000, 200000), -3)
+                print(f'Дом продан за {b}$')
+                self.capital += b
+            print(f'Денежная сумма каждому наследнику: {int(round(self.capital / num, -1))}$')
 
-
-# class Children(Human):
-#     def __init__(self):
-#         super().__init__()
-# ex = Children()
-# print(1111111)
-# ex.info()
 
 dict_human1 = {}
 for i in range(random.randint(2, 5)):
@@ -235,11 +246,6 @@ while len(dict_human1) != len(dict_human_death):
     for k, v in dict_human1.items():
         if k in list_human:
             v.life(year_now)
-            v.date_death(year_now)
-            if v._Human__d_death[-4:] == str(year_now):
-                dict_human_death[k] = v
-                list_human.remove(k)
-                continue
             v.jobs()
             v.wedding(year_now)
             v.birth_child()
@@ -248,6 +254,10 @@ while len(dict_human1) != len(dict_human_death):
             v.expenses()
             v.houses()
             v.cars()
+            v.date_death(year_now)
+            if v._Human__d_death[-4:] == str(year_now):
+                dict_human_death[k] = v
+                list_human.remove(k)
 # Выдача информации в конце программы
 while True:
     print(f'Информацию о каком человеке вы хотите получить? Список имен:')
