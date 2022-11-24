@@ -185,7 +185,6 @@ class Human:
         self.capital = int(round(self.capital, -1))
         self.expense = int(round(sum_expense, -1))
 
-
     #  Создать метод house() который ежегодно с шансом 1/4 будет определять, появиться ли у обекта свой
     # дом, если его еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
     # цену дома при покупке. Цена дома генирируется рандомно каждый год от 20000$ до 50000$
@@ -194,7 +193,7 @@ class Human:
         if self.house == 'Аренда' and self.capital >= price_of_house and random.randint(1, 4) == 1:
             self.house = 'Свой дом'
             self.capital -= price_of_house
-            print('Покупка дома')
+            # print('Покупка дома')
 
     #  Создать метод car() который ежегодно с шансом 1/3 будет определять, появиться ли у обекта своя
     # машина, если ее еще не было при условии, что у объекта будет нужная сумма и отнимать от капитала
@@ -204,7 +203,7 @@ class Human:
         if self.car == 'Нет' and self.capital >= price_of_car and random.randint(1, 3) == 1:
             self.car = 'Есть'
             self.capital -= price_of_car
-            print('Покупка машины')
+            # print('Покупка машины')
 
     def inheritance(self):
         num = self.children
@@ -217,7 +216,7 @@ class Human:
             print('Наследство:')
             if self.car == 'Есть':
                 print('Автомобиль')
-            if self.house == 'Cвой дом':
+            if self.house == 'Свой дом':
                 print('Дом')
             print(f'Денежная сумма наследнику:{self.capital}$')
         if num > 1:
