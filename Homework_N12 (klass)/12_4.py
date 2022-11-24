@@ -151,10 +151,10 @@ class Human:
             elif self.family == 'Свободен' or self.family == 'Свободна' and random.randint(1, k*5) == 1 and v[0] <= self.age <= v[1]:
                 self.children += 1
     def divorce_or_death_of_h_w(self):
-        if self.family == 'Женат' and random.randint(1,20) == 1:
+        if self.family == 'Женат' and random.randint(1, 20) == 1:
             self.family = 'Свободен'
             self.__d_wedding = None
-        elif self.family == 'Замужем' and random.randint(1,20) == 1:
+        elif self.family == 'Замужем' and random.randint(1, 20) == 1:
             self.family = 'Свободна'
     #  Создать метод salary() который ежегодно будет увеличивать капитал объекта согласно его доходу.
     # Добавить шанс 1/4 что доход может измениться в рандом диапазоне от 1000$ До 5000$.
@@ -229,6 +229,7 @@ while len(dict_human1) != len(dict_human_death):
                 continue
             v.jobs()
             v.wedding(year_now)
+            v.birth_child()
             v.divorce_or_death_of_h_w()
             v.salary()
             v.expenses()
